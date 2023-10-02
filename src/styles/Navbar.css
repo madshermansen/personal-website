@@ -1,0 +1,50 @@
+/* General Navbar Styling */
+
+.navbar {
+    top: 0;
+    left: 0;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.navbar div {
+    margin: 30px;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Link Styling */
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.links li {
+    margin: 0;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Logo Navbar Styling */
