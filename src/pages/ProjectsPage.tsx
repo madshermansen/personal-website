@@ -1,11 +1,28 @@
+import '../styles/ProjectPage.css'
+import projects from '../assets/projects/projects.json'
+import {MouseEventHandler} from 'react'
 
 function ProjectsPage() {
+
+    const handleProjectClick: MouseEventHandler<HTMLDivElement> = (event) => {
+        const URL = event.currentTarget.getAttribute('data-url');
+        if (URL) {
+            window.location.href = URL;
+        }
+      };
+
     return (
         <div>
             <h1>Projects</h1>
-            <ul>
-                <li><a href="https://tdt-4140-software-engineering-project.hermansen.app/">TDT4140 Software Engineering</a></li>
-            </ul>
+            <div className='projectList'>
+                {projects.map((item) => (
+                    <div className='projectBox' onClick={handleProjectClick} data-url={item.URl} >
+                        <img src={item.image} alt={item.name} className='projectImage' />
+                        <p>{item.name}</p>
+                        <p>{item.description}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
