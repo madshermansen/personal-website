@@ -3,14 +3,32 @@
         "name": "Earendil Capital",
         "description": "earendilcapital is a website for my brothers holding company",
         "URl": "https://earendilcapital.no/",
-        "image": "https://i.redd.it/vreh8zeeym091.jpg",
-        "languages": "",
+        "image": "src/assets/projects/projectImages/earendilcapital.png",
+        "technologies": ["HTML", "JavaScript", "CSS"],
         "githubURL": ""
     },
     {
         "name": "TDT 4140",
         "description": "Software Engineering Project",
         "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
-        "image": "https://i.redd.it/vreh8zeeym091.jpg"
+        "image": "https://i.redd.it/vreh8zeeym091.jpg",
+        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
+        "githubURL": ""
+    },
+    {
+        "name": "TDT 4140",
+        "description": "Software Engineering Project",
+        "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
+        "image": "https://i.redd.it/vreh8zeeym091.jpg",
+        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
+        "githubURL": ""
+    },
+    {
+        "name": "TDT 4140",
+        "description": "Software Engineering Project",
+        "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
+        "image": "https://i.redd.it/vreh8zeeym091.jpg",
+        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
+        "githubURL": ""
     }
 ]
