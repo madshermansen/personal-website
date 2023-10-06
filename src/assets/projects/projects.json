@@ -1,11 +1,19 @@
 [
     {
+        "name": "This Website!",
+        "description": "This website is for my personal portfolio website. It's designed to showcase my professional journey, projects, skills, and passions. Built with React + TypeScript + Vite.",
+        "URl": "https://hermansen.app",
+        "image": "",
+        "technologies": ["HTML", "JavaScript", "CSS"],
+        "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
+    },
+    {
         "name": "Earendil Capital",
         "description": "earendilcapital is a website for my brothers holding company",
         "URl": "https://earendilcapital.no/",
         "image": "src/assets/projects/projectImages/earendilcapital.png",
         "technologies": ["HTML", "JavaScript", "CSS"],
-        "githubURL": ""
+        "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
     },
     {
         "name": "TDT 4140",
@@ -13,22 +21,22 @@
         "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
         "image": "https://i.redd.it/vreh8zeeym091.jpg",
         "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
-        "githubURL": ""
+        "githubURL": "https://github.com/madshermansen/TDT4140-Software-Engineering-Project"
     },
     {
-        "name": "TDT 4140",
-        "description": "Software Engineering Project",
-        "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
-        "image": "https://i.redd.it/vreh8zeeym091.jpg",
-        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
-        "githubURL": ""
+        "name": "Shallow Orange",
+        "description": "Shallow Orange is a chess engine developed for a 3-hour challenge, designed to play chess at a basic level ",
+        "URl": "https://github.com/madshermansen/Shallow-Orange",
+        "image": "https://github.com/madshermansen/Shallow-Orange/raw/main/images/orange.png",
+        "technologies": ["Python"],
+        "githubURL": "https://github.com/madshermansen/Shallow-Orange"
     },
     {
-        "name": "TDT 4140",
-        "description": "Software Engineering Project",
-        "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
-        "image": "https://i.redd.it/vreh8zeeym091.jpg",
-        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
-        "githubURL": ""
+        "name": "Valknut Design",
+        "description": "Wordpress theme for Valknut Design website This was a project undertaken to create a website for our shared company for web design (we were too busy to continue)",
+        "URl": "https://github.com/madshermansen/valknut-design-theme",
+        "image": "src/assets/projects/projectImages/valknut-design.png",
+        "technologies": ["Wordpress", "PHP", "HTML", "CSS", "JavaScript"],
+        "githubURL": "https://github.com/madshermansen/valknut-design-theme"
     }
 ]
