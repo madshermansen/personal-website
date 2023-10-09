@@ -1,5 +1,29 @@
 .introductionFrontPage {
     display: flex;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 100vh;
+}
+
+.HomePage {
+    top:90px;
+}
+
+.profileInfoWrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.frontPageWrapper {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
 
 .profilePicture {
@@ -8,4 +32,18 @@
     object-fit: cover;
     width: 200px;
     height: 200px;
+    align-self: center;
+}
+
+.timeLineBox {
+    background: rgba(var(--primary-color));
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.moreInfo {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }

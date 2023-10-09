@@ -11,12 +11,15 @@ function HomePage() {
 
     return (
         <div className='HomePage'>
-            <div className="introductionFrontPage sectionOne">
+            <div className="introductionFrontPage">
                 <Profile />
                 <FrontPageInfo />
             </div>
-            <div className='sectionTwo'>
+            <div className='timeLineBox'>
 
+            </div>
+            <div className='moreInfo'>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, nam, asperiores aliquid omnis quo at ut reiciendis doloremque cupiditate sapiente tempore corrupti vitae reprehenderit? Numquam quidem aspernatur dolorum ullam voluptatum!</p>
             </div>
         </div>
     )

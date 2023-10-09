@@ -1,7 +1,7 @@
 
 function FrontPageInfo() {
     return (
-        <div>
+        <div className="frontPageWrapper">
             <h1>
                 More info
             </h1>

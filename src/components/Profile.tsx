@@ -2,7 +2,7 @@
 function Profile() {
 
     return (
-        <div>
+        <div className="profileInfoWrapper">
             <img src="https://avatars.githubusercontent.com/u/119772939?v=4" className="profilePicture">
             </img>
             <h1>Hi! I'm Mads!</h1>
