@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 // import pages
 import ProjectsPage from './pages/ProjectsPage'
 import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/contact" element={<h1>Contact</h1>} />
+          <Route path="/contact" element={<ContactPage />} />
 
           {/* 404 */}
           <Route path="*" element={<h1>404: Page not found</h1>} />

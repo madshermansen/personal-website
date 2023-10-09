@@ -1,6 +1,7 @@
 
 import { NavLink } from 'react-router-dom'
 import '../styles/Navbar.css'
+import GithubIconHyperlink from './socials/GithubIconHyperlink'
 
 function Navbar() {
     return (
@@ -13,6 +14,7 @@ function Navbar() {
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/projects">Projects</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
+                <li><GithubIconHyperlink /></li>
             </ul>
         </div>
     </div>
