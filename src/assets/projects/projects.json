@@ -11,7 +11,7 @@
         "name": "Earendil Capital",
         "description": "earendilcapital is a website for my brothers holding company",
         "URl": "https://earendilcapital.no/",
-        "image": "src/assets/projects/projectImages/earendilcapital.png",
+        "image": "../src/assets/projects/projectImages/earendilcapital.png",
         "technologies": ["HTML", "JavaScript", "CSS"],
         "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
     },
@@ -35,7 +35,7 @@
         "name": "Valknut Design",
         "description": "Wordpress theme for Valknut Design website This was a project undertaken to create a website for our shared company for web design (we were too busy to continue)",
         "URl": "https://github.com/madshermansen/valknut-design-theme",
-        "image": "src/assets/projects/projectImages/valknut-design.png",
+        "image": "../src/assets/projects/projectImages/valknut-design.png",
         "technologies": ["Wordpress", "PHP", "HTML", "CSS", "JavaScript"],
         "githubURL": "https://github.com/madshermansen/valknut-design-theme"
     }

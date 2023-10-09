@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 
 // import pages
 import ProjectsPage from './pages/ProjectsPage'
+import HomePage from "./pages/HomePage";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact" element={<h1>Contact</h1>} />
 
