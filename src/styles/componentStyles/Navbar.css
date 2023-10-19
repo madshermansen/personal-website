@@ -73,4 +73,7 @@
     .mobile-text {
         display: block;
     }
+    .links ul {
+        gap: 0px;
+    }
 }

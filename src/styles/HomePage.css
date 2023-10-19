@@ -4,6 +4,7 @@
     width: 80%;
     left: 10%;
     height: 100vh;
+    transition: opacity 0.1s;
     
 }
 
