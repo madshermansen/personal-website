@@ -13,12 +13,13 @@ function ProjectsPage() {
       };
 
     return (
-        <div>
+        <div className='projectListWrapper'>
             <h1>Projects</h1>
             <div className='projectList'>
                 {projects.map((item) => (
                     <div className='projectBox' onClick={handleProjectClick} data-url={item.URl} >
-                        <img src={item.image} alt={item.name} className='projectImage' />
+                        <img src={item.image} alt={item.name} className='projectImage' loading="lazy"/>
+                        <div className="skeletonLoader"></div>
                         <div className='projectInfo'>
                             <h3 className='projectTitle'>{item.name} <a href={item.githubURL}><FaGithub /></a></h3>
                             <p className="technologies">{item.technologies.map((tech) => (
