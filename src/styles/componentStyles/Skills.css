@@ -1,0 +1,22 @@
+
+.skillContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill {
+    width: auto;
+    padding: 10px;
+    position: relative;
+    display: flex;
+}
+
+.skillIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}

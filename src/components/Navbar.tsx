@@ -1,6 +1,6 @@
 
 import { NavLink } from 'react-router-dom'
-import '../styles/Navbar.css'
+import '../styles/componentStyles/Navbar.css'
 import GithubIconHyperlink from './socials/GithubIconHyperlink'
 
 function Navbar() {
