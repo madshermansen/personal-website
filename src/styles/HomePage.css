@@ -1,10 +1,19 @@
 .introductionFrontPage {
     display: flex;
-    position: relative;
+    position: fixed;
     width: 80%;
     left: 10%;
     height: 100vh;
+    
 }
+
+.introductionFrontPagePlaceholder {
+    width: 80%;
+    left: 10%;
+    height: 100vh;
+    position: relative;
+}
+
 
 .HomePage {
     top:90px;
@@ -43,6 +52,7 @@
 }
 
 .moreInfo {
+    padding-top: 500px;
     height: 100%;
     width: 100%;
     position: relative;
