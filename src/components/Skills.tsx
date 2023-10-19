@@ -15,7 +15,7 @@ function Skills() {
                         {skills.map((skill, index) => (
                             <div className="skill" key={index}>
                                 <div className='skillIcon'>{skill.icon}</div> 
-                                <div>{skill.name}</div>
+                                <p>{skill.name}</p>
                             </div>
                         ))}
                     </div>

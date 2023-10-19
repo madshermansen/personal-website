@@ -42,8 +42,9 @@ function Frontpage() {
         <div className="introductionFrontPage" style={{opacity: opacity}}>
             <Profile />
             <FrontPageInfo />
+            
         </div>
-        <div className="introductionFrontPagePlaceholder" style={{opacity: opacity}}></div>
+        <div className="introductionFrontPagePlaceholder"></div>
     </div>
   );
 }

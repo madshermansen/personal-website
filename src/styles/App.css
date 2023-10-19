@@ -22,3 +22,42 @@ a {
   text-decoration: none;
   color: white;
 }
+
+@media (min-width: 1200px) {
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+}
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  p {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+
+}
+
+/* For smaller screens (e.g., phones) */
+@media (max-width: 767px) {
+  p {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}

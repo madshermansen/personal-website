@@ -57,3 +57,40 @@
     width: 100%;
     position: relative;
 }
+
+/* For larger screens (e.g., desktops) */ 
+@media (min-width: 1200px) {
+    .profilePicture {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .profilePicture {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 767px) {
+    .introductionFrontPage {
+        width: 90%;
+        left: 5%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .introductionFrontPagePlaceholder {
+        width: 90%;
+        left: 5%;
+    }
+    .profilePicture {
+        width: 200px;
+        height: 200px;
+    }
+}
