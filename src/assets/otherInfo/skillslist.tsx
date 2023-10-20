@@ -21,8 +21,6 @@ const mySkills = {
         {name: "React", icon: <FaReact />},
         {name: "npm", icon: <FaNpm />},
         {name: "Next.js", icon: <TbBrandNextjs />},
-        {name: "ESLint", icon: <SiEslint />},
-        {name: "Prettier", icon: <SiPrettier />}
 
     ],
     backend: [
@@ -41,6 +39,8 @@ const mySkills = {
         {name: "PyCharm", icon: <SiPycharm />},
         {name: "Sublime Text", icon: <SiSublimetext />},
         {name: "Notion", icon: <SiNotion />},
+        {name: "ESLint", icon: <SiEslint />},
+        {name: "Prettier", icon: <SiPrettier />}
     ],
     teamwork: [
         {name: "Slack", icon: <AiFillSlackCircle />},

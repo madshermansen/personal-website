@@ -3,10 +3,9 @@ function FrontPageInfo() {
     return (
         <div className="frontPageWrapper">
             <h1>
-                More info
+                About me
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis omnis tempora laboriosam at officiis exercitationem consequuntur nostrum recusandae fugit optio eius ut cupiditate suscipit, id aut neque voluptatem veritatis molestias.
-
+            <p>Hello! I'm Mads Hermansen, currently pursuing my passion for Computer Science at the renowned Norwegian University of Science and Technology (NTNU). Now in my third year, I've embarked on a journey that's not just about codes and algorithms, but about innovation, problem-solving, and continuous learning.
             </p>
         </div>
     )

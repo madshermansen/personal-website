@@ -4,6 +4,7 @@ import '../styles/HomePage.css'
 // import components
 import FrontPage from '../components/Frontpage'
 import Skills from '../components/Skills'
+import GithubIconHyperlink from '../components/socials/GithubIconHyperlink'
 
 
 function HomePage() {
@@ -12,7 +13,7 @@ function HomePage() {
             <FrontPage />
             <Skills />
             <div className='moreInfo'>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, nam, asperiores aliquid omnis quo at ut reiciendis doloremque cupiditate sapiente tempore corrupti vitae reprehenderit? Numquam quidem aspernatur dolorum ullam voluptatum!</p>
+                <p>This project is open-sourced under the MIT License - Created by Mads Hermansen <GithubIconHyperlink /></p>
             </div>
         </div>
     )

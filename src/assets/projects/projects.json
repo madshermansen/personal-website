@@ -9,7 +9,7 @@
     },
     {
         "name": "Earendil Capital",
-        "description": "earendilcapital is a website for my brothers holding company",
+        "description": "Digital forefront of Earendil Capital, Folke Hermansen's holding company. Features a sleek design, detailed portfolio sections, investment insights, company news, and integrated multimedia. Reflecting professionalism and dynamic innovation in the financial sector. ",
         "URl": "https://earendilcapital.no/",
         "image": "../projectImages/earendilcapital.png",
         "technologies": ["HTML", "JavaScript", "CSS"],
@@ -25,7 +25,7 @@
     },
     {
         "name": "Shallow Orange",
-        "description": "Shallow Orange is a chess engine developed for a 3-hour challenge, designed to play chess at a basic level ",
+        "description": "A light-hearted chess engine crafted in a 3-hour challenge, Shallow Orange offers basic functionality and play, inspired by lessons from class and a parody on Deep Blue. It encompasses simple evaluations, minimax, alpha-beta pruning, and book moves. Developed for enjoyment, its depth and performance reflect its quick inception. ",
         "URl": "https://github.com/madshermansen/Shallow-Orange",
         "image": "https://github.com/madshermansen/Shallow-Orange/raw/main/images/orange.png",
         "technologies": ["Python"],
@@ -33,7 +33,7 @@
     },
     {
         "name": "Valknut Design",
-        "description": "Wordpress theme for Valknut Design website This was a project undertaken to create a website for our shared company for web design (we were too busy to continue)",
+        "description": "Valknut Design, crafted by Mads Hermansen and team, stands as a testament to modern web aesthetics and functionality. As a hub for our collaborative web design endeavors, the site exhibits a custom WordPress theme reflecting our unique design ethos. Although the site's active development has momentarily halted due to other pressing projects, its existing framework showcases our combined creativity.",
         "URl": "https://github.com/madshermansen/valknut-design-theme",
         "image": "../projectImages/valknut-design.png",
         "technologies": ["Wordpress", "PHP", "HTML", "CSS", "JavaScript"],
