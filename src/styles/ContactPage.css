@@ -1,36 +1,36 @@
 .contactWrapper {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    position: relative;
-    margin-left: 5%;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  position: relative;
+  margin-left: 5%;
+  justify-content: space-between;
 }
 
 .madsHermansen img {
-    border-radius: 50%;
-    border: rgba(255, 255, 255, 1) solid 1px;
-    object-fit: cover;
-    width: 45%;
-    aspect-ratio: 1/1;
-    align-self: center;
+  border-radius: 50%;
+  border: rgba(255, 255, 255, 1) solid 1px;
+  object-fit: cover;
+  width: 45%;
+  aspect-ratio: 1/1;
+  align-self: center;
 }
 
 .mailMe {
-    width: 100px;
-    height: 100px;
-    background-color: rgba(var(--secondary-color) / 0.7);
-    padding: 30px;
-    border-radius: 50%;
-    overflow: visible;
-    cursor: pointer;
-    transition: ease-in-out 0.2s;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(var(--secondary-color) / 0.7);
+  padding: 30px;
+  border-radius: 50%;
+  overflow: visible;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
 }
 
 .mailMe path {
-    transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
 }
 
 .mailMe:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }

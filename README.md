@@ -4,7 +4,7 @@ Welcome to the GitHub repository of Mads Hermansen's personal website!
 
 ## Overview
 
-This repository contains the source code and assets for my personal portfolio website. It's designed to showcase my professional journey, projects, skills, and passions. Built with React + TypeScript + Vite. 
+This repository contains the source code and assets for my personal portfolio website. It's designed to showcase my professional journey, projects, skills, and passions. Built with React + TypeScript + Vite.
 
 ## Features
 

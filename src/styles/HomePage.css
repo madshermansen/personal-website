@@ -1,106 +1,102 @@
 .introductionFrontPage {
-    display: flex;
-    position: fixed;
-    width: 80%;
-    left: 10%;
-    height: 100vh;
-    transition: opacity 0.1s;
-    justify-content: space-between;
-    
+  display: flex;
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  height: 100vh;
+  transition: opacity 0.1s;
+  justify-content: space-between;
 }
 
 .introductionFrontPagePlaceholder {
-    width: 80%;
-    left: 10%;
-    height: 100vh;
-    position: relative;
-    z-index: -1;
+  width: 80%;
+  left: 10%;
+  height: 100vh;
+  position: relative;
+  z-index: -1;
 }
 
-
 .HomePage {
-    top:90px;
+  top: 90px;
 }
 
 .profileInfoWrapper {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .frontPageWrapper {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .profilePicture {
-    border-radius: 50%;
-    border: rgba(255, 255, 255, 1) solid 1px;
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-    align-self: center;
+  border-radius: 50%;
+  border: rgba(255, 255, 255, 1) solid 1px;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  align-self: center;
 }
 
 .timeLineBox {
-    background: rgba(var(--primary-color));
-    width: 100%;
-    height: 200px;
-    position: relative;
+  background: rgba(var(--primary-color));
+  width: 100%;
+  height: 200px;
+  position: relative;
 }
 
 .moreInfo {
-    padding-top: 500px;
-    height: 100%;
-    width: 100%;
-    position: relative;
+  padding-top: 500px;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
-/* For larger screens (e.g., desktops) */ 
+/* For larger screens (e.g., desktops) */
 @media (min-width: 1200px) {
-    .profilePicture {
-        width: 250px;
-        height: 250px;
-    }
+  .profilePicture {
+    width: 250px;
+    height: 250px;
+  }
 }
-
 
 /* For medium screens (e.g., tablets) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .profilePicture {
-        width: 200px;
-        height: 200px;
-    }
+  .profilePicture {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 /* Smaller screens */
 @media (max-width: 767px) {
-    .introductionFrontPage {
-        width: 90%;
-        left: 5%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  .introductionFrontPage {
+    width: 90%;
+    left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .introductionFrontPagePlaceholder {
+    width: 90%;
+    left: 5%;
+  }
+  .profilePicture {
+    width: 200px;
+    height: 200px;
+  }
 
-    }
-    .introductionFrontPagePlaceholder {
-        width: 90%;
-        left: 5%;
-    }
-    .profilePicture {
-        width: 200px;
-        height: 200px;
-    }
-
-    .frontPageWrapper {
-        width: 100%;
-    }
-    ..profileInfoWrapper {
-        width: 100%;
-    }
+  .frontPageWrapper {
+    width: 100%;
+  }
+  .profileInfoWrapper {
+    width: 100%;
+  }
 }

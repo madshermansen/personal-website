@@ -1,52 +1,50 @@
-
 .skillContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .skill {
-    width: auto;
-    padding: 10px;
-    position: relative;
-    display: flex;
+  width: auto;
+  padding: 10px;
+  position: relative;
+  display: flex;
 }
 
 .skillIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* For larger screens (e.g., desktops) */ 
+/* For larger screens (e.g., desktops) */
 @media (min-width: 1200px) {
-    .skillIcon {
-        padding: 20px;
-    }
-    .skillIcon svg{
-        transform: scale(2.5);
-    }
+  .skillIcon {
+    padding: 20px;
+  }
+  .skillIcon svg {
+    transform: scale(2.5);
+  }
 }
-
 
 /* For medium screens (e.g., tablets) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .skillIcon {
-        padding: 15px;
-    }
-    .skillIcon svg{
-        transform: scale(2);
-    }
+  .skillIcon {
+    padding: 15px;
+  }
+  .skillIcon svg {
+    transform: scale(2);
+  }
 }
 
 /* Smaller screens */
 @media (max-width: 767px) {
-    .skillIcon {
-        padding: 10px;
-    }
-    .skillIcon svg{
-        transform: scale(1.5);
-    }
+  .skillIcon {
+    padding: 10px;
+  }
+  .skillIcon svg {
+    transform: scale(1.5);
+  }
 }

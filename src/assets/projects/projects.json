@@ -1,42 +1,50 @@
 [
-    {
-        "name": "This Website!",
-        "description": "This website is for my personal portfolio website. It's designed to showcase my professional journey, projects, skills, and passions. Built with React + TypeScript + Vite.",
-        "URl": "https://hermansen.app",
-        "image": "https://github.com/madshermansen/valknut-design-theme",
-        "technologies": ["HTML", "JavaScript", "CSS"],
-        "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
-    },
-    {
-        "name": "Earendil Capital",
-        "description": "Digital forefront of Earendil Capital, Folke Hermansen's holding company. Features a sleek design, detailed portfolio sections, investment insights, company news, and integrated multimedia. Reflecting professionalism and dynamic innovation in the financial sector. ",
-        "URl": "https://earendilcapital.no/",
-        "image": "../projectImages/earendilcapital.png",
-        "technologies": ["HTML", "JavaScript", "CSS"],
-        "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
-    },
-    {
-        "name": "TDT 4140",
-        "description": "Software Engineering Project",
-        "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
-        "image": "https://i.redd.it/vreh8zeeym091.jpg",
-        "technologies": ["React", "TypeScript", "Node.js", "Django", "Python", "Firebase", "CSS"],
-        "githubURL": "https://github.com/madshermansen/TDT4140-Software-Engineering-Project"
-    },
-    {
-        "name": "Shallow Orange",
-        "description": "A light-hearted chess engine crafted in a 3-hour challenge, Shallow Orange offers basic functionality and play, inspired by lessons from class and a parody on Deep Blue. It encompasses simple evaluations, minimax, alpha-beta pruning, and book moves. Developed for enjoyment, its depth and performance reflect its quick inception. ",
-        "URl": "https://github.com/madshermansen/Shallow-Orange",
-        "image": "https://github.com/madshermansen/Shallow-Orange/raw/main/images/orange.png",
-        "technologies": ["Python"],
-        "githubURL": "https://github.com/madshermansen/Shallow-Orange"
-    },
-    {
-        "name": "Valknut Design",
-        "description": "Valknut Design, crafted by Mads Hermansen and team, stands as a testament to modern web aesthetics and functionality. As a hub for our collaborative web design endeavors, the site exhibits a custom WordPress theme reflecting our unique design ethos. Although the site's active development has momentarily halted due to other pressing projects, its existing framework showcases our combined creativity.",
-        "URl": "https://github.com/madshermansen/valknut-design-theme",
-        "image": "../projectImages/valknut-design.png",
-        "technologies": ["Wordpress", "PHP", "HTML", "CSS", "JavaScript"],
-        "githubURL": "https://github.com/madshermansen/valknut-design-theme"
-    }
+  {
+    "name": "This Website!",
+    "description": "This website is for my personal portfolio website. It's designed to showcase my professional journey, projects, skills, and passions. Built with React + TypeScript + Vite.",
+    "URl": "https://hermansen.app",
+    "image": "https://github.com/madshermansen/valknut-design-theme",
+    "technologies": ["HTML", "JavaScript", "CSS"],
+    "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
+  },
+  {
+    "name": "Earendil Capital",
+    "description": "Digital forefront of Earendil Capital, Folke Hermansen's holding company. Features a sleek design, detailed portfolio sections, investment insights, company news, and integrated multimedia. Reflecting professionalism and dynamic innovation in the financial sector. ",
+    "URl": "https://earendilcapital.no/",
+    "image": "../projectImages/earendilcapital.png",
+    "technologies": ["HTML", "JavaScript", "CSS"],
+    "githubURL": "https://github.com/madshermansen/Earendil-Capital.github.io"
+  },
+  {
+    "name": "TDT 4140",
+    "description": "Software Engineering Project",
+    "URl": "https://tdt-4140-software-engineering-project.hermansen.app/",
+    "image": "https://i.redd.it/vreh8zeeym091.jpg",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Django",
+      "Python",
+      "Firebase",
+      "CSS"
+    ],
+    "githubURL": "https://github.com/madshermansen/TDT4140-Software-Engineering-Project"
+  },
+  {
+    "name": "Shallow Orange",
+    "description": "A light-hearted chess engine crafted in a 3-hour challenge, Shallow Orange offers basic functionality and play, inspired by lessons from class and a parody on Deep Blue. It encompasses simple evaluations, minimax, alpha-beta pruning, and book moves. Developed for enjoyment, its depth and performance reflect its quick inception. ",
+    "URl": "https://github.com/madshermansen/Shallow-Orange",
+    "image": "https://github.com/madshermansen/Shallow-Orange/raw/main/images/orange.png",
+    "technologies": ["Python"],
+    "githubURL": "https://github.com/madshermansen/Shallow-Orange"
+  },
+  {
+    "name": "Valknut Design",
+    "description": "Valknut Design, crafted by Mads Hermansen and team, stands as a testament to modern web aesthetics and functionality. As a hub for our collaborative web design endeavors, the site exhibits a custom WordPress theme reflecting our unique design ethos. Although the site's active development has momentarily halted due to other pressing projects, its existing framework showcases our combined creativity.",
+    "URl": "https://github.com/madshermansen/valknut-design-theme",
+    "image": "../projectImages/valknut-design.png",
+    "technologies": ["Wordpress", "PHP", "HTML", "CSS", "JavaScript"],
+    "githubURL": "https://github.com/madshermansen/valknut-design-theme"
+  }
 ]
