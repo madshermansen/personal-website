@@ -34,12 +34,10 @@
   transform: scale(1.05);
 }
 
-
 /* For larger screens (e.g., desktops) */
 @media (min-width: 1200px) {
   .madsHermansen img {
     width: 400px;
-    
   }
 }
 
@@ -58,5 +56,4 @@
   .madsHermansen img {
     width: 200px;
   }
-
 }

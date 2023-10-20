@@ -2,11 +2,10 @@
   transition: 0.2s ease-in-out;
 }
 
-
 #root {
   width: 100%;
   margin: 0 auto;
-  text-align: center; 
+  text-align: center;
 }
 
 :root {
