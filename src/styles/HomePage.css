@@ -96,4 +96,11 @@
         width: 200px;
         height: 200px;
     }
+
+    .frontPageWrapper {
+        width: 100%;
+    }
+    ..profileInfoWrapper {
+        width: 100%;
+    }
 }

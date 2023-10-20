@@ -3,7 +3,13 @@ import projects from '../assets/projects/projects.json'
 import {MouseEventHandler} from 'react'
 import { FaGithub } from 'react-icons/fa';
 
+import { useEffect } from 'react';
+
 function ProjectsPage() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []); 
 
     const handleProjectClick: MouseEventHandler<HTMLDivElement> = (event) => {
         const URL = event.currentTarget.getAttribute('data-url');
