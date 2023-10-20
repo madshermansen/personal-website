@@ -11,7 +11,6 @@
   border-radius: 50%;
   border: rgba(255, 255, 255, 1) solid 1px;
   object-fit: cover;
-  width: 45%;
   aspect-ratio: 1/1;
   align-self: center;
 }
@@ -33,4 +32,31 @@
 
 .mailMe:hover {
   transform: scale(1.05);
+}
+
+
+/* For larger screens (e.g., desktops) */
+@media (min-width: 1200px) {
+  .madsHermansen img {
+    width: 400px;
+    
+  }
+}
+
+/* For medium screens (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .madsHermansen img {
+    width: 300px;
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 767px) {
+  .contactWrapper {
+    flex-direction: column;
+  }
+  .madsHermansen img {
+    width: 200px;
+  }
+
 }
