@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar";
 function HomePage() {
   return (
     <div>
-        <Navbar />
-        <Triangles />
+      <Navbar />
+      <Triangles />
       <h1>Home Page</h1>
       <p>This page is for public access</p>
     </div>

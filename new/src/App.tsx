@@ -1,5 +1,4 @@
-
-import './styles/App.css'
+import "./styles/App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -10,7 +9,6 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 
 function App() {
-
   return (
     <Router>
       <Navbar />
@@ -24,7 +22,7 @@ function App() {
         <Route path="*" element={<h1>404: Page not found</h1>} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
