@@ -3,22 +3,28 @@ import "../styles/componentStyles/triangles.css";
 
 // animate
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
     
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+const box = useRef();
 
+useGSAP(() => {
+  gsap.to(box.current, { duration: 1, x: 100 });
+});
 
-gsap.registerPlugin(ScrollToPlugin);
+const gridRows = 3;
+const gridColumns = 5;
 
-function Triangle() {
-  const height = window.innerHeight;
-  const width = window.innerWidth;
-  const randomX = Math.floor(Math.random() * height);
-  const randomY = Math.floor(Math.random() * width);
+function Triangle({ position }: { position: [number, number] }) {
   const randomTilt = Math.floor(Math.random() * 360);
 
+  const [gridX, gridY] = position;
+  const cellWidth = window.innerWidth / gridColumns;
+  const cellHeight = window.innerHeight / gridRows;
+
   const triangleStyle = {
-    top: randomX + "px",
-    left: randomY + "px",
+    top: (gridY * cellHeight) + "px",
+    left: (gridX * cellWidth) + "px",
     transform: "rotate(" + randomTilt + "deg)",
   };
 
@@ -43,12 +49,23 @@ function Triangle() {
 }
 
 function Triangles() {
-  const triangleCount = 5;
+  const grid = Array.from({ length: gridRows }, () => Array(gridColumns).fill(false));
+  const triangleCount = Math.min(window.innerWidth / 300, gridRows * gridColumns);
   const triangles = [];
 
   for (let i = 0; i < triangleCount; i++) {
-    triangles.push(<Triangle />);
+    let x, y;
+
+    do {
+      x = Math.floor(Math.random() * gridColumns);
+      y = Math.floor(Math.random() * gridRows);
+    } while (grid[y][x]);
+
+    grid[y][x] = true;
+
+    triangles.push(<Triangle position={[x, y]} />);
   }
+
 
   return (
     <div className="background">
@@ -61,5 +78,7 @@ function Triangles() {
     </div>
   );
 }
+
+useGsap
 
 export default Triangles;
