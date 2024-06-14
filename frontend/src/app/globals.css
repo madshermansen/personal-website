@@ -13,8 +13,6 @@
 
 .fancy {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 8vw;
-  line-height: 0.6em
 }
 
 :root {
@@ -36,4 +34,12 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.fullScreenLeft {
+  left: -100vw;
+}
+
+.fullScreenRight {
+  right: -100vw;
 }

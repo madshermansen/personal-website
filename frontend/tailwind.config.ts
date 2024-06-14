@@ -28,6 +28,7 @@ const config: Config = {
       },
       fontSize: {
         '6vw': '6vw',
+        '8vw': '8vw',
       },
     },
   },
