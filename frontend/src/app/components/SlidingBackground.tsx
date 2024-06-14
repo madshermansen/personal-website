@@ -5,9 +5,10 @@ import { ReactNode } from "react";
 
 export default function SlidingBackground() {
   const x = useMotionValue(0);
-  const width = useTransform(x, (latestX) =>
-    Math.max(0, Math.min(latestX, window.innerWidth))
-  );
+  const width = useTransform(x, (latestX) => {
+    if (typeof window === "undefined") return 0;
+    return Math.max(0, Math.min(latestX, window.innerWidth));
+  });
 
   const handleMouseMove: React.MouseEventHandler<HTMLElement> = (event) => {
     x.set(event.clientX);
