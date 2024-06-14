@@ -16,8 +16,8 @@ const config: Config = {
       colors: {
         background: "#030712",
         primary: "#A3E635",
-        secondary: "#F9F9F9",
-        accent: "#F9F9F9",
+        secondary: "#7835E6",
+        accent: "#7835E6",
         text: "#F9F9F9",
       },
       margin: {
@@ -25,7 +25,10 @@ const config: Config = {
       },
       width: {
         '80vw': '80vw',
-      }
+      },
+      fontSize: {
+        '6vw': '6vw',
+      },
     },
   },
   plugins: [],

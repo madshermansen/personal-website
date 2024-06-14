@@ -27,10 +27,10 @@ export default function SlidingBackground() {
   return (
     <main>
       <div ref={leftSideRef} className="grid h-screen overflow-hidden place-items-center absolute w-full z-10 bg-background">
-        <h1 className="text-8xl m-10-screen w-80vw text-center font-bold">Making something new should take effort</h1>
+        <h1 className="text-6vw leading-tight m-10-screen w-80vw text-center font-bold">Making something great should take <span className="fancy text-primary font-normal">Effort</span></h1>
       </div>
       <div className="grid h-screen overflow-hidden place-items-center absolute w-full bg-primary">
-        <h1 className="text-8xl m-10-screen w-80vw text-center text-background font-bold">Making something new should take skill</h1>
+        <h1 className="text-6vw leading-tight m-10-screen w-80vw text-center text-background font-bold">Making something great should take <span className="fancy text-white font-normal">Skill</span></h1>
       </div>
     </main>
   );
