@@ -11,19 +11,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { handleLogin } from "./handleLogin";
-import { Terminal } from "lucide-react"
- 
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert"
 import useAuthStore from "@/lib/state/authStore";
+import { enqueueSnackbar } from "notistack";
 
 export default function LoginCard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setIsLoggedIn } = useAuthStore();
+  const { setAuthToken } = useAuthStore();
 
   return (
     <div className="flex w-screen h-screen items-center justify-center">
@@ -40,15 +35,28 @@ export default function LoginCard() {
             className="text-white border-zinc-400 my-2"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button
-            className="bg-primary font-bold montserrat text-black hover:bg-active"
-            onClick={async () => {
+          <div className="flex justify-between">
+            <Button
+              className="bg-primary font-bold montserrat text-black hover:bg-active"
+              onClick={() => setIsLoggedIn(true)}
+            >
+              Guest Login
+            </Button>
+            <Button
+              className="bg-primary font-bold montserrat text-black hover:bg-active"
+              onClick={async () => {
                 const result = await handleLogin(username, password);
-                setIsLoggedIn(!!result);
+                setIsLoggedIn(result.isLoggedIn);
+                if (result.error) {
+                  enqueueSnackbar(result.error, { variant: "error" });
+                  return;
+                }
+                setAuthToken(result.authToken);
               }}
-          >
-            Log in
-          </Button>
+            >
+              Log in
+            </Button>
+          </div>
         </CardContent>
         <CardFooter>Card Footer</CardFooter>
       </Card>
