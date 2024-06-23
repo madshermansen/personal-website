@@ -22,13 +22,13 @@ export async function handleLogin(username: string, password: string) {
     if (isValidPassword) {
       // generate a random auth token and store in server state
       let authToken = rand() + rand() + rand() + rand();
-      let userToken = getSessionTokenByUsername(username);
-      if (!userToken) {
+      let userSession = getSessionTokenByUsername(username);
+      if (!userSession) {
         setSessionToken(authToken, rows[0].role, username);
         return { authToken: authToken, isLoggedIn: true };
       } else {
         return {
-          authToken: userToken,
+          authToken: userSession.token,
           isLoggedIn: false,
           error: "User already logged in",
         };
