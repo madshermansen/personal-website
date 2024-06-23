@@ -1,9 +1,9 @@
 "use client";
 import useAuthStore from "@/lib/state/authStore";
 import LoginCard from "./LoginCard";
-import { enqueueSnackbar, SnackbarProvider } from "notistack";
+import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { redirect } from 'next/navigation'
 
 export default function Page() {
   const { isLoggedIn, authToken } = useAuthStore();
@@ -16,12 +16,15 @@ export default function Page() {
         variant: "success",
       });
     }
+
+    if (isLoggedIn) {
+      redirect('/admin/dashboard')
+    }
   }, [isLoggedIn, authToken]);
 
   return (
     <main className="flex w-screen h-screen items-center justify-center">
       <LoginCard />
-      <SnackbarProvider />
     </main>
   );
 }

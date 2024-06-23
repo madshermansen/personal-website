@@ -28,12 +28,15 @@ export default function LoginCard() {
         </CardHeader>
         <CardContent>
           <Input
+            placeholder="Username" 
             className="text-white border-zinc-400 my-2"
             onChange={(e) => setUsername(e.target.value)}
           />
           <Input
+          placeholder="Password"
             className="text-white border-zinc-400 my-2"
             onChange={(e) => setPassword(e.target.value)}
+            type="password"
           />
           <div className="flex justify-between">
             <Button

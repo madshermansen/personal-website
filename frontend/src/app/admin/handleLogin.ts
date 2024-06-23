@@ -1,8 +1,5 @@
 "use server";
-import setSessionToken, {
-  getSessionToken,
-  getSessionTokenByUsername,
-} from "@/lib/serverState.ts/sessionTokens";
+import { setSessionToken, getSessionTokenByUsername } from "@/lib/serverState.ts/sessionTokens";
 import { sql } from "@vercel/postgres";
 import * as passwordHash from "password-hash";
 
@@ -22,7 +19,7 @@ export async function handleLogin(username: string, password: string) {
     if (isValidPassword) {
       // generate a random auth token and store in server state
       let authToken = rand() + rand() + rand() + rand();
-      let userSession = getSessionTokenByUsername(username);
+      let userSession = await getSessionTokenByUsername(username);
       if (!userSession) {
         setSessionToken(authToken, rows[0].role, username);
         return { authToken: authToken, isLoggedIn: true };

@@ -1,3 +1,4 @@
+"use server"
 interface SessionToken {
   token: string;
   role: string;
@@ -6,7 +7,7 @@ interface SessionToken {
 
 let sessionTokens: SessionToken[] = [];
 
-export default function setSessionToken(
+export async function setSessionToken(
   token: string,
   role: string,
   username: string,
@@ -14,13 +15,13 @@ export default function setSessionToken(
   sessionTokens.push({ token, role, username });
 }
 
-export function getSessionToken(token: string): SessionToken | undefined {
+export async function getSessionToken(token: string): Promise<SessionToken | undefined> {
   console.log(sessionTokens);
   return sessionTokens.find((t) => t.token === token);
 }
 
-export function getSessionTokenByUsername(
+export async function getSessionTokenByUsername(
   username: string,
-): SessionToken | undefined {
+): Promise<SessionToken | undefined> {
   return sessionTokens.find((t) => t.username === username);
 }
