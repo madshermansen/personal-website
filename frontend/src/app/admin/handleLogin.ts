@@ -18,16 +18,15 @@ export async function handleLogin(username: string, password: string) {
     let isValidPassword = passwordHash.verify(password, rows[0].password_hash);
     if (isValidPassword) {
       // generate a random auth token and store in server state
-      let authToken = rand() + rand() + rand() + rand();
       let userSession = await getSessionTokenByUsername(username);
       if (!userSession) {
+        let authToken = rand() + rand() + rand() + rand();
         setSessionToken(authToken, rows[0].role, username);
         return { authToken: authToken, isLoggedIn: true };
       } else {
         return {
           authToken: userSession.token,
-          isLoggedIn: false,
-          error: "User already logged in",
+          isLoggedIn: true,
         };
       }
     } else {
