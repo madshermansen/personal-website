@@ -3,10 +3,10 @@ import useAuthStore from "@/lib/state/authStore";
 import LoginCard from "./LoginCard";
 import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
-import { redirect } from 'next/navigation'
+import AddProjects from "./dashboard/AddProjects";
 
 export default function Page() {
-  const { isLoggedIn, authToken } = useAuthStore();
+  const { isLoggedIn, authToken, setIsLoggedIn } = useAuthStore();
 
   useEffect(() => {
     if (isLoggedIn && authToken !== undefined) {
@@ -16,15 +16,21 @@ export default function Page() {
         variant: "success",
       });
     }
-
-    if (isLoggedIn) {
-      redirect('/admin/dashboard')
-    }
   }, [isLoggedIn, authToken]);
+
+  const logOut = () => {
+    if (isLoggedIn) {
+      setIsLoggedIn(false);
+      enqueueSnackbar("Logged out", { variant: "success" });
+    } else {
+      enqueueSnackbar("Not logged in", { variant: "error" });
+    }
+  }
 
   return (
     <main className="flex w-screen h-screen items-center justify-center">
-      <LoginCard />
+      {isLoggedIn ? <AddProjects /> : <LoginCard />}
+      <button onClick={logOut}>Log out</button>
     </main>
   );
 }

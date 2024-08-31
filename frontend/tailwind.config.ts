@@ -34,22 +34,11 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
-        background: "#030712",
-        primary: "#A3E635",
-        secondary: "#7835E6",
-        accent: "#7835E6",
-        text: "#F9F9F9",
-        active: "#ade94b",
-      },
-      margin: {
-        "10-screen": "10vw",
-      },
-      width: {
-        "80vw": "80vw",
-      },
-      fontSize: {
-        "6vw": "6vw",
-        "8vw": "8vw",
+        background: "#060116",
+        primary: "#460EF8",
+        secondary: "#FB75AD",
+        accent: "#FA5051",
+        text: "#FAF9FF",
       },
     },
   },
