@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { use, useEffect, useState } from "react";
-import InsertProject from "./insertProject";
+import InsertProject from "./dbUtils/insertProject";
 import useAuthStore from "@/lib/state/authStore";
 import { enqueueSnackbar } from "notistack";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -14,6 +14,7 @@ export default function AddProjects() {
   const [image_url, setImageUrl] = useState<string>("");
   const [demo_url, setDemoUrl] = useState<string>("");
   const [github_url, setGithubUrl] = useState<string>("");
+  const [tags, setTags] = useState<string>("");
 
   const { authToken } = useAuthStore();
 
@@ -25,35 +26,50 @@ export default function AddProjects() {
 
   return (
     <Card className="w-1/2 border-zinc-400 bg-background p-4">
-        <CardTitle className="text-white">Add A New Project</CardTitle>
-        <CardDescription className="text-white">Add a new project to the portfolio</CardDescription>
-      <Input placeholder="Title" className="text-white border-zinc-400 my-2" />
-      <Textarea
-        placeholder="Description"
-        className="text-white border-zinc-400 my-2 bg-background"
+      <CardTitle className="text-white">Add A New Project</CardTitle>
+      <CardDescription className="text-white">
+        Add a new project to the portfolio
+      </CardDescription>
+      <Input
+        placeholder="Title"
+        className="text-white border-zinc-400 my-2"
         onChange={(e) => {
           setTitle(e.target.value);
         }}
       />
-      <Input
-        placeholder="Image URL"
+      <Textarea
+        placeholder="Description"
         className="text-white border-zinc-400 my-2 bg-background"
         onChange={(e) => {
           setDescription(e.target.value);
         }}
       />
       <Input
+        placeholder="Image URL"
+        className="text-white border-zinc-400 my-2 bg-background"
+        onChange={(e) => {
+          setImageUrl(e.target.value);
+        }}
+      />
+      <Input
         placeholder="Demo URL"
         className="text-white border-zinc-400 my-2"
         onChange={(e) => {
-          setImageUrl(e.target.value);
+          setDemoUrl(e.target.value);
         }}
       />
       <Input
         placeholder="Github URL"
         className="text-white border-zinc-400 my-2"
         onChange={(e) => {
-          setDemoUrl(e.target.value);
+          setGithubUrl(e.target.value);
+        }}
+      />
+      <Input
+        placeholder="Tags (comma separated)"
+        className="text-white border-zinc-400 my-2"
+        onChange={(e) => {
+          setTags(e.target.value);
         }}
       />
       <Button
@@ -69,7 +85,8 @@ export default function AddProjects() {
             description,
             image_url,
             demo_url,
-            github_url
+            github_url,
+            tags
           );
           if (result.error) {
             enqueueSnackbar(result.error, { variant: "error" });
