@@ -11,7 +11,7 @@ export default function Extra() {
             Hey! Thanks for checking out my site. This site was made with ...
           </h1>
           <h1>
-            Check out the admin panel <Link href={"/admin"} className="font-bold hover:text-accent duration-75">here</Link>. You're free to try to break stuff.
+            Check out the admin panel <Link href={"/admin"} className="font-bold hover:text-accent duration-75">here</Link>. You&apos;re free to try to break stuff.
           </h1>
         </div>
     )
