@@ -10,10 +10,10 @@ export default function BackgroundObject() {
   return (
     <motion.div
       ref={ref}
-      className="-z-20 fixed"
+      className="-z-20 fixed blur-[500px]"
       style={{ x, y }}
     >
-        <div className="bg-gradient-to-tr from-primary to-secondary animation-rotate w-80 aspect-square rounded-full scale-x-50"></div>
+        <div className="bg-gradient-to-tr from-primary to-secondary animation-rotate w-[500px] aspect-square rounded-full opacity-55"></div>
     </motion.div>
   );
 }

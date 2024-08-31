@@ -4,6 +4,7 @@ import LoginCard from "./LoginCard";
 import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
 import AddProjects from "./dashboard/AddProjects";
+import { Button } from "@/components/ui/button";
 
 export default function Page() {
   const { isLoggedIn, authToken, setIsLoggedIn } = useAuthStore();
@@ -12,7 +13,7 @@ export default function Page() {
     if (isLoggedIn && authToken !== undefined) {
       enqueueSnackbar("Logged in", { variant: "success" });
     } else if (isLoggedIn) {
-      enqueueSnackbar("Logged in as Guest, some features are not available", {
+      enqueueSnackbar("Logged in as Guest, you won't be able to do much, but you can look around", {
         variant: "success",
       });
     }
@@ -21,16 +22,16 @@ export default function Page() {
   const logOut = () => {
     if (isLoggedIn) {
       setIsLoggedIn(false);
-      enqueueSnackbar("Logged out", { variant: "success" });
+      enqueueSnackbar("Logged out", { variant: "default" });
     } else {
-      enqueueSnackbar("Not logged in", { variant: "error" });
+      enqueueSnackbar("Not logged in", { variant: "warning" });
     }
   }
 
   return (
-    <main className="flex w-screen h-screen items-center justify-center">
+    <main className="flex flex-col w-screen h-screen items-center justify-center">
       {isLoggedIn ? <AddProjects /> : <LoginCard />}
-      <button onClick={logOut}>Log out</button>
+      {isLoggedIn && <Button onClick={logOut}>Log out</Button>}
     </main>
   );
 }

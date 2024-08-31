@@ -18,7 +18,7 @@ export default function LoginCard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setIsLoggedIn } = useAuthStore();
-  const { setAuthToken } = useAuthStore();
+  const { setAuthToken, loginAttempts, setLoginAttempts } = useAuthStore();
 
   return (
     <div className="flex w-screen h-screen items-center justify-center">
@@ -28,12 +28,12 @@ export default function LoginCard() {
         </CardHeader>
         <CardContent>
           <Input
-            placeholder="Username" 
+            placeholder="Username"
             className="text-white border-zinc-400 my-2"
             onChange={(e) => setUsername(e.target.value)}
           />
           <Input
-          placeholder="Password"
+            placeholder="Password"
             className="text-white border-zinc-400 my-2"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -48,6 +48,15 @@ export default function LoginCard() {
             <Button
               className="bg-primary font-bold montserrat text-black hover:bg-active"
               onClick={async () => {
+                if (loginAttempts >= 3) {
+                  enqueueSnackbar(
+                    "Too many login attempts, Just refresh the page :)",
+                    { variant: "warning" }
+                  );
+                  return;
+                } else {
+                  setLoginAttempts(loginAttempts + 1);
+                }
                 const result = await handleLogin(username, password);
                 setIsLoggedIn(result.isLoggedIn);
                 if (result.error) {

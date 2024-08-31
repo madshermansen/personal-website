@@ -17,6 +17,7 @@ export default function RecentProjectList() {
     getProjects().then((projects) => {
       setProjects(projects);
       setLoading(false);
+      console.log(projects);
     });
   }, []);
 
@@ -28,15 +29,17 @@ export default function RecentProjectList() {
     );
   }
 
+
   return (
     <div className="flex flex-col gap-2">
       {projects.map((project) => (
-        <Card key={project.id} className="ease-in-out bg-background">
-          <CardHeader>
-            <CardTitle className="text-2xl text-text hover:text-accent duration-75 cursor-pointer" onClick={() => console.log(project.title, "clicked")}>{project.title}</CardTitle>
-            <CardDescription className="text-text">{project.description}</CardDescription>
-          </CardHeader>
-        </Card>
+        <div key={project.id}>
+            <h1>{project.name}</h1>
+            <h1>{project.description}</h1>
+            <h1>{project.image_url}</h1>
+            <h1>{project.demo_url}</h1>
+            <h1>{project.github_url}</h1>
+        </div>
       ))}
     </div>
   );

@@ -60,7 +60,7 @@ export default function AddProjects() {
         className="bg-primary font-bold montserrat text-black hover:bg-active w-full"
         onClick={async () => {
           if (authToken === undefined) {
-            enqueueSnackbar("Unauthorized", { variant: "error" });
+            enqueueSnackbar("Unauthorized", { variant: "warning" });
             return;
           }
           const result = await InsertProject(
