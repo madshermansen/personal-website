@@ -30,7 +30,7 @@ export default function RootLayout({
       </head>
       <Analytics />
       <SpeedInsights />
-      <body className="bg-background text-text">
+      <body className="bg-background text-text overflow-x-hidden">
         <BackgroundObject />
         {children}
       </body>
