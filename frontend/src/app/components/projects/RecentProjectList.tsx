@@ -10,7 +10,7 @@ export default function RecentProjectList() {
   const [projects, setProjects] = useState<QueryResultRow[]>([]);
 
   useEffect(() => {
-    getProjects().then((projects) => {
+    getProjects(5).then((projects) => {
       setProjects(projects);
       setLoading(false);
       console.log(projects);
