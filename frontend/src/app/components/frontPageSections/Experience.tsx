@@ -85,12 +85,42 @@ export default function Experience() {
 const experience: ExperienceProps[] = [
   {
     startDate: "June 2024",
-    endDate: "Present",
+    endDate: "October 2024",
     title: "Full Stack Developer",
     type: "Work",
-    description: "Developing a mobile app, digital infrastructure, website, and backend for a startup company.",
+    description:
+      "Developing a mobile app, digital infrastructure, website, and backend for a startup company.",
     company: "ssesh",
-    tools: ["Expo", "React Native", "Typescript", "Express", "MySQL", "Planetscale", "iOS", "Android"],
+    tools: [
+      "Expo",
+      "React Native",
+      "Typescript",
+      "Express",
+      "MySQL",
+      "Planetscale",
+      "iOS",
+      "Android",
+    ],
+  },
+  {
+    startDate: "January 2024",
+    endDate: "May 2024",
+    title: "Teaching Assistant",
+    type: "Work",
+    description:
+      "Assisted students in understanding topics in cryptography and network security, offering personalized guidance and support during workshops and labs.",
+    company: "NTNU - Institutt for elektroniske systemer (IE)",
+    tools: [],
+  },
+  {
+    startDate: "July 2020",
+    endDate: "June 2021",
+    title: "IT Helpdesk",
+    type: "Work",
+    description:
+      "Volunteer position for helping the IT staff set up projectors, answering support tickets, setting up new devices or any other tech related problems",
+    company: "International School of Stavanger",
+    tools: ["Zendesk", "Windows", "MacOS"],
   },
   {
     startDate: "July 2024",
@@ -100,6 +130,11 @@ const experience: ExperienceProps[] = [
     description:
       "Master's degree in informatics with a specialization in software systems.",
     company: "Norwegian University of Science and Technology",
-    tools: ["Software Engineering", "Databases", "Algorithms", "Web Development"],
+    tools: [
+      "Software Engineering",
+      "Databases",
+      "Algorithms",
+      "Web Development",
+    ],
   },
 ];
