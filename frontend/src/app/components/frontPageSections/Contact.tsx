@@ -4,7 +4,7 @@ export default function Contact() {
 
     return (
         <div>
-        <h1 id="contact" className="font-semibold">
+        <h1 id="contact" className="font-semibold  text-2xl">
           CONTACT
         </h1>
         <p>For inquiries, please contact me at <Link href="mailto:mdj.hermansen@gmail.com" className="font-bold text-accent">mdj.hermansen@gmail.com</Link></p>

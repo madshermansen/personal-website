@@ -4,7 +4,7 @@ export default function Extra() {
 
     return (
         <div>
-          <h1 id="extra" className="font-semibold">
+          <h1 id="extra" className="font-semibold text-2xl">
             EXTRA INFO
           </h1>
           <h1>

@@ -30,9 +30,8 @@ export default function RecentProjectList() {
       {projects.map((project) => (
         <div
           key={project.id}
-          className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row p-2 rounded-lg gap-2"
+          className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2"
         >
-        <img src={project.image_url} alt={project.title} className="h-full w-32"/>
         <div>
           <h1 className="font-bold cursor-pointer hover:text-accent">
             {project.title}

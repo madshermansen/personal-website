@@ -11,31 +11,9 @@ interface ExperienceProps {
 }
 
 export default function Experience() {
-  const experience: ExperienceProps[] = [
-    {
-      startDate: "June 2024",
-      endDate: "Present",
-      title: "Full Stack Developer",
-      type: "Work",
-      description: "Developing a mobile app, digital infrastructure, website, and backend for a startup company.",
-      company: "ssesh",
-      tools: ["Expo", "React Native", "Typescript", "Express", "MySQL", "Planetscale", "IOS", "Android"],
-    },
-    {
-      startDate: "July 2024",
-      endDate: "Present",
-      title: "Masters in Informatics, Software Systems",
-      type: "Education",
-      description:
-        "Master's degree in informatics with a specialization in software systems.",
-      company: "Norwegian University of Science and Technology",
-      tools: ["Software Engineering", "Databases", "Algorithms", "Web Development"],
-    },
-  ];
-
   return (
     <div className="flex flex-col gap-4">
-      <h1 id="experience" className="font-semibold">
+      <h1 id="experience" className="font-semibold text-2xl">
         WORK EXPERIENCE
       </h1>
       <div className="flex flex-col gap-8">
@@ -65,7 +43,7 @@ export default function Experience() {
         )}
       </div>
 
-      <h1 id="experience" className="font-semibold">
+      <h1 id="experience" className="font-semibold text-2xl">
         EDUCATION EXPERIENCE
       </h1>
       <div className="flex flex-col gap-8">
@@ -103,3 +81,25 @@ export default function Experience() {
     </div>
   );
 }
+
+const experience: ExperienceProps[] = [
+  {
+    startDate: "June 2024",
+    endDate: "Present",
+    title: "Full Stack Developer",
+    type: "Work",
+    description: "Developing a mobile app, digital infrastructure, website, and backend for a startup company.",
+    company: "ssesh",
+    tools: ["Expo", "React Native", "Typescript", "Express", "MySQL", "Planetscale", "iOS", "Android"],
+  },
+  {
+    startDate: "July 2024",
+    endDate: "Present",
+    title: "Masters in Informatics, Software Systems",
+    type: "Education",
+    description:
+      "Master's degree in informatics with a specialization in software systems.",
+    company: "Norwegian University of Science and Technology",
+    tools: ["Software Engineering", "Databases", "Algorithms", "Web Development"],
+  },
+];
