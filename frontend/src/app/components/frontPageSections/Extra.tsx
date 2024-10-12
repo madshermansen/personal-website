@@ -7,6 +7,7 @@ export default function Extra() {
           <h1 id="extra" className="font-semibold text-2xl">
             EXTRA INFO
           </h1>
+          <hr className="border-accent border-2" />
           <h1>
             Hey! Thanks for checking out my site. This site was made with ...
           </h1>

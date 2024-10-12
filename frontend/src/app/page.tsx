@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="flex flex-col lg:flex-row scroll-smooth lg:p-8 p-2">
       <StickyInfo />
-      <div className="lg:w-1/2 p-2 gap-4 flex flex-col">
+      <div className="lg:w-2/3 p-2 gap-4 flex flex-col">
         <AboutMe />
         <Experience />
         <RecentProjects />
