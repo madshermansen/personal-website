@@ -1,23 +1,26 @@
 "use client";
 import { QueryResultRow } from "@vercel/postgres";
 import { useEffect, useState } from "react";
-import { getProjects } from "./getProjects";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { useProjectStore } from "@/lib/state/store";
+import { getProjects } from "@/sanity/lib/client";
 
 export default function RecentProjectList() {
-  const [Loading, setLoading] = useState(true);
-  const [projects, setProjects] = useState<QueryResultRow[]>([]);
+
+  const { projectData, setProjectData } = useProjectStore();
 
   useEffect(() => {
-    getProjects(5).then((projects) => {
-      setProjects(projects);
-      setLoading(false);
-      console.log(projects);
-    });
-  }, []);
+    if (projectData.fetchedAt > Date.now() - 1000 * 60 * 60) {return}
+    if (projectData.projects.length > 0) {return}
 
-  if (Loading) {
+    const projects = getProjects()
+
+    setProjectData({ projects, fetchedAt: Date.now() });
+    
+  });
+
+  if (projectData.projects.length < 0) {
     return (
       <div>
         <h1>Loading...</h1>
@@ -27,7 +30,7 @@ export default function RecentProjectList() {
 
   return (
     <div className="flex flex-col gap-2">
-      {projects.map((project) => (
+      {projectData.projects.map((project) => (
         <Link key={project.id} href={`/projects/${project.id}`}>
           <div
             key={project.id}

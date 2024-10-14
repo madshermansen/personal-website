@@ -1,6 +1,11 @@
 import { create } from "zustand";
 
-export const useStore = create((set) => ({
-  loggedIn: false,
-  setLoggedIn: (loggedIn: boolean) => set({ loggedIn }),
+interface ProjectStore {
+  projectData: {projects: any[], fetchedAt: number};
+  setProjectData: (projectData: any) => void;
+}
+
+export const useProjectStore = create<ProjectStore>((set) => ({
+  projectData: {projects: [], fetchedAt: Date.now()},
+  setProjectData: (projectData: any) => set({ projectData }),
 }));
