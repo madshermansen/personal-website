@@ -8,8 +8,6 @@ import { getProjects } from "@/sanity/lib/client";
 export default function RecentProjectList() {
   const { projectData, setProjectData } = useProjectStore();
 
-  console.log(projectData);
-
   useEffect(() => {
     const oneHour = 1000 * 60 * 60;
 
@@ -23,8 +21,6 @@ export default function RecentProjectList() {
     const isCacheValid = projectData.fetchedAt > Date.now() - oneHour;
 
     if (projectData.projects.length === 0 || !isCacheValid) {
-      console.log(projectData.projects.length);
-      console.log("Fetching projects");
       fetchAndSetProjects();
     }
   });
