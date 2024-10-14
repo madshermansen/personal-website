@@ -33,5 +33,16 @@ export const projectType = {
       name: "image",
       type: "image",
     },
+    {
+        title: "Tags",
+        name: "tags",
+        type: "array",
+        of: [{ type: "string" }],
+    },
+    {
+        title: "Slug",
+        name: "slug",
+        type: "slug",
+    }
   ],
 };

@@ -1,6 +1,7 @@
 import { createClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId } from '../env'
+import { Project } from '../types/types';
 
 export const client = createClient({
   projectId,
@@ -9,9 +10,10 @@ export const client = createClient({
   useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
 })
 
-export function getProjects() {
+export async function getProjects(): Promise<Project[]> {
 
-  const data = client.fetch(`*[_type == "project"] | order(created_at desc)`);
+  const query = `*[_type == "project"]{title, description, github, blog, url, image, slug, tags} | order(created_at desc)`;
+  const result = await client.fetch(query);
 
-  return data;
+  return result;
 }
