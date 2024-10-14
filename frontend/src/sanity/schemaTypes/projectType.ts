@@ -7,11 +7,13 @@ export const projectType = {
       title: "Title",
       name: "title",
       type: "string",
+      validation: (Rule: { required: () => any; }) => Rule.required(),
     },
     {
       title: "Description",
       name: "description",
       type: "text",
+      validation: (Rule: { required: () => any; }) => Rule.required(),
     },
     {
       title: "GitHub URL",
@@ -43,6 +45,7 @@ export const projectType = {
         title: "Slug",
         name: "slug",
         type: "slug",
+        validation: (Rule: { required: () => any; }) => Rule.required(),
     }
   ],
 };

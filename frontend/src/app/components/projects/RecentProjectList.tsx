@@ -1,34 +1,18 @@
 "use client";
-import { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import { useProjectStore } from "@/lib/state/store";
-import { getProjects } from "@/sanity/lib/client";
+import useProjects from "@/lib/hooks/useProjects";
 
 export default function RecentProjectList() {
-  const { projectData, setProjectData } = useProjectStore();
+  const { projectData, loading } = useProjects();
 
-  useEffect(() => {
-    const oneHour = 1000 * 60 * 60;
-
-    function fetchAndSetProjects() {
-      getProjects().then((projects) => {
-        console.log(projects);
-        setProjectData(projects);
-      });
-    }
-
-    const isCacheValid = projectData.fetchedAt > Date.now() - oneHour;
-
-    if (projectData.projects.length === 0 || !isCacheValid) {
-      fetchAndSetProjects();
-    }
-  });
-
-  if (projectData.projects.length < 0) {
+  if (loading || projectData.projects.length === 0) {
     return (
       <div>
-        <h1>Loading...</h1>
+        {loading && <h1>Loading...</h1>}
+        {!loading && projectData.projects.length === 0 && (
+          <h1>No projects found</h1>
+        )}
       </div>
     );
   }
@@ -36,7 +20,7 @@ export default function RecentProjectList() {
   return (
     <div className="flex flex-col gap-2">
       {projectData.projects.map((project) => (
-        <Link key={project.slug} href={`/projects/${project.slug}`}>
+        <Link key={project.slug.current} href={`/projects/${project.slug.current}`}>
           <div
             className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2"
           >

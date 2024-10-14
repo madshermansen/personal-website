@@ -1,34 +1,47 @@
-"use client"
-import { getProjectByID } from "@/app/components/projects/getProjects";
-import { QueryResultRow } from "@vercel/postgres";
-import { useEffect, useState } from "react";
+"use client";
+import useProjects from "@/lib/hooks/useProjects";
+import { FaGithub } from "react-icons/fa";
 
-export default function Page({ params }: { params: { slug: number } }) {
+export default function Page({ params }: { params: { slug: string } }) {
+  const { projectData, loading } = useProjects();
+  
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
-    const [loading, setLoading] = useState(true);
-    const [project, setProject] = useState<QueryResultRow | null>(null);
+  if (!loading && projectData.projects.length === 0) {
+    return <h1>No projects found</h1>;
+  }
 
-    useEffect(() => {
-        getProjectByID(params.slug).then((project) => {
-            setProject(project);
-            setLoading(false);
-        }
-        );
-    }, [params.slug]);
+  // Find the project by slug  console.log(projectData.projects);
 
+  const project = projectData.projects.find((project) => project.slug.current === params.slug);
+
+  // Handle case where project is not found
+  if (!project) {
+    return <h1>Project not found</h1>;
+  }
 
   return (
     <div>
-        {loading && <h1>Loading...</h1>}
-        {!loading && project && (
-            <div>
-            <h1>{project.title}</h1>
-            <h1>{project.description}</h1>
-            <h1>{project.demo_url}</h1>
-            <h1>{project.github_url}</h1>
-            <h1>{project.tags}</h1>
-            </div>
+      <h1>{project.title}</h1>
+      <p>{project.description}</p>
+        {project.url && (
+            <a href={project.url}>
+                <h1>Check out the demo</h1>
+            </a>
         )}
+        {project.github && (
+            <a href={project.github}>
+                <FaGithub size={32} />
+            </a>
+        )}
+        <div>
+            {project.tags &&
+                project.tags.map((tag: string) => (
+                    <h1 key={tag}>{tag}</h1>
+                ))}
+        </div>
     </div>
   );
 }

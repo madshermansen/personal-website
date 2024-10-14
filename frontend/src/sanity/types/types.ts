@@ -6,5 +6,5 @@ export interface Project {
   url: string;
   image: any;
   tags: string[];
-  slug: string;
+  slug: { current: string };
 }
