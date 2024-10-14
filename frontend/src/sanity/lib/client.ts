@@ -8,3 +8,10 @@ export const client = createClient({
   apiVersion,
   useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
 })
+
+export function getProjects() {
+
+  const data = client.fetch(`*[_type == "project"] | order(created_at desc)`);
+
+  return data;
+}
