@@ -6,9 +6,8 @@ import BackgroundObject from "./components/backgroundObject";
 import Contact from "./components/frontPageSections/Contact";
 import Extra from "./components/frontPageSections/Extra";
 import { getProjects } from "@/sanity/lib/client";
+import { useEffect } from "react";
 export default function Home() {
-
-  getProjects().then((res) => console.log("test", res));
   return (
     <main className="flex flex-col lg:flex-row scroll-smooth lg:p-8 p-2">
       <StickyInfo />

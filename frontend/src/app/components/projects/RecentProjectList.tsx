@@ -1,36 +1,27 @@
 "use client";
-import { QueryResultRow } from "@vercel/postgres";
-import { useEffect, useState } from "react";
-import { getProjects } from "./getProjects";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import useProjects from "@/lib/hooks/useProjects";
 
 export default function RecentProjectList() {
-  const [Loading, setLoading] = useState(true);
-  const [projects, setProjects] = useState<QueryResultRow[]>([]);
+  const { projectData, loading } = useProjects();
 
-  useEffect(() => {
-    getProjects(5).then((projects) => {
-      setProjects(projects);
-      setLoading(false);
-      console.log(projects);
-    });
-  }, []);
-
-  if (Loading) {
+  if (loading || projectData.projects.length === 0) {
     return (
       <div>
-        <h1>Loading...</h1>
+        {loading && <h1>Loading...</h1>}
+        {!loading && projectData.projects.length === 0 && (
+          <h1>No projects found</h1>
+        )}
       </div>
     );
   }
 
   return (
     <div className="flex flex-col gap-2">
-      {projects.map((project) => (
-        <Link key={project.id} href={`/projects/${project.id}`}>
+      {projectData.projects.map((project) => (
+        <Link key={project.slug.current} href={`/projects/${project.slug.current}`}>
           <div
-            key={project.id}
             className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2"
           >
             <div>
@@ -38,15 +29,15 @@ export default function RecentProjectList() {
                 {project.title}
               </h1>
               <h1>{project.description}</h1>
-              {project.demo_url && (
-                <Link href={project.demo_url}>
+              {project.url && (
+                <Link href={project.url}>
                   <h1 className="cursor-pointer hover:text-accent font-bold">
                     Check out the demo
                   </h1>
                 </Link>
               )}
-              {project.github_url && (
-                <Link href={project.github_url}>
+              {project.github && (
+                <Link href={project.github}>
                   <FaGithub
                     size={32}
                     className="hover:text-accent duration-75 ease-in-out"
@@ -55,7 +46,7 @@ export default function RecentProjectList() {
               )}
               <div className="flex flex-wrap gap-2">
                 {project.tags &&
-                  project.tags.split(",").map((tag: string) => (
+                  project.tags.map((tag: string) => (
                     <h1
                       key={tag}
                       className="bg-secondary text-secondary bg-opacity-10 rounded-md p-1 w-fit h-fit"
