@@ -11,7 +11,8 @@ defaults:
 
 jobs:
   prettier:
-    runs-on: self-hosted
+    name: Prettier
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
