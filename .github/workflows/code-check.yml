@@ -10,14 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Checkout frontend
-        run: cd frontend
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: "npm"
+
       - name: Install dependencies
         run: npm ci
+        working-directory: ./frontend  # Specify the working directory
+
       - name: Run Prettier
         run: npm run prettier-check
+        working-directory: ./frontend  # Specify the working directory
