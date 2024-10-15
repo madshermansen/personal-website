@@ -5,22 +5,25 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: ./frontend
+
 jobs:
-  prettier-frontend:
-    runs-on: ubuntu-latest
+  prettier:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
           cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-        working-directory: ./frontend  # Specify the working directory
-
-      - name: Run Prettier
-        run: npm run prettier-check
-        working-directory: ./frontend  # Specify the working directory
+      - run: npm ci # Clean install packages
+      - run: npx prettier . --check # Run prettier
