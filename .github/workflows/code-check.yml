@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
+      - name: Checkout frontend
+        run: cd frontend
       - name: Install dependencies
         run: npm ci
       - name: Run Prettier
-        run: cd frontend && npm run prettier-check
+        run: npm run prettier-check
