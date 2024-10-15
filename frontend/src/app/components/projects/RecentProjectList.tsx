@@ -20,10 +20,11 @@ export default function RecentProjectList() {
   return (
     <div className="flex flex-col gap-2">
       {projectData.projects.map((project) => (
-        <Link key={project.slug.current} href={`/projects/${project.slug.current}`}>
-          <div
-            className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2"
-          >
+        <Link
+          key={project.slug.current}
+          href={`/projects/${project.slug.current}`}
+        >
+          <div className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2">
             <div>
               <h1 className="font-bold cursor-pointer hover:text-accent">
                 {project.title}

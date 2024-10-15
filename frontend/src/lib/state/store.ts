@@ -20,6 +20,6 @@ export const useProjectStore = create<ProjectStore>()(
     {
       name: "project-storage",
       storage: createJSONStorage(() => sessionStorage), // Use sessionStorage
-    }
-  )
+    },
+  ),
 );

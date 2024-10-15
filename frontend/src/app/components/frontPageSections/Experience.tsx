@@ -40,7 +40,7 @@ export default function Experience() {
                   ))}
                 </div>
               </div>
-            )
+            ),
         )}
       </div>
 
@@ -71,7 +71,7 @@ export default function Experience() {
                   ))}
                 </div>
               </div>
-            )
+            ),
         )}
       </div>
       <Link

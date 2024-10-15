@@ -7,13 +7,13 @@ export const projectType = {
       title: "Title",
       name: "title",
       type: "string",
-      validation: (Rule: { required: () => any; }) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       title: "Description",
       name: "description",
       type: "text",
-      validation: (Rule: { required: () => any; }) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       title: "GitHub URL",
@@ -36,16 +36,16 @@ export const projectType = {
       type: "image",
     },
     {
-        title: "Tags",
-        name: "tags",
-        type: "array",
-        of: [{ type: "string" }],
+      title: "Tags",
+      name: "tags",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
-        title: "Slug",
-        name: "slug",
-        type: "slug",
-        validation: (Rule: { required: () => any; }) => Rule.required(),
-    }
+      title: "Slug",
+      name: "slug",
+      type: "slug",
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
   ],
 };

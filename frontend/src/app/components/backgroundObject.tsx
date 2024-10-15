@@ -8,12 +8,8 @@ export default function BackgroundObject() {
   const { x, y } = useFollowPointer(ref);
 
   return (
-    <motion.div
-      ref={ref}
-      className="-z-20 fixed blur-[500px]"
-      style={{ x, y }}
-    >
-        <div className="bg-gradient-to-tr from-primary to-secondary animation-rotate w-[500px] aspect-square rounded-full opacity-55"></div>
+    <motion.div ref={ref} className="-z-20 fixed blur-[500px]" style={{ x, y }}>
+      <div className="bg-gradient-to-tr from-primary to-secondary animation-rotate w-[500px] aspect-square rounded-full opacity-55"></div>
     </motion.div>
   );
 }

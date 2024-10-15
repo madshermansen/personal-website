@@ -1,4 +1,4 @@
-"use server"
+"use server";
 interface SessionToken {
   token: string;
   role: string;
@@ -15,7 +15,9 @@ export async function setSessionToken(
   sessionTokens.push({ token, role, username });
 }
 
-export async function getSessionToken(token: string): Promise<SessionToken | undefined> {
+export async function getSessionToken(
+  token: string,
+): Promise<SessionToken | undefined> {
   console.log(sessionTokens);
   return sessionTokens.find((t) => t.token === token);
 }
