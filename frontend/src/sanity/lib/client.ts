@@ -12,7 +12,7 @@ export const client = createClient({
 
 export async function getProjects(): Promise<Project[]> {
 
-  const query = `*[_type == "project"]{title, description, github, blog, url, image, slug, tags} | order(created_at desc)`;
+  const query = `*[_type == "project"]{title, description, github, blog, url, image, slug, tags} | order(publishedAt desc)`;
   const result = await client.fetch(query);
 
   return result;
