@@ -46,6 +46,11 @@ export const projectType = {
         name: "slug",
         type: "slug",
         validation: (Rule: { required: () => any; }) => Rule.required(),
+    },
+    {
+      title: "Published at",
+      name: "publishedAt",
+      type: "datetime",
     }
   ],
 };
