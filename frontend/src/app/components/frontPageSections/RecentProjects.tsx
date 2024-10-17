@@ -7,10 +7,9 @@ export default function RecentProjects() {
       <h1 id="projects" className="font-semibold text-2xl">
         RECENT PROJECTS
       </h1>
-      <hr className="border-accent border-2" />
       <RecentProjectList />
       <h1>
-      <Link href="/projects" className="font-bold hover:text-accent duration-75">View Project Archive →</Link>
+      <Link href="/projects" className="font-bold text-positive duration-75">View Project Archive →</Link>
       </h1>
     </div>
   );

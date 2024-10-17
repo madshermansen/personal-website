@@ -6,8 +6,6 @@ export default function AboutMe() {
       <h1 id="about" className="font-semibold text-2xl">
         ABOUT
       </h1>
-      <hr className="border-accent border-2" />
-
       <p>
         Hey there! I&apos;m Mads {"(or 金羝威)"}, a tech enthusiast currently diving into my Masters
         in Software Engineering at NTNU. I&apos;m all about learning new things and

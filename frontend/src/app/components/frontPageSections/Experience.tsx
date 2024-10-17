@@ -16,7 +16,6 @@ export default function Experience() {
       <h1 id="experience" className="font-semibold text-2xl">
         WORK EXPERIENCE
       </h1>
-      <hr className="border-accent border-2" />
       <div className="flex flex-col gap-8">
         {experience.map(
           (exp) =>
@@ -47,7 +46,6 @@ export default function Experience() {
       <h1 id="experience" className="font-semibold text-2xl">
         EDUCATION EXPERIENCE
       </h1>
-      <hr className="border-accent border-2" />
       <div className="flex flex-col gap-8">
         {experience.map(
           (exp) =>
@@ -76,7 +74,7 @@ export default function Experience() {
       </div>
       <Link
         href="/resume.pdf"
-        className="font-bold hover:text-accent duration-75"
+        className="font-bold text-positive duration-75"
       >
         View Resume →
       </Link>

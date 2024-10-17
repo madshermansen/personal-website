@@ -39,6 +39,7 @@ const config = {
         secondary: "#FB75AD",
         accent: "#FA5051",
         text: "#FAF9FF",
+        positive: "#00FFB0",
       },
     },
   },
