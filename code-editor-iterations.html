@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor Design Iterations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #050505;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .page-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 1, 24, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-nav h1 {
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+            color: #6366F1;
+        }
+
+        .page-nav-links {
+            display: flex;
+            gap: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .page-nav-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .page-nav-links a:hover {
+            color: #6366F1;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 80px auto 0;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #6366F1, #A855F7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .iteration-grid {
+            display: grid;
+            gap: 60px;
+        }
+
+        .iteration-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .iteration-header {
+            padding: 25px;
+            background: rgba(99, 102, 241, 0.05);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .iteration-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #C084FC;
+        }
+
+        .iteration-header p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .iteration-demo {
+            height: 700px;
+            background: #0a0118;
+            position: relative;
+        }
+
+        /* Iteration 1: Compact Sidebar */
+        .compact-editor {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100%;
+        }
+
+        .compact-sidebar {
+            background: rgba(0, 0, 0, 0.4);
+            border-right: 1px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .file-list {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .file-item {
+            padding: 8px 12px;
+            margin: 2px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: #C084FC;
+        }
+
+        .file-item.active {
+            background: rgba(99, 102, 241, 0.2);
+            color: #6366F1;
+            border-left: 3px solid #6366F1;
+        }
+
+        .file-icon {
+            font-size: 1rem;
+        }
+
+        .editor-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            overflow-x: auto;
+        }
+
+        .editor-tab {
+            padding: 10px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #888;
+            cursor: pointer;
+            border-right: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .editor-tab:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #C084FC;
+        }
+
+        .editor-tab.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: #6366F1;
+            border-bottom: 2px solid #6366F1;
+        }
+
+        .editor-content {
+            flex: 1;
+            padding: 25px;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+            line-height: 1.8;
+        }
+
+        .status-bar {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(99, 102, 241, 0.3);
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .status-left, .status-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Code styling */
+        .code-line {
+            margin-bottom: 5px;
+        }
+
+        .code-comment {
+            color: #666;
+        }
+
+        .code-keyword {
+            color: #A855F7;
+        }
+
+        .code-string {
+            color: #6366F1;
+        }
+
+        .code-property {
+            color: #C084FC;
+        }
+
+        .code-value {
+            color: #60A5FA;
+        }
+
+        .code-function {
+            color: #A855F7;
+        }
+
+        /* Markdown styling */
+        .md-h1 {
+            font-size: 2rem;
+            color: #C084FC;
+            margin-bottom: 15px;
+        }
+
+        .md-h2 {
+            font-size: 1.5rem;
+            color: #A855F7;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .md-h3 {
+            font-size: 1.2rem;
+            color: #6366F1;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .md-p {
+            color: #aaa;
+            margin-bottom: 12px;
+        }
+
+        .md-list {
+            color: #aaa;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .md-code {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366F1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(99, 102, 241, 0.15);
+            color: #6366F1;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 3px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Iteration 2: Icon Sidebar */
+        .icon-editor {
+            display: grid;
+            grid-template-columns: 60px 220px 1fr;
+            height: 100%;
+        }
+
+        .icon-sidebar {
+            background: rgba(0, 0, 0, 0.6);
+            border-right: 1px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .icon-btn.active {
+            background: rgba(99, 102, 241, 0.3);
+        }
+
+        .icon-btn.active::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 24px;
+            background: #6366F1;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .explorer-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Iteration 3: Minimalist */
+        .minimal-editor {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100%;
+        }
+
+        .minimal-header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .breadcrumb {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb-sep {
+            color: #555;
+        }
+
+        .breadcrumb-active {
+            color: #6366F1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 4px;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #6366F1;
+            border-color: #6366F1;
+        }
+
+        /* Iteration 4: Full Featured */
+        .full-editor {
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            height: 100%;
+        }
+
+        .menu-bar {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-item {
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .menu-item:hover {
+            color: #6366F1;
+        }
+
+        .toolbar {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .tool-btn {
+            padding: 6px 10px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 4px;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #6366F1;
+        }
+
+        .tool-separator {
+            width: 1px;
+            height: 20px;
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        /* Project cards in code format */
+        .project-code {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 3px solid #6366F1;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .project-code:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .folder-section {
+            margin: 15px 0;
+        }
+
+        .folder-header {
+            color: #A855F7;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .folder-header:hover {
+            color: #C084FC;
+        }
+
+        .folder-content {
+            margin-left: 20px;
+            border-left: 1px solid rgba(99, 102, 241, 0.2);
+            padding-left: 15px;
+        }
+
+        @media (max-width: 1024px) {
+            .compact-editor {
+                grid-template-columns: 200px 1fr;
+            }
+
+            .icon-editor {
+                grid-template-columns: 50px 180px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .compact-editor,
+            .icon-editor {
+                grid-template-columns: 1fr;
+            }
+
+            .compact-sidebar,
+            .icon-sidebar,
+            .explorer-panel {
+                display: none;
+            }
+
+            .iteration-demo {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-nav">
+        <h1>$ code-editor-designs/</h1>
+        <div class="page-nav-links">
+            <a href="#iteration-1">Compact</a>
+            <a href="#iteration-2">Icon Sidebar</a>
+            <a href="#iteration-3">Minimalist</a>
+            <a href="#iteration-4">Full Featured</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <h1>Code Editor Iterations</h1>
+            <p>Polished designs combining VS Code aesthetics with developer-focused portfolio presentation</p>
+        </div>
+
+        <div class="iteration-grid">
+            <!-- Iteration 1: Compact Sidebar -->
+            <div class="iteration-card" id="iteration-1">
+                <div class="iteration-header">
+                    <h2>Iteration 1: Compact Sidebar</h2>
+                    <p>Clean file explorer on the left, tabbed content area on the right. Simple navigation with modern VS Code feel. Your about section appears as a README.md file which feels natural for developers.</p>
+                </div>
+                <div class="iteration-demo">
+                    <div class="compact-editor">
+                        <div class="compact-sidebar">
+                            <div class="sidebar-header">Explorer</div>
+                            <div class="file-list">
+                                <div class="file-item active">
+                                    <span class="file-icon">📄</span>
+                                    <span>README.md</span>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">📄</span>
+                                    <span>about.json</span>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">📄</span>
+                                    <span>skills.ts</span>
+                                </div>
+                                <div class="folder-section">
+                                    <div class="folder-header">
+                                        <span>📁</span>
+                                        <span>experience/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file-item">
+                                            <span class="file-icon">📄</span>
+                                            <span>work.md</span>
+                                        </div>
+                                        <div class="file-item">
+                                            <span class="file-icon">📄</span>
+                                            <span>education.md</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="folder-section">
+                                    <div class="folder-header">
+                                        <span>📁</span>
+                                        <span>projects/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file-item">
+                                            <span class="file-icon">⚛️</span>
+                                            <span>portfolio.tsx</span>
+                                        </div>
+                                        <div class="file-item">
+                                            <span class="file-icon">📱</span>
+                                            <span>mobile-app.tsx</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">📧</span>
+                                    <span>contact.yml</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="editor-main">
+                            <div class="editor-tabs">
+                                <div class="editor-tab active">
+                                    <span>📄</span>
+                                    <span>README.md</span>
+                                </div>
+                                <div class="editor-tab">
+                                    <span>📄</span>
+                                    <span>skills.ts</span>
+                                </div>
+                            </div>
+
+                            <div class="editor-content">
+                                <div class="md-h1"># Mads Hermansen</div>
+                                <div class="md-p">Full Stack Developer building modern web and mobile experiences</div>
+
+                                <div class="md-h2">## About</div>
+                                <div class="md-p">
+                                    I'm a developer passionate about creating elegant, performant applications. Currently pursuing a Masters in Software Systems at NTNU while working on exciting projects with React, Next.js, and TypeScript.
+                                </div>
+
+                                <div class="md-h2">## Tech Stack</div>
+                                <div>
+                                    <span class="badge">React</span>
+                                    <span class="badge">Next.js</span>
+                                    <span class="badge">TypeScript</span>
+                                    <span class="badge">Node.js</span>
+                                    <span class="badge">Express</span>
+                                    <span class="badge">MySQL</span>
+                                    <span class="badge">React Native</span>
+                                </div>
+
+                                <div class="md-h2">## Currently</div>
+                                <div class="md-list">
+                                    <div>📚 Masters in Software Systems @ NTNU (2024 - Present)</div>
+                                    <div>💼 Available for projects and collaborations</div>
+                                </div>
+
+                                <div class="md-h2">## Recent Work</div>
+                                <div class="project-code">
+                                    <div class="md-h3">Portfolio Website</div>
+                                    <div class="md-p">Modern portfolio with Next.js, Tailwind CSS, and Sanity CMS</div>
+                                    <div>
+                                        <span class="badge">Next.js</span>
+                                        <span class="badge">Tailwind</span>
+                                        <span class="badge">Sanity</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-code">
+                                    <div class="md-h3">Mobile App @ ssesh</div>
+                                    <div class="md-p">Full-stack mobile application with React Native and Express backend</div>
+                                    <div>
+                                        <span class="badge">React Native</span>
+                                        <span class="badge">Expo</span>
+                                        <span class="badge">TypeScript</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <div class="status-item">
+                                        <span style="color: #6366F1;">●</span>
+                                        <span>main</span>
+                                    </div>
+                                    <div class="status-item">UTF-8</div>
+                                    <div class="status-item">Markdown</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-item">Ln 24, Col 1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iteration 2: Icon Sidebar -->
+            <div class="iteration-card" id="iteration-2">
+                <div class="iteration-header">
+                    <h2>Iteration 2: Icon Sidebar</h2>
+                    <p>Three-column layout with icon sidebar (like VS Code), file explorer, and main content. More professional and feature-rich feel. Great for organizing different types of content.</p>
+                </div>
+                <div class="iteration-demo">
+                    <div class="icon-editor">
+                        <div class="icon-sidebar">
+                            <div class="icon-btn active">📁</div>
+                            <div class="icon-btn">🔍</div>
+                            <div class="icon-btn">📦</div>
+                            <div class="icon-btn">⚙️</div>
+                            <div style="flex: 1;"></div>
+                            <div class="icon-btn">👤</div>
+                        </div>
+
+                        <div class="explorer-panel">
+                            <div class="sidebar-header">Portfolio</div>
+                            <div class="file-list">
+                                <div class="file-item active">
+                                    <span class="file-icon">📄</span>
+                                    <span>about.tsx</span>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">🎓</span>
+                                    <span>education.ts</span>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">💼</span>
+                                    <span>work.ts</span>
+                                </div>
+                                <div class="folder-section" style="margin-top: 15px;">
+                                    <div class="folder-header">
+                                        <span>▼</span>
+                                        <span>projects/</span>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="file-item">
+                                            <span class="file-icon">⚛️</span>
+                                            <span>index.tsx</span>
+                                        </div>
+                                        <div class="file-item">
+                                            <span class="file-icon">📄</span>
+                                            <span>recent.ts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="file-item">
+                                    <span class="file-icon">📧</span>
+                                    <span>contact.json</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="editor-main">
+                            <div class="editor-tabs">
+                                <div class="editor-tab active">
+                                    <span>⚛️</span>
+                                    <span>about.tsx</span>
+                                    <span style="margin-left: auto; opacity: 0.5;">×</span>
+                                </div>
+                            </div>
+
+                            <div class="editor-content">
+                                <div class="code-line"><span class="code-keyword">import</span> <span class="code-value">{ Developer }</span> <span class="code-keyword">from</span> <span class="code-string">'@types/portfolio'</span>;</div>
+                                <div class="code-line"></div>
+                                <div class="code-line"><span class="code-keyword">export const</span> <span class="code-function">about</span> = (): <span class="code-value">Developer</span> => {</div>
+                                <div class="code-line">  <span class="code-keyword">return</span> {</div>
+                                <div class="code-line">    <span class="code-property">name</span>: <span class="code-string">"Mads Hermansen"</span>,</div>
+                                <div class="code-line">    <span class="code-property">role</span>: <span class="code-string">"Full Stack Developer"</span>,</div>
+                                <div class="code-line">    <span class="code-property">passion</span>: <span class="code-string">"Building elegant web experiences"</span>,</div>
+                                <div class="code-line"></div>
+                                <div class="code-line">    <span class="code-property">skills</span>: {</div>
+                                <div class="code-line">      <span class="code-property">frontend</span>: [<span class="code-string">"React"</span>, <span class="code-string">"Next.js"</span>, <span class="code-string">"TypeScript"</span>],</div>
+                                <div class="code-line">      <span class="code-property">backend</span>: [<span class="code-string">"Node.js"</span>, <span class="code-string">"Express"</span>, <span class="code-string">"MySQL"</span>],</div>
+                                <div class="code-line">      <span class="code-property">mobile</span>: [<span class="code-string">"React Native"</span>, <span class="code-string">"Expo"</span>]</div>
+                                <div class="code-line">    },</div>
+                                <div class="code-line"></div>
+                                <div class="code-line">    <span class="code-property">education</span>: {</div>
+                                <div class="code-line">      <span class="code-property">degree</span>: <span class="code-string">"Masters in Software Systems"</span>,</div>
+                                <div class="code-line">      <span class="code-property">institution</span>: <span class="code-string">"NTNU"</span>,</div>
+                                <div class="code-line">      <span class="code-property">status</span>: <span class="code-string">"In Progress"</span></div>
+                                <div class="code-line">    },</div>
+                                <div class="code-line"></div>
+                                <div class="code-line">    <span class="code-property">contact</span>: {</div>
+                                <div class="code-line">      <span class="code-property">github</span>: <span class="code-string">"@madshermansen"</span>,</div>
+                                <div class="code-line">      <span class="code-property">linkedin</span>: <span class="code-string">"mdhermansen"</span></div>
+                                <div class="code-line">    }</div>
+                                <div class="code-line">  };</div>
+                                <div class="code-line">};</div>
+                            </div>
+
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <div class="status-item">
+                                        <span style="color: #6366F1;">●</span>
+                                        <span>main</span>
+                                    </div>
+                                    <div class="status-item">0 ✓</div>
+                                    <div class="status-item">0 ⚠</div>
+                                </div>
+                                <div class="status-right">
+                                    <div class="status-item">TypeScript React</div>
+                                    <div class="status-item">UTF-8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iteration 3: Minimalist -->
+            <div class="iteration-card" id="iteration-3">
+                <div class="iteration-header">
+                    <h2>Iteration 3: Minimalist Clean</h2>
+                    <p>Stripped-down interface with just breadcrumb navigation and content. No sidebar clutter - focus entirely on content. Perfect for distraction-free presentation.</p>
+                </div>
+                <div class="iteration-demo">
+                    <div class="minimal-editor">
+                        <div class="minimal-header">
+                            <div class="breadcrumb">
+                                <span>portfolio</span>
+                                <span class="breadcrumb-sep">/</span>
+                                <span class="breadcrumb-active">README.md</span>
+                            </div>
+                            <div class="header-actions">
+                                <div class="action-btn">Raw</div>
+                                <div class="action-btn">Download</div>
+                            </div>
+                        </div>
+
+                        <div class="editor-content" style="max-width: 900px; margin: 0 auto; padding: 40px;">
+                            <div class="md-h1"># Mads Hermansen</div>
+                            <div class="md-p" style="font-size: 1.1rem; color: #C084FC;">
+                                Full Stack Developer • Masters Student • Tech Enthusiast
+                            </div>
+
+                            <div style="height: 30px;"></div>
+
+                            <div class="md-h2">👋 About Me</div>
+                            <div class="md-p">
+                                I'm passionate about building modern, performant web and mobile applications. Currently pursuing a Masters in Software Systems at NTNU while working on exciting projects that push the boundaries of what's possible on the web.
+                            </div>
+
+                            <div class="md-h2">🛠️ Tech Stack</div>
+                            <div class="md-p">
+                                <strong style="color: #A855F7;">Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS<br>
+                                <strong style="color: #A855F7;">Backend:</strong> Node.js, Express, MySQL, Planetscale<br>
+                                <strong style="color: #A855F7;">Mobile:</strong> React Native, Expo<br>
+                                <strong style="color: #A855F7;">Tools:</strong> Git, VS Code, Figma, Vercel
+                            </div>
+
+                            <div class="md-h2">💼 Recent Experience</div>
+                            <div class="project-code">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                    <div>
+                                        <div class="md-h3" style="margin: 0;">Full Stack Developer</div>
+                                        <div style="color: #888; font-size: 0.9rem;">ssesh</div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.85rem;">Jun 2024 - Oct 2024</div>
+                                </div>
+                                <div class="md-p">
+                                    Developed mobile app, digital infrastructure, website, and backend for a startup company.
+                                </div>
+                                <div>
+                                    <span class="badge">React Native</span>
+                                    <span class="badge">Expo</span>
+                                    <span class="badge">TypeScript</span>
+                                    <span class="badge">Express</span>
+                                </div>
+                            </div>
+
+                            <div class="md-h2">🚀 Featured Projects</div>
+                            <div class="project-code">
+                                <div class="md-h3" style="margin-bottom: 8px;">Portfolio Website</div>
+                                <div class="md-p">Modern portfolio built with Next.js, featuring Sanity CMS integration, smooth animations with Framer Motion, and a cyberpunk-inspired design system.</div>
+                                <div>
+                                    <span class="badge">Next.js</span>
+                                    <span class="badge">Tailwind</span>
+                                    <span class="badge">Sanity CMS</span>
+                                    <span class="badge">Framer Motion</span>
+                                </div>
+                            </div>
+
+                            <div class="md-h2">📫 Get In Touch</div>
+                            <div class="md-p">
+                                <a href="#" style="color: #6366F1; text-decoration: none;">GitHub: @madshermansen</a><br>
+                                <a href="#" style="color: #6366F1; text-decoration: none;">LinkedIn: mdhermansen</a>
+                            </div>
+                        </div>
+
+                        <div class="status-bar">
+                            <div class="status-left">
+                                <div class="status-item">Markdown</div>
+                                <div class="status-item">2.4 KB</div>
+                            </div>
+                            <div class="status-right">
+                                <div class="status-item">Last updated: 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iteration 4: Full Featured -->
+            <div class="iteration-card" id="iteration-4">
+                <div class="iteration-header">
+                    <h2>Iteration 4: Full Featured Pro</h2>
+                    <p>Complete VS Code experience with menu bar, toolbar, and all the bells and whistles. Most authentic IDE feel. Great if you want maximum "developer" aesthetic.</p>
+                </div>
+                <div class="iteration-demo">
+                    <div class="full-editor">
+                        <div class="menu-bar">
+                            <span class="menu-item">File</span>
+                            <span class="menu-item">Edit</span>
+                            <span class="menu-item">View</span>
+                            <span class="menu-item">Go</span>
+                            <span class="menu-item">Terminal</span>
+                            <span class="menu-item">Help</span>
+                        </div>
+
+                        <div class="toolbar">
+                            <div class="tool-btn">← →</div>
+                            <div class="tool-separator"></div>
+                            <div class="tool-btn">README.md</div>
+                            <div class="tool-btn">📁 Open</div>
+                            <div class="tool-separator"></div>
+                            <div class="tool-btn">Split Editor</div>
+                            <div class="tool-btn">Preview</div>
+                        </div>
+
+                        <div style="flex: 1; display: grid; grid-template-columns: 280px 1fr; overflow: hidden;">
+                            <div class="compact-sidebar">
+                                <div class="sidebar-header">Files</div>
+                                <div class="file-list">
+                                    <div style="color: #6366F1; margin-bottom: 10px; font-size: 0.85rem;">
+                                        ▼ PORTFOLIO
+                                    </div>
+                                    <div class="file-item active">
+                                        <span class="file-icon">📄</span>
+                                        <span>README.md</span>
+                                    </div>
+                                    <div class="file-item">
+                                        <span class="file-icon">⚙️</span>
+                                        <span>config.ts</span>
+                                    </div>
+                                    <div class="folder-section">
+                                        <div class="folder-header">
+                                            <span>▼</span>
+                                            <span>src/</span>
+                                        </div>
+                                        <div class="folder-content">
+                                            <div class="file-item">
+                                                <span class="file-icon">📄</span>
+                                                <span>about.tsx</span>
+                                            </div>
+                                            <div class="file-item">
+                                                <span class="file-icon">📄</span>
+                                                <span>projects.tsx</span>
+                                            </div>
+                                            <div class="file-item">
+                                                <span class="file-icon">📄</span>
+                                                <span>contact.tsx</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="editor-content">
+                                <div class="code-line"><span class="code-comment">/**</span></div>
+                                <div class="code-line"><span class="code-comment"> * Mads Hermansen - Portfolio</span></div>
+                                <div class="code-line"><span class="code-comment"> * Full Stack Developer</span></div>
+                                <div class="code-line"><span class="code-comment"> */</span></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"><span class="code-keyword">interface</span> <span class="code-value">Portfolio</span> {</div>
+                                <div class="code-line">  <span class="code-property">developer</span>: {</div>
+                                <div class="code-line">    <span class="code-property">name</span>: <span class="code-keyword">string</span>;</div>
+                                <div class="code-line">    <span class="code-property">role</span>: <span class="code-keyword">string</span>;</div>
+                                <div class="code-line">    <span class="code-property">education</span>: <span class="code-keyword">string</span>;</div>
+                                <div class="code-line">  };</div>
+                                <div class="code-line">  <span class="code-property">skills</span>: <span class="code-keyword">string</span>[];</div>
+                                <div class="code-line">  <span class="code-property">projects</span>: Project[];</div>
+                                <div class="code-line">}</div>
+                                <div class="code-line"></div>
+                                <div class="code-line"><span class="code-keyword">const</span> <span class="code-value">portfolio</span>: <span class="code-value">Portfolio</span> = {</div>
+                                <div class="code-line">  <span class="code-property">developer</span>: {</div>
+                                <div class="code-line">    <span class="code-property">name</span>: <span class="code-string">"Mads Hermansen"</span>,</div>
+                                <div class="code-line">    <span class="code-property">role</span>: <span class="code-string">"Full Stack Developer"</span>,</div>
+                                <div class="code-line">    <span class="code-property">education</span>: <span class="code-string">"Masters @ NTNU"</span></div>
+                                <div class="code-line">  },</div>
+                                <div class="code-line"></div>
+                                <div class="code-line">  <span class="code-property">skills</span>: [</div>
+                                <div class="code-line">    <span class="code-string">"React"</span>, <span class="code-string">"Next.js"</span>, <span class="code-string">"TypeScript"</span>,</div>
+                                <div class="code-line">    <span class="code-string">"Node.js"</span>, <span class="code-string">"Express"</span>, <span class="code-string">"MySQL"</span></div>
+                                <div class="code-line">  ],</div>
+                                <div class="code-line"></div>
+                                <div class="code-line">  <span class="code-comment">// Recent projects and experience...</span></div>
+                                <div class="code-line">};</div>
+                            </div>
+                        </div>
+
+                        <div class="status-bar">
+                            <div class="status-left">
+                                <div class="status-item">
+                                    <span style="color: #6366F1;">●</span>
+                                    <span>main</span>
+                                </div>
+                                <div class="status-item">TypeScript</div>
+                                <div class="status-item">UTF-8</div>
+                                <div class="status-item">Spaces: 2</div>
+                            </div>
+                            <div class="status-right">
+                                <div class="status-item">Ln 29, Col 3</div>
+                                <div class="status-item">Copilot</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 30px; margin-top: 60px; font-family: 'Courier New', monospace;">
+            <div style="color: #A855F7; margin-bottom: 15px; font-size: 1.1rem;">$ git commit -m "Which iteration?"</div>
+            <div style="color: #aaa; line-height: 1.8;">
+                <strong style="color: #C084FC;">Pick your favorite iteration or tell me what to adjust!</strong><br><br>
+
+                I can also mix elements:<br>
+                • Use the icon sidebar from #2 with the minimalist content from #3<br>
+                • Add the toolbar from #4 to the compact layout #1<br>
+                • Customize any colors, spacing, or typography<br>
+                • Add more interactive elements or animations<br><br>
+
+                These are all fully implementable in your Next.js app!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
