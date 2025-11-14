@@ -25,16 +25,16 @@ const SkillsCodeContent = () => (
         <span className="text-text/70">: [</span>
       </div>
       <div className="ml-4 mb-2">
-        <span className="monokai-string">"React"</span>
+        <span className="monokai-string">&quot;React&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Next.js"</span>
+        <span className="monokai-string">&quot;Next.js&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"TypeScript"</span>
+        <span className="monokai-string">&quot;TypeScript&quot;</span>
         <span className="text-text/70">,</span>
         <br />
-        <span className="monokai-string">"Tailwind CSS"</span>
+        <span className="monokai-string">&quot;Tailwind CSS&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Framer Motion"</span>
+        <span className="monokai-string">&quot;Framer Motion&quot;</span>
       </div>
       <div className="mb-2">
         <span className="text-text/70">],</span>
@@ -45,16 +45,16 @@ const SkillsCodeContent = () => (
         <span className="text-text/70">: [</span>
       </div>
       <div className="ml-4 mb-2">
-        <span className="monokai-string">"Node.js"</span>
+        <span className="monokai-string">&quot;Node.js&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Express"</span>
+        <span className="monokai-string">&quot;Express&quot;</span>
         <span className="text-text/70">,</span>
         <br />
-        <span className="monokai-string">"MySQL"</span>
+        <span className="monokai-string">&quot;MySQL&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Planetscale"</span>
+        <span className="monokai-string">&quot;Planetscale&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Sanity CMS"</span>
+        <span className="monokai-string">&quot;Sanity CMS&quot;</span>
       </div>
       <div className="mb-2">
         <span className="text-text/70">],</span>
@@ -65,14 +65,14 @@ const SkillsCodeContent = () => (
         <span className="text-text/70">: [</span>
       </div>
       <div className="ml-4 mb-2">
-        <span className="monokai-string">"React Native"</span>
+        <span className="monokai-string">&quot;React Native&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Expo"</span>
+        <span className="monokai-string">&quot;Expo&quot;</span>
         <span className="text-text/70">,</span>
         <br />
-        <span className="monokai-string">"iOS"</span>
+        <span className="monokai-string">&quot;iOS&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Android"</span>
+        <span className="monokai-string">&quot;Android&quot;</span>
       </div>
       <div className="mb-2">
         <span className="text-text/70">],</span>
@@ -83,16 +83,16 @@ const SkillsCodeContent = () => (
         <span className="text-text/70">: [</span>
       </div>
       <div className="ml-4 mb-2">
-        <span className="monokai-string">"Git"</span>
+        <span className="monokai-string">&quot;Git&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"VS Code"</span>
+        <span className="monokai-string">&quot;VS Code&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Figma"</span>
+        <span className="monokai-string">&quot;Figma&quot;</span>
         <span className="text-text/70">,</span>
         <br />
-        <span className="monokai-string">"Vercel"</span>
+        <span className="monokai-string">&quot;Vercel&quot;</span>
         <span className="text-text/70">, </span>
-        <span className="monokai-string">"Zendesk"</span>
+        <span className="monokai-string">&quot;Zendesk&quot;</span>
       </div>
       <div className="mb-2">
         <span className="text-text/70">]</span>
