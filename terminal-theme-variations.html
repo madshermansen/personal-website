@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Theme Variations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #050505;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 1, 24, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .nav h1 {
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+            color: #6366F1;
+        }
+
+        .nav h1::before {
+            content: '> ';
+            color: #A855F7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 80px auto 0;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            color: #6366F1;
+        }
+
+        .intro p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .mockup-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .mockup-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mockup-card:hover {
+            border-color: rgba(99, 102, 241, 0.6);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .mockup-header {
+            padding: 25px;
+            background: rgba(99, 102, 241, 0.05);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .mockup-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+            color: #C084FC;
+        }
+
+        .mockup-header p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .mockup-demo {
+            padding: 0;
+            min-height: 600px;
+            background: #0a0118;
+            position: relative;
+        }
+
+        /* Variation 1: Full Screen Terminal */
+        .fullscreen-terminal {
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #FF5F56; }
+        .terminal-dot.yellow { background: #FFBD2E; }
+        .terminal-dot.green { background: #27C93F; }
+
+        .terminal-line {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .prompt {
+            color: #A855F7;
+            margin-right: 8px;
+        }
+
+        .command {
+            color: #6366F1;
+        }
+
+        .output {
+            color: #aaa;
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .output-highlight {
+            color: #C084FC;
+        }
+
+        .tag-inline {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(99, 102, 241, 0.2);
+            color: #6366F1;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin: 0 3px;
+        }
+
+        /* Variation 2: Code Editor Style */
+        .code-editor {
+            display: grid;
+            grid-template-columns: 50px 200px 1fr;
+            height: 100%;
+        }
+
+        .line-numbers {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 10px;
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            color: #555;
+            font-size: 0.9rem;
+            border-right: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .file-tree {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-right: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .file-item {
+            padding: 5px 10px;
+            margin: 3px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #6366F1;
+        }
+
+        .file-item.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: #C084FC;
+            border-left: 2px solid #6366F1;
+        }
+
+        .file-item::before {
+            margin-right: 8px;
+        }
+
+        .file-item.folder::before {
+            content: '📁';
+        }
+
+        .file-item.file::before {
+            content: '📄';
+        }
+
+        .code-content {
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+        }
+
+        .code-line {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .code-comment {
+            color: #666;
+        }
+
+        .code-key {
+            color: #A855F7;
+        }
+
+        .code-string {
+            color: #6366F1;
+        }
+
+        .code-value {
+            color: #C084FC;
+        }
+
+        /* Variation 3: Terminal Tabs */
+        .terminal-tabs-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs-header {
+            display: flex;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .tab {
+            padding: 12px 20px;
+            font-family: 'Courier New', monospace;
+            color: #888;
+            cursor: pointer;
+            border-right: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .tab:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #C084FC;
+        }
+
+        .tab.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: #6366F1;
+            border-bottom: 2px solid #6366F1;
+        }
+
+        .tab-content {
+            flex: 1;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+        }
+
+        /* Variation 4: Matrix/Grid Terminal */
+        .matrix-terminal {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0;
+        }
+
+        .matrix-panel {
+            background: #0a0118;
+            padding: 25px;
+            font-family: 'Courier New', monospace;
+            min-height: 200px;
+            transition: all 0.3s;
+        }
+
+        .matrix-panel:hover {
+            background: rgba(99, 102, 241, 0.05);
+            transform: scale(1.02);
+        }
+
+        .panel-header {
+            color: #6366F1;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-header::before {
+            content: '>';
+            color: #A855F7;
+        }
+
+        .panel-content {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Variation 5: Horizontal Scroll Terminal */
+        .scroll-terminal {
+            display: flex;
+            overflow-x: auto;
+            gap: 2px;
+            background: rgba(99, 102, 241, 0.05);
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-section {
+            min-width: 400px;
+            flex-shrink: 0;
+            background: #0a0118;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            border-right: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .scroll-section:last-child {
+            border-right: none;
+        }
+
+        .section-title {
+            color: #6366F1;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-title::before {
+            content: '$ ';
+            color: #A855F7;
+        }
+
+        /* Variation 6: VS Code Style */
+        .vscode-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100%;
+        }
+
+        .vscode-titlebar {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .vscode-main {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+        }
+
+        .vscode-sidebar {
+            background: rgba(0, 0, 0, 0.4);
+            border-right: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .vscode-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vscode-icon:hover {
+            color: #6366F1;
+        }
+
+        .vscode-icon.active {
+            color: #C084FC;
+            border-left: 2px solid #6366F1;
+        }
+
+        .vscode-content {
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+        }
+
+        .vscode-statusbar {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(99, 102, 241, 0.3);
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(99, 102, 241, 0.15);
+            color: #6366F1;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 4px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .project-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 3px solid #6366F1;
+            border-radius: 4px;
+        }
+
+        .project-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .code-editor {
+                grid-template-columns: 40px 1fr;
+            }
+
+            .file-tree {
+                display: none;
+            }
+
+            .matrix-terminal {
+                grid-template-columns: 1fr;
+            }
+
+            .scroll-section {
+                min-width: 300px;
+            }
+
+            .vscode-main {
+                grid-template-columns: 1fr;
+            }
+
+            .vscode-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>terminal-theme-variations.sh</h1>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <h1>./terminal_themes</h1>
+            <p>Different terminal/developer aesthetic approaches - all cyberpunk vibes</p>
+        </div>
+
+        <div class="mockup-grid">
+            <!-- Variation 1: Full Screen Terminal -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./classic-terminal</h2>
+                    <p>Classic terminal output style - clean and focused</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="fullscreen-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                            <span style="margin-left: 10px; color: #666; font-size: 0.85rem;">mads@portfolio ~ zsh</span>
+                        </div>
+
+                        <div class="terminal-line">
+                            <span class="prompt">~</span>
+                            <span class="command">whoami</span>
+                        </div>
+                        <div class="output">
+                            <strong class="output-highlight">Mads Hermansen</strong> - Full Stack Developer<br>
+                            Building modern web experiences with passion and precision
+                        </div>
+
+                        <div class="terminal-line" style="margin-top: 20px;">
+                            <span class="prompt">~</span>
+                            <span class="command">ls skills/</span>
+                        </div>
+                        <div class="output">
+                            <span class="tag-inline">React</span>
+                            <span class="tag-inline">TypeScript</span>
+                            <span class="tag-inline">Next.js</span>
+                            <span class="tag-inline">Node.js</span>
+                            <span class="tag-inline">Express</span>
+                            <span class="tag-inline">MySQL</span>
+                        </div>
+
+                        <div class="terminal-line" style="margin-top: 20px;">
+                            <span class="prompt">~</span>
+                            <span class="command">cat experience/current.txt</span>
+                        </div>
+                        <div class="output">
+                            <span class="output-highlight">Masters in Software Systems</span><br>
+                            Norwegian University of Science and Technology<br>
+                            July 2024 - Present
+                        </div>
+
+                        <div class="terminal-line" style="margin-top: 20px;">
+                            <span class="prompt">~</span>
+                            <span class="command">ls projects/ -la</span>
+                        </div>
+                        <div class="output">
+                            drwxr-xr-x  portfolio-website<br>
+                            drwxr-xr-x  mobile-app-ssesh<br>
+                            drwxr-xr-x  e-commerce-platform<br>
+                        </div>
+
+                        <div class="terminal-line" style="margin-top: 20px;">
+                            <span class="prompt">~</span>
+                            <span class="command">echo $CONTACT</span>
+                        </div>
+                        <div class="output">
+                            GitHub: <span class="output-highlight">@madshermansen</span><br>
+                            LinkedIn: <span class="output-highlight">mdhermansen</span>
+                        </div>
+
+                        <div class="terminal-line" style="margin-top: 20px;">
+                            <span class="prompt">~</span>
+                            <span style="animation: blink 1s infinite;">▊</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variation 2: Code Editor Style -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./code-editor-style</h2>
+                    <p>Code editor layout with file explorer - organized and familiar</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="code-editor">
+                        <div class="line-numbers">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                            <div>8</div>
+                            <div>9</div>
+                            <div>10</div>
+                            <div>11</div>
+                            <div>12</div>
+                            <div>13</div>
+                            <div>14</div>
+                            <div>15</div>
+                        </div>
+                        <div class="file-tree">
+                            <div style="color: #6366F1; margin-bottom: 15px; font-weight: bold;">EXPLORER</div>
+                            <div class="file-item folder">portfolio/</div>
+                            <div class="file-item file active" style="margin-left: 15px;">about.json</div>
+                            <div class="file-item file" style="margin-left: 15px;">skills.ts</div>
+                            <div class="file-item file" style="margin-left: 15px;">work.md</div>
+                            <div class="file-item folder" style="margin-left: 15px;">projects/</div>
+                            <div class="file-item file" style="margin-left: 30px;">recent.tsx</div>
+                            <div class="file-item file">contact.yml</div>
+                        </div>
+                        <div class="code-content">
+                            <div style="color: #888; margin-bottom: 15px;">📄 about.json</div>
+                            <div class="code-line"><span class="code-key">{</span></div>
+                            <div class="code-line">  <span class="code-key">"name"</span>: <span class="code-string">"Mads Hermansen"</span>,</div>
+                            <div class="code-line">  <span class="code-key">"role"</span>: <span class="code-string">"Full Stack Developer"</span>,</div>
+                            <div class="code-line">  <span class="code-key">"bio"</span>: <span class="code-string">"Building modern web applications"</span>,</div>
+                            <div class="code-line">  <span class="code-key">"skills"</span>: [</div>
+                            <div class="code-line">    <span class="code-value">"React"</span>, <span class="code-value">"Next.js"</span>, <span class="code-value">"TypeScript"</span>,</div>
+                            <div class="code-line">    <span class="code-value">"Node.js"</span>, <span class="code-value">"Express"</span>, <span class="code-value">"MySQL"</span></div>
+                            <div class="code-line">  ],</div>
+                            <div class="code-line">  <span class="code-key">"education"</span>: <span class="code-string">"Masters in Software Systems @ NTNU"</span>,</div>
+                            <div class="code-line">  <span class="code-key">"location"</span>: <span class="code-string">"Norway"</span>,</div>
+                            <div class="code-line">  <span class="code-key">"available"</span>: <span class="code-value">true</span></div>
+                            <div class="code-line"><span class="code-key">}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variation 3: Terminal Tabs -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./tabbed-terminal</h2>
+                    <p>Multiple terminal tabs - easy navigation between sections</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="terminal-tabs-container">
+                        <div class="tabs-header">
+                            <div class="tab active">about.sh</div>
+                            <div class="tab">experience.sh</div>
+                            <div class="tab">projects.sh</div>
+                            <div class="tab">contact.sh</div>
+                            <div class="tab">+</div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="terminal-line">
+                                <span class="prompt">mads@dev</span>
+                                <span class="command">./about.sh</span>
+                            </div>
+                            <div class="output" style="margin-top: 15px;">
+                                ╔══════════════════════════════════════╗<br>
+                                ║  <strong class="output-highlight">MADS HERMANSEN</strong>                   ║<br>
+                                ║  Full Stack Developer               ║<br>
+                                ╚══════════════════════════════════════╝
+                            </div>
+                            <div class="output" style="margin-top: 20px;">
+                                I'm a developer passionate about creating elegant,<br>
+                                performant web applications. Currently pursuing a<br>
+                                Masters in Software Systems while building modern<br>
+                                experiences with React and Next.js.
+                            </div>
+                            <div class="terminal-line" style="margin-top: 25px;">
+                                <span class="prompt">mads@dev</span>
+                                <span>Stack:</span>
+                            </div>
+                            <div class="output">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">Next.js</span>
+                                <span class="skill-tag">Node.js</span><br>
+                                <span class="skill-tag">Express</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">React Native</span>
+                            </div>
+                            <div class="terminal-line" style="margin-top: 25px;">
+                                <span class="prompt">mads@dev</span>
+                                <span style="animation: blink 1s infinite;">▊</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variation 4: Matrix/Grid Terminal -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./grid-panels</h2>
+                    <p>Grid-based panels - modular and interactive</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="matrix-terminal">
+                        <div class="matrix-panel" style="grid-column: span 2; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.05));">
+                            <div class="panel-header" style="font-size: 1.5rem;">whoami</div>
+                            <div class="panel-content">
+                                <strong style="color: #C084FC; font-size: 1.1rem;">Mads Hermansen</strong><br>
+                                Full Stack Developer crafting modern web experiences<br>
+                                <span style="color: #666;">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><br>
+                                Currently: Masters @ NTNU | Building @ ssesh
+                            </div>
+                        </div>
+                        <div class="matrix-panel">
+                            <div class="panel-header">skills --list</div>
+                            <div class="panel-content">
+                                • React & Next.js<br>
+                                • TypeScript<br>
+                                • Node.js & Express<br>
+                                • MySQL & Databases<br>
+                                • React Native<br>
+                                • Expo & Mobile Dev
+                            </div>
+                        </div>
+                        <div class="matrix-panel">
+                            <div class="panel-header">education --current</div>
+                            <div class="panel-content">
+                                <strong style="color: #A855F7;">NTNU</strong><br>
+                                Masters in Informatics<br>
+                                Software Systems<br>
+                                <span style="color: #666;">2024 - Present</span>
+                            </div>
+                        </div>
+                        <div class="matrix-panel" style="grid-column: span 2;">
+                            <div class="panel-header">projects --recent</div>
+                            <div class="panel-content">
+                                <div class="project-item">
+                                    <strong style="color: #6366F1;">Portfolio Website</strong><br>
+                                    <span style="color: #888; font-size: 0.85rem;">Next.js • Tailwind • Sanity CMS</span>
+                                </div>
+                                <div class="project-item">
+                                    <strong style="color: #6366F1;">Mobile App @ ssesh</strong><br>
+                                    <span style="color: #888; font-size: 0.85rem;">React Native • Expo • TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variation 5: Horizontal Scroll -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./horizontal-timeline</h2>
+                    <p>Horizontal scrolling sections - storytelling flow</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="scroll-terminal">
+                        <div class="scroll-section">
+                            <div class="section-title">intro</div>
+                            <div style="color: #aaa; line-height: 1.8;">
+                                <strong style="color: #C084FC; font-size: 1.2rem;">Hey, I'm Mads</strong><br><br>
+                                I'm a Full Stack Developer who loves building things for the web. Currently doing my Masters while working on exciting projects.<br><br>
+                                <span style="color: #6366F1;">→ Scroll right to explore</span>
+                            </div>
+                        </div>
+
+                        <div class="scroll-section">
+                            <div class="section-title">stack</div>
+                            <div style="color: #aaa;">
+                                <div style="margin-bottom: 15px;">
+                                    <span style="color: #A855F7;">Frontend:</span><br>
+                                    React, Next.js, TypeScript
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <span style="color: #A855F7;">Backend:</span><br>
+                                    Node.js, Express, MySQL
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <span style="color: #A855F7;">Mobile:</span><br>
+                                    React Native, Expo
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scroll-section">
+                            <div class="section-title">work</div>
+                            <div style="color: #aaa; line-height: 1.8;">
+                                <strong style="color: #6366F1;">Full Stack Developer</strong><br>
+                                ssesh · Jun 2024 - Oct 2024<br>
+                                Built mobile app & backend<br><br>
+
+                                <strong style="color: #6366F1;">Teaching Assistant</strong><br>
+                                NTNU · Jan 2024 - May 2024<br>
+                                Cryptography & Network Security
+                            </div>
+                        </div>
+
+                        <div class="scroll-section">
+                            <div class="section-title">projects</div>
+                            <div style="color: #aaa;">
+                                <div class="project-item">
+                                    <strong style="color: #C084FC;">Portfolio</strong><br>
+                                    Next.js, Sanity CMS
+                                </div>
+                                <div class="project-item">
+                                    <strong style="color: #C084FC;">Mobile App</strong><br>
+                                    React Native, Expo
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scroll-section">
+                            <div class="section-title">contact</div>
+                            <div style="color: #aaa; line-height: 2;">
+                                <span style="color: #A855F7;">→</span> GitHub: <span style="color: #6366F1;">@madshermansen</span><br>
+                                <span style="color: #A855F7;">→</span> LinkedIn: <span style="color: #6366F1;">mdhermansen</span><br><br>
+                                <span style="color: #666;">Available for projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variation 6: VS Code Style -->
+            <div class="mockup-card">
+                <div class="mockup-header">
+                    <h2>$ ./vscode-theme</h2>
+                    <p>VS Code inspired layout - polished and professional</p>
+                </div>
+                <div class="mockup-demo">
+                    <div class="vscode-container">
+                        <div class="vscode-titlebar">
+                            <div style="color: #6366F1;">portfolio - Visual Studio Code</div>
+                            <div style="color: #666;">File Edit View Terminal Help</div>
+                        </div>
+                        <div class="vscode-main">
+                            <div class="vscode-sidebar">
+                                <div class="vscode-icon active">📁</div>
+                                <div class="vscode-icon">🔍</div>
+                                <div class="vscode-icon">⚙️</div>
+                            </div>
+                            <div class="vscode-content">
+                                <div style="color: #666; margin-bottom: 20px; font-size: 0.85rem;">
+                                    README.md > <span style="color: #C084FC;">About Mads</span>
+                                </div>
+
+                                <div class="code-line">
+                                    <span class="code-comment"># Mads Hermansen</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-comment">## Full Stack Developer</span>
+                                </div>
+                                <div class="code-line" style="margin-top: 15px;">
+                                    <span class="code-string">Building modern web and mobile applications with a focus on</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-string">performance, accessibility, and great user experiences.</span>
+                                </div>
+
+                                <div class="code-line" style="margin-top: 20px;">
+                                    <span class="code-comment">### Currently</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-value">📚</span> <span class="code-string">Masters in Software Systems @ NTNU</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-value">💼</span> <span class="code-string">Available for projects</span>
+                                </div>
+
+                                <div class="code-line" style="margin-top: 20px;">
+                                    <span class="code-comment">### Tech Stack</span>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Next.js</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                    <span class="skill-tag">Node.js</span><br>
+                                    <span class="skill-tag">Express</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">React Native</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vscode-statusbar">
+                            <div>
+                                <span style="color: #6366F1;">●</span> main
+                                <span style="margin: 0 15px;">|</span>
+                                UTF-8
+                                <span style="margin: 0 15px;">|</span>
+                                Markdown
+                            </div>
+                            <div>Ln 24, Col 1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 30px; margin-top: 40px; font-family: 'Courier New', monospace;">
+            <div style="color: #A855F7; margin-bottom: 15px;">$ echo "Choose your favorite"</div>
+            <div style="color: #aaa; line-height: 1.8;">
+                Pick the terminal style that resonates with you, or tell me what you like from each! I can mix and match elements to create your perfect design.
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</body>
+</html>
