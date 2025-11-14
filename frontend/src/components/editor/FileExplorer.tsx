@@ -59,12 +59,22 @@ function Folder({ name, icon, children, defaultOpen = false }: FolderProps) {
 
 export default function FileExplorer({ activeFile, onFileSelect, width = 220, onWidthChange }: FileExplorerProps) {
   const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState(0);
+
+  const handleDragStart = (_: any, info: any) => {
+    setIsDragging(true);
+    setDragStart(width);
+  };
 
   const handleDrag = (_: any, info: any) => {
     if (onWidthChange) {
-      const newWidth = Math.max(180, Math.min(400, width + info.delta.x));
+      const newWidth = Math.max(180, Math.min(400, dragStart + info.offset.x));
       onWidthChange(newWidth);
     }
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -146,9 +156,10 @@ export default function FileExplorer({ activeFile, onFileSelect, width = 220, on
           drag="x"
           dragMomentum={false}
           dragElastic={0}
+          dragConstraints={{ left: 0, right: 0 }}
           onDrag={handleDrag}
-          onDragStart={() => setIsDragging(true)}
-          onDragEnd={() => setIsDragging(false)}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
           className={`absolute top-0 right-0 bottom-0 w-1 cursor-col-resize group hover:w-1.5 transition-all
             ${isDragging ? 'bg-primary w-1.5' : 'bg-transparent hover:bg-primary/50'}`}
         >
