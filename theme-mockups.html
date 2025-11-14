@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website - Theme Exploration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .theme-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .theme-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .theme-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .theme-description {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .theme-preview {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            flex: 1;
+            min-width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            padding: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .sample-section {
+            margin-bottom: 20px;
+        }
+
+        .sample-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .sample-card {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .sample-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .sample-card p {
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .sample-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .sample-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sample-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .sample-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .sample-tag {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Theme 1: Current (Dark Purple/Pink) */
+        .theme-1 {
+            background: linear-gradient(135deg, #060116, #0a0520);
+        }
+        .theme-1 .theme-header {
+            background: linear-gradient(135deg, #460EF8, #FB75AD);
+        }
+        .theme-1 .sample-card {
+            background: rgba(70, 14, 248, 0.1);
+            border: 1px solid rgba(70, 14, 248, 0.3);
+        }
+        .theme-1 .sample-btn.primary {
+            background: #460EF8;
+            color: #FAF9FF;
+        }
+        .theme-1 .sample-btn.secondary {
+            background: #FB75AD;
+            color: #FAF9FF;
+        }
+        .theme-1 .sample-tag {
+            background: rgba(250, 80, 81, 0.2);
+            color: #FA5051;
+        }
+
+        /* Theme 2: Cyber Purple (Blue-Purple) */
+        .theme-2 {
+            background: linear-gradient(135deg, #0a0118, #120828);
+        }
+        .theme-2 .theme-header {
+            background: linear-gradient(135deg, #6366F1, #A855F7);
+        }
+        .theme-2 .sample-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        .theme-2 .sample-btn.primary {
+            background: #6366F1;
+            color: #F5F3FF;
+        }
+        .theme-2 .sample-btn.secondary {
+            background: #A855F7;
+            color: #F5F3FF;
+        }
+        .theme-2 .sample-tag {
+            background: rgba(168, 85, 247, 0.2);
+            color: #C084FC;
+        }
+
+        /* Theme 3: Royal Purple */
+        .theme-3 {
+            background: linear-gradient(135deg, #1a0b2e, #2d1852);
+        }
+        .theme-3 .theme-header {
+            background: linear-gradient(135deg, #7C3AED, #DB2777);
+        }
+        .theme-3 .sample-card {
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+        }
+        .theme-3 .sample-btn.primary {
+            background: #7C3AED;
+            color: #FAF5FF;
+        }
+        .theme-3 .sample-btn.secondary {
+            background: #DB2777;
+            color: #FFF1F2;
+        }
+        .theme-3 .sample-tag {
+            background: rgba(219, 39, 119, 0.2);
+            color: #F9A8D4;
+        }
+
+        /* Theme 4: Deep Amethyst */
+        .theme-4 {
+            background: linear-gradient(135deg, #1e0836, #3d1268);
+        }
+        .theme-4 .theme-header {
+            background: linear-gradient(135deg, #9333EA, #EC4899);
+        }
+        .theme-4 .sample-card {
+            background: rgba(147, 51, 234, 0.15);
+            border: 1px solid rgba(147, 51, 234, 0.4);
+        }
+        .theme-4 .sample-btn.primary {
+            background: #9333EA;
+            color: #FAF5FF;
+        }
+        .theme-4 .sample-btn.secondary {
+            background: #EC4899;
+            color: #FFF1F2;
+        }
+        .theme-4 .sample-tag {
+            background: rgba(236, 72, 153, 0.2);
+            color: #F9A8D4;
+        }
+
+        /* Theme 5: Soft Lavender */
+        .theme-5 {
+            background: linear-gradient(135deg, #1a1625, #2d2438);
+        }
+        .theme-5 .theme-header {
+            background: linear-gradient(135deg, #8B5CF6, #D946EF);
+        }
+        .theme-5 .sample-card {
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+        }
+        .theme-5 .sample-btn.primary {
+            background: #8B5CF6;
+            color: #FAF5FF;
+        }
+        .theme-5 .sample-btn.secondary {
+            background: #D946EF;
+            color: #FAF5FF;
+        }
+        .theme-5 .sample-tag {
+            background: rgba(217, 70, 239, 0.2);
+            color: #E9D5FF;
+        }
+
+        /* Theme 6: Neon Purple */
+        .theme-6 {
+            background: linear-gradient(135deg, #0d0118, #1a0430);
+        }
+        .theme-6 .theme-header {
+            background: linear-gradient(135deg, #A855F7, #F472B6);
+        }
+        .theme-6 .sample-card {
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+        }
+        .theme-6 .sample-btn.primary {
+            background: #A855F7;
+            color: #FAF5FF;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        .theme-6 .sample-btn.secondary {
+            background: #F472B6;
+            color: #FFF1F2;
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
+        }
+        .theme-6 .sample-tag {
+            background: rgba(244, 114, 182, 0.2);
+            color: #FBCFE8;
+            box-shadow: 0 0 10px rgba(244, 114, 182, 0.2);
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .info-box p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purple Theme Exploration</h1>
+        <p class="subtitle">Click any theme to see it in detail. These are design mockups to help choose your website's color scheme.</p>
+
+        <div class="themes-grid">
+            <!-- Theme 1: Current -->
+            <div class="theme-card theme-1">
+                <div class="theme-header">
+                    <div class="theme-name">Current Theme</div>
+                    <div class="theme-description">Your existing vibrant purple/pink</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #460EF8; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #FB75AD; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #FA5051; color: white;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 2: Cyber Purple -->
+            <div class="theme-card theme-2">
+                <div class="theme-header">
+                    <div class="theme-name">Cyber Purple</div>
+                    <div class="theme-description">Cool blue-purple with modern tech vibe</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #6366F1; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #A855F7; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #C084FC; color: white;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 3: Royal Purple -->
+            <div class="theme-card theme-3">
+                <div class="theme-header">
+                    <div class="theme-name">Royal Purple</div>
+                    <div class="theme-description">Elegant and sophisticated deep purple</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #7C3AED; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #DB2777; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #F9A8D4; color: #1a0b2e;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 4: Deep Amethyst -->
+            <div class="theme-card theme-4">
+                <div class="theme-header">
+                    <div class="theme-name">Deep Amethyst</div>
+                    <div class="theme-description">Rich, saturated purple with pink accents</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #9333EA; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #EC4899; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #F9A8D4; color: #1e0836;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 5: Soft Lavender -->
+            <div class="theme-card theme-5">
+                <div class="theme-header">
+                    <div class="theme-name">Soft Lavender</div>
+                    <div class="theme-description">Gentle, balanced purple tones</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #8B5CF6; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #D946EF; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #E9D5FF; color: #1a1625;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 6: Neon Purple -->
+            <div class="theme-card theme-6">
+                <div class="theme-header">
+                    <div class="theme-name">Neon Purple</div>
+                    <div class="theme-description">Bold, glowing purple with neon effects</div>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #A855F7; color: white;">Primary</div>
+                        <div class="color-swatch" style="background: #F472B6; color: white;">Secondary</div>
+                        <div class="color-swatch" style="background: #FBCFE8; color: #0d0118;">Accent</div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Project Card Example</div>
+                        <div class="sample-card">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio built with Next.js and Tailwind CSS featuring smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Buttons</div>
+                        <div class="sample-buttons">
+                            <button class="sample-btn primary">View Project</button>
+                            <button class="sample-btn secondary">Contact Me</button>
+                        </div>
+                    </div>
+
+                    <div class="sample-section">
+                        <div class="sample-title">Skills Tags</div>
+                        <div class="sample-tags">
+                            <span class="sample-tag">React</span>
+                            <span class="sample-tag">TypeScript</span>
+                            <span class="sample-tag">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>How to use this:</strong> Browse through these theme variations to see which purple palette resonates with you. Each shows your website's key elements (cards, buttons, tags) in different color schemes. Once you pick your favorite, I'll update your actual Tailwind config and components!</p>
+        </div>
+    </div>
+</body>
+</html>
