@@ -84,21 +84,21 @@ export default function AboutContent() {
           <div className="mb-2">
             <span className="monokai-property">name</span>
             <span className="text-text/70">: </span>
-            <span className="monokai-string">"Mads Hermansen"</span>
+            <span className="monokai-string">&quot;Mads Hermansen&quot;</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-2">
             <span className="monokai-property">role</span>
             <span className="text-text/70">: </span>
-            <span className="monokai-string">"Full Stack Developer"</span>
+            <span className="monokai-string">&quot;Full Stack Developer&quot;</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-4">
             <span className="monokai-property">bio</span>
             <span className="text-text/70">: </span>
-            <span className="monokai-string">"Tech enthusiast diving into Masters in Software Engineering at NTNU"</span>
+            <span className="monokai-string">&quot;Tech enthusiast diving into Masters in Software Engineering at NTNU&quot;</span>
             <span className="text-text/70">,</span>
           </div>
 
@@ -112,7 +112,7 @@ export default function AboutContent() {
           <div className="mb-4">
             <span className="monokai-property">passion</span>
             <span className="text-text/70">: </span>
-            <span className="monokai-string">"Learning new things, collaborating on exciting projects, full-stack & mobile development"</span>
+            <span className="monokai-string">&quot;Learning new things, collaborating on exciting projects, full-stack & mobile development&quot;</span>
             <span className="text-text/70">,</span>
           </div>
 
@@ -205,7 +205,7 @@ export default function AboutContent() {
       </div>
 
       <div className="mb-4 mt-6">
-        <span className="monokai-comment">// Export the profile for use in components</span>
+        <span className="monokai-comment">{'// Export the profile for use in components'}</span>
       </div>
       <div>
         <span className="monokai-keyword">export default</span>{" "}

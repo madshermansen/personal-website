@@ -9,9 +9,9 @@ export default function RecentProjectList() {
   if (loading || projectData.projects.length === 0) {
     return (
       <div className="font-mono text-sm">
-        {loading && <p className="monokai-comment">// Loading projects...</p>}
+        {loading && <p className="monokai-comment">{'// Loading projects...'}</p>}
         {!loading && projectData.projects.length === 0 && (
-          <p className="monokai-comment">// No projects found</p>
+          <p className="monokai-comment">{'// No projects found'}</p>
         )}
       </div>
     );
