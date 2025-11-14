@@ -10,6 +10,7 @@ import StatusBar from "../components/editor/StatusBar";
 export default function Home() {
   const [activeView, setActiveView] = useState('explorer');
   const [activeFile, setActiveFile] = useState('readme');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFiles, setOpenFiles] = useState([
     { name: 'README.md', icon: '📄', key: 'readme' },
     { name: 'about.tsx', icon: '⚛️', key: 'about' }
@@ -17,6 +18,7 @@ export default function Home() {
 
   const handleFileSelect = (fileKey: string) => {
     setActiveFile(fileKey);
+    setMobileMenuOpen(false); // Close mobile menu after selection
 
     // Add file to open tabs if not already open
     const fileConfig: Record<string, {name: string, icon: string}> = {
@@ -46,18 +48,38 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen flex flex-col">
-      <div className="flex-1 flex overflow-hidden">
-        {/* Icon Sidebar */}
-        <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+    <main className="h-screen flex flex-col fixed inset-0">
+      {/* Mobile hamburger menu */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 flex items-center justify-center bg-primary/20 border border-primary/30 rounded-md"
+      >
+        <span className="text-xl">{mobileMenuOpen ? '×' : '☰'}</span>
+      </button>
 
-        {/* File Explorer */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Icon Sidebar - Hidden on mobile unless menu is open */}
+        <div className={`${mobileMenuOpen ? 'fixed inset-y-0 left-0 z-40' : 'hidden'} lg:block`}>
+          <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+        </div>
+
+        {/* File Explorer - Hidden on mobile unless menu is open */}
         {activeView === 'explorer' && (
-          <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+          <div className={`${mobileMenuOpen ? 'fixed inset-y-0 left-[60px] z-40' : 'hidden'} lg:block`}>
+            <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+          </div>
+        )}
+
+        {/* Overlay for mobile menu */}
+        {mobileMenuOpen && (
+          <div
+            className="lg:hidden fixed inset-0 bg-black/50 z-30"
+            onClick={() => setMobileMenuOpen(false)}
+          />
         )}
 
         {/* Main Editor Area */}
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
           <EditorTabs
             activeFile={activeFile}
             openFiles={openFiles}

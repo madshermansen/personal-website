@@ -52,6 +52,43 @@
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.3),
                 0 0 30px rgba(168, 85, 247, 0.1);
   }
+
+  /* Monokai Pro Theme Colors */
+  .monokai-keyword {
+    color: #FF6188; /* Pink - keywords like const, import, export */
+  }
+
+  .monokai-function {
+    color: #A9DC76; /* Green - function names */
+  }
+
+  .monokai-string {
+    color: #FFD866; /* Yellow - strings */
+  }
+
+  .monokai-property {
+    color: #78DCE8; /* Cyan - object properties */
+  }
+
+  .monokai-value {
+    color: #AB9DF2; /* Purple - values and types */
+  }
+
+  .monokai-comment {
+    color: #727072; /* Gray - comments */
+  }
+
+  .monokai-operator {
+    color: #FF6188; /* Pink - operators */
+  }
+
+  .monokai-number {
+    color: #AB9DF2; /* Purple - numbers */
+  }
+
+  .monokai-tag {
+    color: #78DCE8; /* Cyan - HTML/JSX tags */
+  }
 }
 
 @keyframes rotate {

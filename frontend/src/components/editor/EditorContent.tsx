@@ -25,86 +25,86 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
         return <Contact />;
       case 'skills':
         return (
-          <div className="font-mono text-sm">
+          <div className="font-mono text-sm leading-relaxed">
             <div className="mb-2">
-              <span className="text-accent">const</span>{" "}
-              <span className="text-secondary">skills</span>{" "}
+              <span className="monokai-keyword">const</span>{" "}
+              <span className="monokai-value">skills</span>{" "}
               <span className="text-text/70">= {"{"}</span>
             </div>
             <div className="ml-4">
               <div className="mb-2">
-                <span className="text-accent">frontend</span>
+                <span className="monokai-property">frontend</span>
                 <span className="text-text/70">: [</span>
               </div>
               <div className="ml-4 mb-2">
-                <span className="text-primary">"React"</span>
+                <span className="monokai-string">"React"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Next.js"</span>
+                <span className="monokai-string">"Next.js"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"TypeScript"</span>
+                <span className="monokai-string">"TypeScript"</span>
                 <span className="text-text/70">,</span>
                 <br />
-                <span className="text-primary">"Tailwind CSS"</span>
+                <span className="monokai-string">"Tailwind CSS"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Framer Motion"</span>
+                <span className="monokai-string">"Framer Motion"</span>
               </div>
               <div className="mb-2">
                 <span className="text-text/70">],</span>
               </div>
 
               <div className="mb-2 mt-4">
-                <span className="text-accent">backend</span>
+                <span className="monokai-property">backend</span>
                 <span className="text-text/70">: [</span>
               </div>
               <div className="ml-4 mb-2">
-                <span className="text-primary">"Node.js"</span>
+                <span className="monokai-string">"Node.js"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Express"</span>
+                <span className="monokai-string">"Express"</span>
                 <span className="text-text/70">,</span>
                 <br />
-                <span className="text-primary">"MySQL"</span>
+                <span className="monokai-string">"MySQL"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Planetscale"</span>
+                <span className="monokai-string">"Planetscale"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Sanity CMS"</span>
+                <span className="monokai-string">"Sanity CMS"</span>
               </div>
               <div className="mb-2">
                 <span className="text-text/70">],</span>
               </div>
 
               <div className="mb-2 mt-4">
-                <span className="text-accent">mobile</span>
+                <span className="monokai-property">mobile</span>
                 <span className="text-text/70">: [</span>
               </div>
               <div className="ml-4 mb-2">
-                <span className="text-primary">"React Native"</span>
+                <span className="monokai-string">"React Native"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Expo"</span>
+                <span className="monokai-string">"Expo"</span>
                 <span className="text-text/70">,</span>
                 <br />
-                <span className="text-primary">"iOS"</span>
+                <span className="monokai-string">"iOS"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Android"</span>
+                <span className="monokai-string">"Android"</span>
               </div>
               <div className="mb-2">
                 <span className="text-text/70">],</span>
               </div>
 
               <div className="mb-2 mt-4">
-                <span className="text-accent">tools</span>
+                <span className="monokai-property">tools</span>
                 <span className="text-text/70">: [</span>
               </div>
               <div className="ml-4 mb-2">
-                <span className="text-primary">"Git"</span>
+                <span className="monokai-string">"Git"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"VS Code"</span>
+                <span className="monokai-string">"VS Code"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Figma"</span>
+                <span className="monokai-string">"Figma"</span>
                 <span className="text-text/70">,</span>
                 <br />
-                <span className="text-primary">"Vercel"</span>
+                <span className="monokai-string">"Vercel"</span>
                 <span className="text-text/70">, </span>
-                <span className="text-primary">"Zendesk"</span>
+                <span className="monokai-string">"Zendesk"</span>
               </div>
               <div className="mb-2">
                 <span className="text-text/70">]</span>

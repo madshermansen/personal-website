@@ -4,98 +4,100 @@ export default function AboutContent() {
   return (
     <div className="font-mono text-sm leading-relaxed">
       <div className="mb-2">
-        <span className="text-accent">import</span>{" "}
-        <span className="text-secondary">{"{ Developer }"}</span>{" "}
-        <span className="text-accent">from</span>{" "}
-        <span className="text-primary">'@types/portfolio'</span>
+        <span className="monokai-keyword">import</span>{" "}
+        <span className="monokai-value">{"{ Developer }"}</span>{" "}
+        <span className="monokai-keyword">from</span>{" "}
+        <span className="monokai-string">'@types/portfolio'</span>
         <span className="text-text/70">;</span>
       </div>
 
       <div className="mb-2 mt-4">
-        <span className="text-accent">export const</span>{" "}
-        <span className="text-secondary">about</span>{" "}
+        <span className="monokai-keyword">export const</span>{" "}
+        <span className="monokai-function">about</span>{" "}
         <span className="text-text/70">= ():</span>{" "}
-        <span className="text-secondary">Developer</span>{" "}
-        <span className="text-text/70">{"=> {"}</span>
+        <span className="monokai-value">Developer</span>{" "}
+        <span className="monokai-operator">=&gt;</span>{" "}
+        <span className="text-text/70">{"{"}</span>
       </div>
 
       <div className="ml-4">
         <div className="mb-2">
-          <span className="text-text/70">return {"{"}</span>
+          <span className="monokai-keyword">return</span>{" "}
+          <span className="text-text/70">{"{"}</span>
         </div>
 
         <div className="ml-4">
           <div className="mb-2">
-            <span className="text-accent">name</span>
+            <span className="monokai-property">name</span>
             <span className="text-text/70">: </span>
-            <span className="text-primary">"Mads Hermansen"</span>
+            <span className="monokai-string">"Mads Hermansen"</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-2">
-            <span className="text-accent">role</span>
+            <span className="monokai-property">role</span>
             <span className="text-text/70">: </span>
-            <span className="text-primary">"Full Stack Developer"</span>
+            <span className="monokai-string">"Full Stack Developer"</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-4">
-            <span className="text-accent">bio</span>
+            <span className="monokai-property">bio</span>
             <span className="text-text/70">: </span>
-            <span className="text-primary">"Tech enthusiast diving into Masters in Software Engineering at NTNU"</span>
+            <span className="monokai-string">"Tech enthusiast diving into Masters in Software Engineering at NTNU"</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-2">
-            <span className="text-accent">currentWork</span>
+            <span className="monokai-property">currentWork</span>
             <span className="text-text/70">: </span>
-            <span className="text-primary">"Contributing to mobile development at "</span>
+            <span className="monokai-string">"Contributing to mobile development at "</span>
             <span className="text-text/70"> + </span>
-            <Link href="https://ssesh.no" className="text-primary hover:text-accent transition-colors underline">
+            <Link href="https://ssesh.no" className="monokai-string hover:monokai-property transition-colors underline">
               "ssesh"
             </Link>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-4">
-            <span className="text-accent">passion</span>
+            <span className="monokai-property">passion</span>
             <span className="text-text/70">: </span>
-            <span className="text-primary">"Learning new things, collaborating on exciting projects, full-stack & mobile development"</span>
+            <span className="monokai-string">"Learning new things, collaborating on exciting projects, full-stack & mobile development"</span>
             <span className="text-text/70">,</span>
           </div>
 
           <div className="mb-2">
-            <span className="text-accent">skills</span>
+            <span className="monokai-property">skills</span>
             <span className="text-text/70">: {"{"}</span>
           </div>
 
           <div className="ml-4 mb-2">
             <div className="mb-1">
-              <span className="text-accent">frontend</span>
+              <span className="monokai-property">frontend</span>
               <span className="text-text/70">: [</span>
-              <span className="text-primary">"React"</span>
+              <span className="monokai-string">"React"</span>
               <span className="text-text/70">, </span>
-              <span className="text-primary">"Next.js"</span>
+              <span className="monokai-string">"Next.js"</span>
               <span className="text-text/70">, </span>
-              <span className="text-primary">"TypeScript"</span>
+              <span className="monokai-string">"TypeScript"</span>
               <span className="text-text/70">],</span>
             </div>
             <div className="mb-1">
-              <span className="text-accent">backend</span>
+              <span className="monokai-property">backend</span>
               <span className="text-text/70">: [</span>
-              <span className="text-primary">"Node.js"</span>
+              <span className="monokai-string">"Node.js"</span>
               <span className="text-text/70">, </span>
-              <span className="text-primary">"Express"</span>
+              <span className="monokai-string">"Express"</span>
               <span className="text-text/70">, </span>
-              <span className="text-primary">"MySQL"</span>
+              <span className="monokai-string">"MySQL"</span>
               <span className="text-text/70">],</span>
             </div>
             <div>
-              <span className="text-accent">mobile</span>
+              <span className="monokai-property">mobile</span>
               <span className="text-text/70">: [</span>
-              <span className="text-primary">"React Native"</span>
+              <span className="monokai-string">"React Native"</span>
               <span className="text-text/70">, </span>
-              <span className="text-primary">"Expo"</span>
+              <span className="monokai-string">"Expo"</span>
               <span className="text-text/70">]</span>
             </div>
           </div>
@@ -105,36 +107,36 @@ export default function AboutContent() {
           </div>
 
           <div className="mb-4">
-            <span className="text-accent">hobbies</span>
+            <span className="monokai-property">hobbies</span>
             <span className="text-text/70">: [</span>
-            <span className="text-primary">"Hanging with friends"</span>
+            <span className="monokai-string">"Hanging with friends"</span>
             <span className="text-text/70">, </span>
-            <span className="text-primary">"Calisthenics"</span>
+            <span className="monokai-string">"Calisthenics"</span>
             <span className="text-text/70">],</span>
           </div>
 
           <div className="mb-2">
-            <span className="text-accent">education</span>
+            <span className="monokai-property">education</span>
             <span className="text-text/70">: {"{"}</span>
           </div>
 
           <div className="ml-4 mb-2">
             <div className="mb-1">
-              <span className="text-accent">degree</span>
+              <span className="monokai-property">degree</span>
               <span className="text-text/70">: </span>
-              <span className="text-primary">"Masters in Software Systems"</span>
+              <span className="monokai-string">"Masters in Software Systems"</span>
               <span className="text-text/70">,</span>
             </div>
             <div className="mb-1">
-              <span className="text-accent">institution</span>
+              <span className="monokai-property">institution</span>
               <span className="text-text/70">: </span>
-              <span className="text-primary">"NTNU"</span>
+              <span className="monokai-string">"NTNU"</span>
               <span className="text-text/70">,</span>
             </div>
             <div>
-              <span className="text-accent">status</span>
+              <span className="monokai-property">status</span>
               <span className="text-text/70">: </span>
-              <span className="text-primary">"In Progress"</span>
+              <span className="monokai-string">"In Progress"</span>
             </div>
           </div>
 
