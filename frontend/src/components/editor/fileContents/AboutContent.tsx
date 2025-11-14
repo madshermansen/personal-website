@@ -5,7 +5,7 @@ export default function AboutContent() {
     <div className="font-mono text-sm leading-relaxed">
       {/* Comments and imports */}
       <div className="mb-4">
-        <span className="monokai-comment">/**</span>
+        <span className="monokai-comment">{'/**'}</span>
       </div>
       <div className="mb-0">
         <span className="monokai-comment"> * Personal information and professional profile</span>
@@ -14,7 +14,7 @@ export default function AboutContent() {
         <span className="monokai-comment"> * @module About</span>
       </div>
       <div className="mb-4">
-        <span className="monokai-comment"> */</span>
+        <span className="monokai-comment">{' */'}</span>
       </div>
 
       <div className="mb-4">
@@ -59,10 +59,10 @@ export default function AboutContent() {
       </div>
 
       <div className="mb-4">
-        <span className="monokai-comment">/**</span>
+        <span className="monokai-comment">{'/**'}</span>
         <div className="monokai-comment"> * Returns developer profile information</div>
         <div className="monokai-comment"> * @returns {"{"}Developer{"}"} Complete developer profile</div>
-        <span className="monokai-comment"> */</span>
+        <span className="monokai-comment">{' */'}</span>
       </div>
 
       <div className="mb-2">

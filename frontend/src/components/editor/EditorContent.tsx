@@ -15,10 +15,10 @@ interface EditorContentProps {
 const SkillsCodeContent = () => (
   <div className="font-mono text-sm leading-relaxed">
     <div className="mb-4">
-      <span className="monokai-comment">/**</span>
+      <span className="monokai-comment">{'/**'}</span>
       <div className="monokai-comment"> * Technical skills and tools proficiency</div>
       <div className="monokai-comment"> * @module Skills</div>
-      <span className="monokai-comment"> */</span>
+      <span className="monokai-comment">{' */'}</span>
     </div>
 
     <div className="mb-4">
@@ -49,10 +49,10 @@ const SkillsCodeContent = () => (
     </div>
 
     <div className="mb-4">
-      <span className="monokai-comment">/**</span>
+      <span className="monokai-comment">{'/**'}</span>
       <div className="monokai-comment"> * Complete technical skill set organized by category</div>
       <div className="monokai-comment"> * @constant</div>
-      <span className="monokai-comment"> */</span>
+      <span className="monokai-comment">{' */'}</span>
     </div>
 
     <div className="mb-2">
@@ -146,11 +146,11 @@ const SkillsCodeContent = () => (
     </div>
 
     <div className="mb-4 mt-6">
-      <span className="monokai-comment">/**</span>
+      <span className="monokai-comment">{'/**'}</span>
       <div className="monokai-comment"> * Get all skills from a specific category</div>
       <div className="monokai-comment"> * @param category - The skill category to retrieve</div>
       <div className="monokai-comment"> * @returns Array of skills in the specified category</div>
-      <span className="monokai-comment"> */</span>
+      <span className="monokai-comment">{' */'}</span>
     </div>
 
     <div className="mb-2">
