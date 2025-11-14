@@ -6,34 +6,27 @@ import FileExplorer from "../components/editor/FileExplorer";
 import EditorTabs from "../components/editor/EditorTabs";
 import EditorContent from "../components/editor/EditorContent";
 import StatusBar from "../components/editor/StatusBar";
+import { getFileInfo, type FileInfo, type FileKey } from "../utils/fileIcons";
 
 export default function Home() {
   const [activeView, setActiveView] = useState('explorer');
   const [activeFile, setActiveFile] = useState('readme');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(220);
-  const [openFiles, setOpenFiles] = useState([
-    { name: 'README.md', icon: '📄', key: 'readme' },
-    { name: 'about.tsx', icon: '⚛️', key: 'about' }
+  const [openFiles, setOpenFiles] = useState<FileInfo[]>([
+    getFileInfo('readme'),
+    getFileInfo('about')
   ]);
 
   const handleFileSelect = (fileKey: string) => {
     setActiveFile(fileKey);
     setMobileMenuOpen(false);
 
-    const fileConfig: Record<string, {name: string, icon: string}> = {
-      readme: { name: 'README.md', icon: '📄' },
-      about: { name: 'about.tsx', icon: '⚛️' },
-      skills: { name: 'skills.ts', icon: '📄' },
-      work: { name: 'work.md', icon: '💼' },
-      education: { name: 'education.md', icon: '🎓' },
-      projects: { name: 'index.tsx', icon: '⚛️' },
-      recent: { name: 'recent.ts', icon: '📄' },
-      contact: { name: 'contact.yml', icon: '📧' }
-    };
-
-    if (!openFiles.find(f => f.key === fileKey) && fileConfig[fileKey]) {
-      setOpenFiles([...openFiles, { ...fileConfig[fileKey], key: fileKey }]);
+    if (!openFiles.find(f => f.key === fileKey)) {
+      const fileInfo = getFileInfo(fileKey as FileKey);
+      if (fileInfo) {
+        setOpenFiles([...openFiles, fileInfo]);
+      }
     }
   };
 

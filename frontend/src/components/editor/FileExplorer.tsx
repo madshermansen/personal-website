@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { FileText, FileCode, Briefcase, GraduationCap, Mail, FolderOpen, ChevronRight, ChevronDown } from "lucide-react";
 
 interface FileExplorerProps {
   activeFile: string;
@@ -12,7 +13,7 @@ interface FileExplorerProps {
 
 interface FileItemProps {
   name: string;
-  icon: string;
+  icon: React.ReactNode;
   active: boolean;
   onClick: () => void;
   indent?: number;
@@ -26,31 +27,34 @@ function FileItem({ name, icon, active, onClick, indent = 0 }: FileItemProps) {
         ${active ? 'bg-primary/20 text-primary border-l-2 border-primary' : 'text-text/70 hover:bg-primary/10 hover:text-accent'}`}
       style={{ paddingLeft: `${12 + indent * 15}px` }}
     >
-      <span className="text-base">{icon}</span>
-      <span>{name}</span>
+      <span className="flex-shrink-0">{icon}</span>
+      <span className="truncate">{name}</span>
     </div>
   );
 }
 
 interface FolderProps {
   name: string;
-  icon: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
 }
 
-function Folder({ name, icon, children, defaultOpen = false }: FolderProps) {
+function Folder({ name, children, defaultOpen = false }: FolderProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
     <div>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-primary/10 transition-all duration-200 font-mono text-sm text-text/70"
+        className="flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-primary/10 transition-all duration-200 font-mono text-sm text-text/70 group"
       >
-        <span className="text-xs">{isOpen ? '▼' : '▶'}</span>
-        <span className="text-base">{icon}</span>
-        <span>{name}</span>
+        {isOpen ? (
+          <ChevronDown className="w-3.5 h-3.5 flex-shrink-0" />
+        ) : (
+          <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />
+        )}
+        <FolderOpen className="w-4 h-4 flex-shrink-0 text-accent/70 group-hover:text-accent" />
+        <span className="truncate">{name}</span>
       </div>
       {isOpen && <div>{children}</div>}
     </div>
@@ -89,53 +93,53 @@ export default function FileExplorer({ activeFile, onFileSelect, width = 220, on
       <div className="flex-1">
         <FileItem
           name="README.md"
-          icon="📄"
+          icon={<FileText className="w-4 h-4 text-blue-400/70" />}
           active={activeFile === 'readme'}
           onClick={() => onFileSelect('readme')}
         />
 
         <FileItem
           name="about.tsx"
-          icon="⚛️"
+          icon={<FileCode className="w-4 h-4 text-cyan-400/70" />}
           active={activeFile === 'about'}
           onClick={() => onFileSelect('about')}
         />
 
         <FileItem
           name="skills.ts"
-          icon="📄"
+          icon={<FileCode className="w-4 h-4 text-blue-400/70" />}
           active={activeFile === 'skills'}
           onClick={() => onFileSelect('skills')}
         />
 
-        <Folder name="experience/" icon="📁" defaultOpen={true}>
+        <Folder name="experience/" defaultOpen={true}>
           <FileItem
             name="work.md"
-            icon="💼"
+            icon={<Briefcase className="w-4 h-4 text-orange-400/70" />}
             active={activeFile === 'work'}
             onClick={() => onFileSelect('work')}
             indent={1}
           />
           <FileItem
             name="education.md"
-            icon="🎓"
+            icon={<GraduationCap className="w-4 h-4 text-green-400/70" />}
             active={activeFile === 'education'}
             onClick={() => onFileSelect('education')}
             indent={1}
           />
         </Folder>
 
-        <Folder name="projects/" icon="📁" defaultOpen={true}>
+        <Folder name="projects/" defaultOpen={true}>
           <FileItem
             name="index.tsx"
-            icon="⚛️"
+            icon={<FileCode className="w-4 h-4 text-cyan-400/70" />}
             active={activeFile === 'projects'}
             onClick={() => onFileSelect('projects')}
             indent={1}
           />
           <FileItem
             name="recent.ts"
-            icon="📄"
+            icon={<FileCode className="w-4 h-4 text-blue-400/70" />}
             active={activeFile === 'recent'}
             onClick={() => onFileSelect('recent')}
             indent={1}
@@ -144,7 +148,7 @@ export default function FileExplorer({ activeFile, onFileSelect, width = 220, on
 
         <FileItem
           name="contact.yml"
-          icon="📧"
+          icon={<Mail className="w-4 h-4 text-yellow-400/70" />}
           active={activeFile === 'contact'}
           onClick={() => onFileSelect('contact')}
         />
