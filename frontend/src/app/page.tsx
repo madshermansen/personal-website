@@ -11,6 +11,7 @@ export default function Home() {
   const [activeView, setActiveView] = useState('explorer');
   const [activeFile, setActiveFile] = useState('readme');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(220);
   const [openFiles, setOpenFiles] = useState([
     { name: 'README.md', icon: '📄', key: 'readme' },
     { name: 'about.tsx', icon: '⚛️', key: 'about' }
@@ -56,7 +57,12 @@ export default function Home() {
         {/* Desktop: File Explorer */}
         {activeView === 'explorer' && (
           <div className="hidden lg:block">
-            <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+            <FileExplorer
+              activeFile={activeFile}
+              onFileSelect={handleFileSelect}
+              width={sidebarWidth}
+              onWidthChange={setSidebarWidth}
+            />
           </div>
         )}
 

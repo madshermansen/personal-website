@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 interface FileExplorerProps {
   activeFile: string;
   onFileSelect: (file: string) => void;
+  width?: number;
+  onWidthChange?: (width: number) => void;
 }
 
 interface FileItemProps {
@@ -54,9 +57,21 @@ function Folder({ name, icon, children, defaultOpen = false }: FolderProps) {
   );
 }
 
-export default function FileExplorer({ activeFile, onFileSelect }: FileExplorerProps) {
+export default function FileExplorer({ activeFile, onFileSelect, width = 220, onWidthChange }: FileExplorerProps) {
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDrag = (_: any, info: any) => {
+    if (onWidthChange) {
+      const newWidth = Math.max(180, Math.min(400, width + info.delta.x));
+      onWidthChange(newWidth);
+    }
+  };
+
   return (
-    <div className="w-[220px] h-full bg-black/30 border-r border-primary/30 flex flex-col overflow-y-auto">
+    <div
+      className="h-full bg-black/30 border-r border-primary/30 flex flex-col overflow-y-auto relative"
+      style={{ width: `${width}px` }}
+    >
       <div className="px-3 py-2 border-b border-primary/20 text-xs uppercase tracking-wider text-text/50 font-mono">
         Portfolio
       </div>
@@ -124,6 +139,22 @@ export default function FileExplorer({ activeFile, onFileSelect }: FileExplorerP
           onClick={() => onFileSelect('contact')}
         />
       </div>
+
+      {/* Drag Handle */}
+      {onWidthChange && (
+        <motion.div
+          drag="x"
+          dragMomentum={false}
+          dragElastic={0}
+          onDrag={handleDrag}
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={() => setIsDragging(false)}
+          className={`absolute top-0 right-0 bottom-0 w-1 cursor-col-resize group hover:w-1.5 transition-all
+            ${isDragging ? 'bg-primary w-1.5' : 'bg-transparent hover:bg-primary/50'}`}
+        >
+          <div className="absolute inset-y-0 -right-1 w-3" />
+        </motion.div>
+      )}
     </div>
   );
 }
