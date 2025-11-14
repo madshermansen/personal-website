@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SnackbarProvider } from "notistack";
-import CodeEditorBackground from "../components/CodeEditorBackground";
+import BackgroundObject from "../components/backgroundObject";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +30,8 @@ export default function RootLayout({
       </head>
       <Analytics />
       <SpeedInsights />
-      <body className="bg-background text-text overflow-hidden">
-        <CodeEditorBackground />
+      <body className="bg-background text-text overflow-x-hidden">
+        <BackgroundObject />
         {children}
       </body>
     </html>

@@ -11,13 +11,13 @@ export default function ReadmeContent() {
 
       <h2 className="text-2xl font-bold monokai-function mb-3">## 👋 About Me</h2>
       <p className="text-text/80 leading-relaxed mb-6">
-        Hey there! I'm Mads (or 金羝威), a tech enthusiast currently diving into my Masters in Software Engineering at NTNU.
-        I'm all about learning new things and collaborating on exciting projects, and I've found my sweet spot in full-stack development,
-        especially on the mobile side. I'm currently contributing to the mobile development efforts at the start-up{" "}
+        Hey there! I&#39;m Mads (or 金羝威), a tech enthusiast currently diving into my Masters in Software Engineering at NTNU.
+        I&#39;m all about learning new things and collaborating on exciting projects, and I&#39;ve found my sweet spot in full-stack development,
+        especially on the mobile side. I&#39;m currently contributing to the mobile development efforts at the start-up{" "}
         <Link href="https://ssesh.no" className="monokai-string hover:monokai-property transition-colors font-semibold">
           ssesh
         </Link>
-        . When I'm not coding or studying, you'll likely find me hanging out with friends or doing some calisthenics.
+        . When I&#39;m not coding or studying, you&#39;ll likely find me hanging out with friends or doing some calisthenics.
       </p>
 
       <h2 className="text-2xl font-bold monokai-function mb-3">## 🛠️ Tech Stack</h2>
