@@ -56,7 +56,7 @@ function Folder({ name, icon, children, defaultOpen = false }: FolderProps) {
 
 export default function FileExplorer({ activeFile, onFileSelect }: FileExplorerProps) {
   return (
-    <div className="w-[220px] bg-black/30 border-r border-primary/30 flex flex-col overflow-y-auto">
+    <div className="w-[220px] h-full bg-black/30 border-r border-primary/30 flex flex-col overflow-y-auto">
       <div className="px-3 py-2 border-b border-primary/20 text-xs uppercase tracking-wider text-text/50 font-mono">
         Portfolio
       </div>

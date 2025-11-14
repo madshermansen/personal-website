@@ -9,7 +9,7 @@ interface IconSidebarProps {
 
 export default function IconSidebar({ activeView, onViewChange }: IconSidebarProps) {
   return (
-    <div className="w-[60px] bg-black/60 border-r border-primary/30 flex flex-col items-center py-4 gap-4">
+    <div className="w-[60px] h-full bg-black/60 border-r border-primary/30 flex flex-col items-center py-4 gap-4">
       {/* Explorer */}
       <button
         onClick={() => onViewChange('explorer')}
