@@ -14,9 +14,52 @@ interface EditorContentProps {
 // Skills code content component
 const SkillsCodeContent = () => (
   <div className="font-mono text-sm leading-relaxed">
+    <div className="mb-4">
+      <span className="monokai-comment">/**</span>
+      <div className="monokai-comment"> * Technical skills and tools proficiency</div>
+      <div className="monokai-comment"> * @module Skills</div>
+      <span className="monokai-comment"> */</span>
+    </div>
+
+    <div className="mb-4">
+      <span className="monokai-keyword">type</span>{" "}
+      <span className="monokai-value">SkillCategory</span>{" "}
+      <span className="text-text/70">= </span>
+      <span className="monokai-string">&apos;frontend&apos;</span>
+      <span className="text-text/70"> | </span>
+      <span className="monokai-string">&apos;backend&apos;</span>
+      <span className="text-text/70"> | </span>
+      <span className="monokai-string">&apos;mobile&apos;</span>
+      <span className="text-text/70"> | </span>
+      <span className="monokai-string">&apos;tools&apos;</span>
+      <span className="text-text/70">;</span>
+    </div>
+
+    <div className="mb-4">
+      <span className="monokai-keyword">interface</span>{" "}
+      <span className="monokai-value">TechnicalSkills</span>{" "}
+      <span className="text-text/70">{"{"}</span>
+      <div className="ml-4">
+        <div><span className="monokai-property">frontend</span><span className="text-text/70">:</span> <span className="monokai-keyword">readonly string</span><span className="text-text/70">[];</span></div>
+        <div><span className="monokai-property">backend</span><span className="text-text/70">:</span> <span className="monokai-keyword">readonly string</span><span className="text-text/70">[];</span></div>
+        <div><span className="monokai-property">mobile</span><span className="text-text/70">:</span> <span className="monokai-keyword">readonly string</span><span className="text-text/70">[];</span></div>
+        <div><span className="monokai-property">tools</span><span className="text-text/70">:</span> <span className="monokai-keyword">readonly string</span><span className="text-text/70">[];</span></div>
+      </div>
+      <span className="text-text/70">{"}"}</span>
+    </div>
+
+    <div className="mb-4">
+      <span className="monokai-comment">/**</span>
+      <div className="monokai-comment"> * Complete technical skill set organized by category</div>
+      <div className="monokai-comment"> * @constant</div>
+      <span className="monokai-comment"> */</span>
+    </div>
+
     <div className="mb-2">
-      <span className="monokai-keyword">const</span>{" "}
-      <span className="monokai-value">skills</span>{" "}
+      <span className="monokai-keyword">export const</span>{" "}
+      <span className="monokai-value">skills</span>
+      <span className="text-text/70">:</span>{" "}
+      <span className="monokai-value">TechnicalSkills</span>{" "}
       <span className="text-text/70">= {"{"}</span>
     </div>
     <div className="ml-4">
@@ -97,6 +140,42 @@ const SkillsCodeContent = () => (
       <div className="mb-2">
         <span className="text-text/70">]</span>
       </div>
+    </div>
+    <div className="mb-2">
+      <span className="text-text/70">{"} as const;"}</span>
+    </div>
+
+    <div className="mb-4 mt-6">
+      <span className="monokai-comment">/**</span>
+      <div className="monokai-comment"> * Get all skills from a specific category</div>
+      <div className="monokai-comment"> * @param category - The skill category to retrieve</div>
+      <div className="monokai-comment"> * @returns Array of skills in the specified category</div>
+      <span className="monokai-comment"> */</span>
+    </div>
+
+    <div className="mb-2">
+      <span className="monokai-keyword">export const</span>{" "}
+      <span className="monokai-function">getSkillsByCategory</span>{" "}
+      <span className="text-text/70">= (</span>
+    </div>
+    <div className="ml-4 mb-2">
+      <span className="monokai-property">category</span>
+      <span className="text-text/70">:</span>{" "}
+      <span className="monokai-value">SkillCategory</span>
+    </div>
+    <div className="mb-2">
+      <span className="text-text/70">):</span>{" "}
+      <span className="monokai-keyword">readonly string</span>
+      <span className="text-text/70">[] </span>
+      <span className="monokai-operator">=&gt;</span>{" "}
+      <span className="text-text/70">{"{"}</span>
+    </div>
+    <div className="ml-4 mb-2">
+      <span className="monokai-keyword">return</span>{" "}
+      <span className="monokai-value">skills</span>
+      <span className="text-text/70">[</span>
+      <span className="monokai-property">category</span>
+      <span className="text-text/70">];</span>
     </div>
     <div>
       <span className="text-text/70">{"};"}</span>
