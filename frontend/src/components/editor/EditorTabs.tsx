@@ -7,7 +7,7 @@ interface EditorTabsProps {
 
 export default function EditorTabs({ activeFile, openFiles, onTabClick, onTabClose }: EditorTabsProps) {
   return (
-    <div className="flex bg-black/30 border-b border-primary/20 overflow-x-auto">
+    <>
       {openFiles.map((file) => (
         <div
           key={file.key}
@@ -32,6 +32,6 @@ export default function EditorTabs({ activeFile, openFiles, onTabClick, onTabClo
           )}
         </div>
       ))}
-    </div>
+    </>
   );
 }

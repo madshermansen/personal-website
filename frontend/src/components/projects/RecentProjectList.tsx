@@ -8,54 +8,53 @@ export default function RecentProjectList() {
 
   if (loading || projectData.projects.length === 0) {
     return (
-      <div>
-        {loading && <h1>Loading...</h1>}
+      <div className="font-mono text-sm">
+        {loading && <p className="monokai-comment">// Loading projects...</p>}
         {!loading && projectData.projects.length === 0 && (
-          <h1>No projects found</h1>
+          <p className="monokai-comment">// No projects found</p>
         )}
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       {projectData.projects.map((project) => (
         <Link key={project.slug.current} href={`/projects/${project.slug.current}`}>
-          <div
-            className="hover:bg-primary hover:bg-opacity-20 hover:box-glow-primary duration-300 flex flex-row rounded-lg gap-2 p-2 border border-transparent hover:border-primary/30"
-          >
-            <div>
-              <h1 className="font-bold cursor-pointer hover:text-accent">
-                {project.title}
-              </h1>
-              <h1>{project.description}</h1>
-              {project.url && (
-                <Link href={project.url}>
-                  <h1 className="cursor-pointer hover:text-accent font-bold">
-                    Check out the demo
-                  </h1>
-                </Link>
-              )}
-              {project.github && (
-                <Link href={project.github}>
-                  <FaGithub
-                    size={32}
-                    className="hover:text-accent duration-75 ease-in-out"
-                  />
-                </Link>
-              )}
-              <div className="flex flex-wrap gap-2">
-                {project.tags &&
-                  project.tags.map((tag: string) => (
-                    <h1
-                      key={tag}
-                      className="bg-secondary text-secondary bg-opacity-10 rounded-md p-1 w-fit h-fit"
-                    >
-                      {tag}
-                    </h1>
-                  ))}
+          <div className="flex flex-col gap-2 p-4 bg-primary/5 border-l-4 border-primary/50 rounded hover:bg-primary/10 hover:border-primary transition-all duration-300">
+            <h3 className="text-lg font-semibold monokai-string">
+              {project.title}
+            </h3>
+
+            <p className="text-text/80 leading-relaxed text-sm">
+              {project.description}
+            </p>
+
+            {project.url && (
+              <Link href={project.url} className="monokai-property hover:monokai-string transition-colors text-sm">
+                → Live Demo
+              </Link>
+            )}
+
+            {project.github && (
+              <Link href={project.github} className="flex items-center gap-2 monokai-property hover:monokai-string transition-colors">
+                <FaGithub size={18} />
+                <span className="text-sm">View Source</span>
+              </Link>
+            )}
+
+            {project.tags && project.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 text-xs bg-secondary/10 monokai-value border border-secondary/30 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </div>
+            )}
           </div>
         </Link>
       ))}
