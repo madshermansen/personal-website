@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SnackbarProvider } from "notistack";
 import BackgroundObject from "../components/backgroundObject";
+import CyberpunkGrid from "../components/CyberpunkGrid";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <SpeedInsights />
       <body className="bg-background text-text overflow-x-hidden">
         <BackgroundObject />
+        <CyberpunkGrid />
         {children}
       </body>
     </html>

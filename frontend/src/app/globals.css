@@ -27,6 +27,31 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .glow-primary {
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5),
+                 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .glow-secondary {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5),
+                 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+
+  .glow-accent {
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.5),
+                 0 0 20px rgba(192, 132, 252, 0.3);
+  }
+
+  .box-glow-primary {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3),
+                0 0 30px rgba(99, 102, 241, 0.1);
+  }
+
+  .box-glow-secondary {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3),
+                0 0 30px rgba(168, 85, 247, 0.1);
+  }
 }
 
 @keyframes rotate {

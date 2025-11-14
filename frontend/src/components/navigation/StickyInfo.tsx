@@ -5,8 +5,8 @@ export default function StickyInfo() {
   return (
     <nav className="lg:w-1/3 lg:min-w-fit lg:sticky top-8 gap-2 flex flex-col p-2 lg:max-h-screen">
       <div>
-        <h1 className="text-6xl font-bold">Mads Hermansen</h1>
-        <h1 className="text-3xl">Fullstack Developer</h1>
+        <h1 className="text-6xl font-bold glow-primary">Mads Hermansen</h1>
+        <h1 className="text-3xl text-accent">Fullstack Developer</h1>
       </div>
 
       <div className="flex flex-col">

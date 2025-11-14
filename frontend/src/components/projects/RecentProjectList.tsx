@@ -22,7 +22,7 @@ export default function RecentProjectList() {
       {projectData.projects.map((project) => (
         <Link key={project.slug.current} href={`/projects/${project.slug.current}`}>
           <div
-            className="hover:bg-primary hover:bg-opacity-20 duration-150 flex flex-row rounded-lg gap-2"
+            className="hover:bg-primary hover:bg-opacity-20 hover:box-glow-primary duration-300 flex flex-row rounded-lg gap-2 p-2 border border-transparent hover:border-primary/30"
           >
             <div>
               <h1 className="font-bold cursor-pointer hover:text-accent">
