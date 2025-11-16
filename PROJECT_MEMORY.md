@@ -14,6 +14,7 @@ Built as a VS Code-style editor interface with split screen code/output views.
 - Build/Deploy: Vercel
 
 ## Recent Changes
+- Prevented code wrapping in editor (VS Code style horizontal scrolling)
 - Added split screen editor view for all pages (work, education, projects, contact)
 - Created code content components showing TypeScript/YAML syntax highlighting
 - Implemented independent scrolling for all split screen panels
