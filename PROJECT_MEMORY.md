@@ -72,6 +72,10 @@ Split screen is used for:
 ## Important Notes
 - All pushes must be to branches starting with 'claude/' and ending with session ID
 - Use `git push -u origin <branch-name>` for pushing
+- All commits should include the following trailer:
+  ```
+  Co-authored-by: madshermansen <mdj.hermansen@gmail.com>
+  ```
 
 ## Last Updated
 2025-11-16
