@@ -4,6 +4,7 @@ import WorkCodeContent from "./fileContents/WorkCodeContent";
 import EducationCodeContent from "./fileContents/EducationCodeContent";
 import ProjectsCodeContent from "./fileContents/ProjectsCodeContent";
 import ContactCodeContent from "./fileContents/ContactCodeContent";
+import Settings from "../frontPageSections/Settings";
 import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
@@ -142,6 +143,8 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             lineCount={36}
           />
         );
+      case 'settings':
+        return <Settings />;
       default:
         return (
           <SplitScreenLayout
