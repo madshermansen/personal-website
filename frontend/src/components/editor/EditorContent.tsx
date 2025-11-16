@@ -19,7 +19,7 @@ interface EditorContentProps {
 
 // Skills code content component
 const SkillsCodeContent = () => (
-  <div className="font-mono text-sm leading-relaxed">
+  <div className="font-mono text-sm leading-relaxed whitespace-nowrap">
     <div className="mb-4">
       <span className="monokai-comment">{'/**'}</span>
       <div className="monokai-comment"> * Technical skills and tools proficiency</div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ReadmeCodeContent() {
   return (
-    <div className="font-mono text-sm leading-relaxed">
+    <div className="font-mono text-sm leading-relaxed whitespace-nowrap">
       {/* Header comment */}
       <div className="mb-4">
         <span className="monokai-comment">{'/**'}</span>

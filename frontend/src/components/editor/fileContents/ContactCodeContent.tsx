@@ -1,6 +1,6 @@
 export default function ContactCodeContent() {
   return (
-    <div className="font-mono text-sm leading-relaxed">
+    <div className="font-mono text-sm leading-relaxed whitespace-nowrap">
       {/* YAML header comment */}
       <div className="mb-4">
         <span className="monokai-comment"># Contact Information</span>

@@ -1,6 +1,6 @@
 export default function ProjectsCodeContent() {
   return (
-    <div className="font-mono text-sm leading-relaxed">
+    <div className="font-mono text-sm leading-relaxed whitespace-nowrap">
       {/* Comments and imports */}
       <div className="mb-4">
         <span className="monokai-comment">{'/**'}</span>
