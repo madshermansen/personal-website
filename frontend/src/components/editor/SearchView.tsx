@@ -139,28 +139,28 @@ export default function SearchView({ onFileSelect, width = 220 }: SearchViewProp
       {/* Search Results */}
       <div className="flex-1 overflow-y-auto">
         {filteredFiles.length > 0 ? (
-          <div className="py-1">
+          <div>
             {filteredFiles.map((file) => (
               <div
                 key={file.key}
                 onClick={() => onFileSelect(file.key)}
-                className="group cursor-pointer hover:bg-primary/10 transition-all duration-200 border-l-2 border-transparent hover:border-primary px-3 py-2"
+                className="group cursor-pointer hover:bg-primary/10 transition-all duration-200 border-l-2 border-transparent hover:border-primary px-2.5 py-1.5"
               >
-                {/* File Header */}
-                <div className="flex items-center gap-2 mb-1">
+                {/* File Name and Path - Single Line */}
+                <div className="flex items-center gap-1.5">
                   <span className="flex-shrink-0">{file.icon}</span>
-                  <span className="font-mono text-xs text-text/90 group-hover:text-primary transition-colors">
-                    {file.name}
-                  </span>
-                </div>
-
-                {/* File Path */}
-                <div className="ml-6 font-mono text-[10px] text-text/50">
-                  {file.path}
+                  <div className="flex items-baseline gap-1.5 min-w-0 flex-1">
+                    <span className="font-mono text-[11px] text-text/90 group-hover:text-primary transition-colors truncate">
+                      {file.name}
+                    </span>
+                    <span className="font-mono text-[9px] text-text/40 truncate">
+                      {file.path}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Description */}
-                <div className="ml-6 text-[11px] text-text/60 mt-0.5">
+                <div className="ml-[22px] text-[10px] text-text/50 mt-0.5 truncate">
                   {file.description}
                 </div>
               </div>
