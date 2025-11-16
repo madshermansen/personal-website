@@ -231,7 +231,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 h-full">
       {renderContent()}
     </div>
   );
