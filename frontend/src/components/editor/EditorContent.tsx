@@ -1,11 +1,12 @@
 import AboutContent from "./fileContents/AboutContent";
-import ReadmeContent from "./fileContents/ReadmeContent";
+import ReadmeCodeContent from "./fileContents/ReadmeCodeContent";
 import Experience from "../frontPageSections/Experience";
 import RecentProjects from "../frontPageSections/RecentProjects";
 import Contact from "../frontPageSections/Contact";
 import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
+import ReadmeOutput from "./outputs/ReadmeOutput";
 
 interface EditorContentProps {
   activeFile: string;
@@ -187,7 +188,13 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
   const renderContent = () => {
     switch (activeFile) {
       case 'readme':
-        return <ReadmeContent />;
+        return (
+          <SplitScreenLayout
+            fileName="README.md"
+            codeContent={<ReadmeCodeContent />}
+            outputContent={<ReadmeOutput />}
+          />
+        );
       case 'about':
         return (
           <SplitScreenLayout
@@ -213,7 +220,13 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
       case 'contact':
         return <Contact />;
       default:
-        return <ReadmeContent />;
+        return (
+          <SplitScreenLayout
+            fileName="README.md"
+            codeContent={<ReadmeCodeContent />}
+            outputContent={<ReadmeOutput />}
+          />
+        );
     }
   };
 
