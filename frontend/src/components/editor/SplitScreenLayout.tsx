@@ -75,7 +75,7 @@ export default function SplitScreenLayout({ codeContent, outputContent, fileName
         <div className="flex-1 overflow-auto bg-[#1e1e1e]">
           <div className="flex min-w-max">
             {/* Line numbers */}
-            <div className="select-none bg-[#1e1e1e] border-r border-primary/10 px-3 py-6 font-mono text-xs text-text/30 text-right min-w-[3rem] sticky left-0 z-10">
+            <div className="select-none bg-[#1e1e1e] border-r border-primary/10 px-3 py-6 font-mono text-sm text-text/30 text-right min-w-[3rem] sticky left-0 z-10">
               {Array.from({ length: lineCount }, (_, i) => (
                 <div key={i} className="leading-relaxed whitespace-nowrap">
                   {i + 1}
