@@ -14,6 +14,9 @@ Built as a VS Code-style editor interface with split screen code/output views.
 - Build/Deploy: Vercel
 
 ## Recent Changes
+- **2025-11-16**: Added interactive terminal sidebar with lightweight AI assistant
+- **2025-11-16**: Merged theme settings branch with unique high-contrast themes
+- **2025-11-16**: Integrated ThemeProvider with Zustand state management
 - Fixed line number alignment using line-per-div structure (perfect 1-to-1 alignment)
 - Fixed line numbers to match actual file content (dynamic line counts)
 - Added VS Code-style scrollbars (thin, minimal design with hover effects)
@@ -28,11 +31,17 @@ Built as a VS Code-style editor interface with split screen code/output views.
 
 ## Current Work
 ### Active Branch
-- `claude/create-memory-document-01Wof8Nt5r13tPiV7vrvb3tu`
+- `claude/add-sidebar-terminal-01Uem5CZ84gLeB7et9cVtHKj`
 
 ### Current Tasks
-1. Created this memory document for project context tracking
-2. Working on: Split screen pages scrollable independently
+1. ✅ Successfully integrated terminal sidebar with AI assistant
+2. ✅ Merged previous feature branches (memory document + theme settings)
+
+### Recently Completed
+- Created interactive terminal component with pattern-matching AI
+- Terminal supports commands: help, skills, projects, contact, date, time
+- Terminal is resizable (200-500px) with VS Code aesthetics
+- Mobile responsive terminal overlay
 
 ## Known Issues
 None currently
@@ -55,11 +64,16 @@ None currently
 ## Project Structure
 ### Key Components
 - `/frontend/src/app/page.tsx` - Main app layout with editor interface
+- `/frontend/src/components/editor/IconSidebar.tsx` - Icon navigation sidebar (includes terminal icon)
+- `/frontend/src/components/editor/Terminal.tsx` - **NEW**: Interactive terminal with AI assistant
 - `/frontend/src/components/editor/SplitScreenLayout.tsx` - Resizable split screen component
 - `/frontend/src/components/editor/EditorContent.tsx` - Content router for different file types
 - `/frontend/src/components/editor/FileExplorer.tsx` - Resizable file sidebar
 - `/frontend/src/components/editor/outputs/` - Output renderers (ReadmeOutputLatex, AboutOutput, SkillsOutput)
 - `/frontend/src/components/editor/fileContents/` - Code display components
+- `/frontend/src/components/ThemeProvider.tsx` - Theme context provider
+- `/frontend/src/components/frontPageSections/Settings.tsx` - Theme settings panel
+- `/frontend/src/lib/state/store.ts` - Zustand state management (theme, settings)
 
 ### Split Screen Files
 Split screen is used for ALL pages:
@@ -73,12 +87,24 @@ Split screen is used for ALL pages:
 
 ### Layout Architecture
 - Main container: Full viewport (h-screen w-screen fixed)
-- Icon sidebar (resizable)
-- File explorer (resizable, 180-400px)
+- Icon sidebar: 60px width (fixed) - Navigation icons
+  - Explorer, Search, Projects, Settings, Terminal, Contact
+- File explorer: 180-400px (resizable) - Shows when explorer is active
+- Terminal sidebar: 200-500px (resizable) - Shows when terminal is active
 - Main editor area with tabs
 - Split screen with draggable divider (30-70% range)
   - Left: Code panel with line numbers
   - Right: Output panel with live preview
+
+### Terminal Feature
+The terminal sidebar includes:
+- Pattern-matching AI for natural language responses
+- Command support: help, skills, projects, contact, date, time
+- Message history with user/AI/system message types
+- Auto-scrolling to latest messages
+- Resizable panel with drag handle
+- VS Code-style monospace terminal aesthetics
+- Mobile responsive design
 
 ## Important Notes
 - All pushes must be to branches starting with 'claude/' and ending with session ID
@@ -88,5 +114,9 @@ Split screen is used for ALL pages:
   Co-authored-by: madshermansen <mdj.hermansen@gmail.com>
   ```
 
+## Merged Branches
+- `claude/create-memory-document-01Wof8Nt5r13tPiV7vrvb3tu` - Memory document and code structure
+- `claude/add-theme-settings-01QmUXny1Tppjg1Brv1TtKLD` - Theme settings with Zustand
+
 ## Last Updated
-2025-11-16
+2025-11-16 - Added terminal sidebar with AI assistant
