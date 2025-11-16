@@ -14,6 +14,7 @@ Built as a VS Code-style editor interface with split screen code/output views.
 - Build/Deploy: Vercel
 
 ## Recent Changes
+- Fixed line number alignment using line-per-div structure (perfect 1-to-1 alignment)
 - Fixed line numbers to match actual file content (dynamic line counts)
 - Added VS Code-style scrollbars (thin, minimal design with hover effects)
 - Prevented code wrapping in editor (VS Code style horizontal scrolling)
