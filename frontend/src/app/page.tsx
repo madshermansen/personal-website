@@ -30,6 +30,15 @@ export default function Home() {
     }
   };
 
+  const handleViewChange = (view: string) => {
+    setActiveView(view);
+    // For non-file views, also update activeFile
+    if (view === 'settings' || view === 'contact' || view === 'projects') {
+      setActiveFile(view);
+      setMobileMenuOpen(false);
+    }
+  };
+
   const handleTabClose = (fileKey: string) => {
     const newOpenFiles = openFiles.filter(f => f.key !== fileKey);
     setOpenFiles(newOpenFiles);
@@ -44,7 +53,7 @@ export default function Home() {
       <div className="flex-1 flex overflow-hidden relative">
         {/* Desktop: Icon Sidebar */}
         <div className="hidden lg:block">
-          <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+          <IconSidebar activeView={activeView} onViewChange={handleViewChange} />
         </div>
 
         {/* Desktop: File Explorer */}
@@ -71,7 +80,7 @@ export default function Home() {
             {/* Sidebars Container */}
             <div className="lg:hidden fixed inset-y-0 left-0 z-50 flex">
               <div className="bg-black border-r border-primary/30">
-                <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+                <IconSidebar activeView={activeView} onViewChange={handleViewChange} />
               </div>
               {activeView === 'explorer' && (
                 <div className="bg-background border-r border-primary/30">

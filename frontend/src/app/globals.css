@@ -8,6 +8,18 @@
   font-family: "Noto Sans Hanunoo", sans-serif;
   font-weight: 400;
   font-style: normal;
+
+  /* Default theme colors (Monokai Pro) */
+  --color-background: #2D2A2E;
+  --color-backgroundDark: #221F22;
+  --color-backgroundLight: #3E3B3F;
+  --color-text: #FCFCFA;
+  --color-primary: #FF6188;
+  --color-secondary: #A9DC76;
+  --color-accent: #FFD866;
+  --color-cyan: #78DCE8;
+  --color-purple: #AB9DF2;
+  --color-comment: #727072;
 }
 
 .noto-sans-hanunoo-regular {
@@ -53,41 +65,41 @@
                 0 0 30px rgba(168, 85, 247, 0.1);
   }
 
-  /* Monokai Pro Theme Colors */
+  /* Theme Colors - dynamically updated based on selected theme */
   .monokai-keyword {
-    color: #FF6188; /* Pink - keywords like const, import, export */
+    color: var(--color-primary); /* Pink - keywords like const, import, export */
   }
 
   .monokai-function {
-    color: #A9DC76; /* Green - function names */
+    color: var(--color-secondary); /* Green - function names */
   }
 
   .monokai-string {
-    color: #FFD866; /* Yellow - strings */
+    color: var(--color-accent); /* Yellow - strings */
   }
 
   .monokai-property {
-    color: #78DCE8; /* Cyan - object properties */
+    color: var(--color-cyan); /* Cyan - object properties */
   }
 
   .monokai-value {
-    color: #AB9DF2; /* Purple - values and types */
+    color: var(--color-purple); /* Purple - values and types */
   }
 
   .monokai-comment {
-    color: #727072; /* Gray - comments */
+    color: var(--color-comment); /* Gray - comments */
   }
 
   .monokai-operator {
-    color: #FF6188; /* Pink - operators */
+    color: var(--color-primary); /* Pink - operators */
   }
 
   .monokai-number {
-    color: #AB9DF2; /* Purple - numbers */
+    color: var(--color-purple); /* Purple - numbers */
   }
 
   .monokai-tag {
-    color: #78DCE8; /* Cyan - HTML/JSX tags */
+    color: var(--color-cyan); /* Cyan - HTML/JSX tags */
   }
 }
 
