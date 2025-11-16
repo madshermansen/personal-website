@@ -198,6 +198,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="README.md"
             codeContent={<ReadmeCodeContent />}
             outputContent={<ReadmeOutput />}
+            lineCount={80}
           />
         );
       case 'about':
@@ -206,6 +207,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="about.tsx"
             codeContent={<AboutContent />}
             outputContent={<AboutOutput />}
+            lineCount={120}
           />
         );
       case 'skills':
@@ -214,6 +216,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="skills.ts"
             codeContent={<SkillsCodeContent />}
             outputContent={<SkillsOutput />}
+            lineCount={100}
           />
         );
       case 'work':
@@ -222,6 +225,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="work.ts"
             codeContent={<WorkCodeContent />}
             outputContent={<WorkOutput />}
+            lineCount={120}
           />
         );
       case 'education':
@@ -230,6 +234,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="education.ts"
             codeContent={<EducationCodeContent />}
             outputContent={<EducationOutput />}
+            lineCount={70}
           />
         );
       case 'projects':
@@ -239,6 +244,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="projects.tsx"
             codeContent={<ProjectsCodeContent />}
             outputContent={<ProjectsOutput />}
+            lineCount={110}
           />
         );
       case 'contact':
@@ -247,6 +253,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="contact.yml"
             codeContent={<ContactCodeContent />}
             outputContent={<ContactOutput />}
+            lineCount={35}
           />
         );
       default:
@@ -255,6 +262,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
             fileName="README.md"
             codeContent={<ReadmeCodeContent />}
             outputContent={<ReadmeOutput />}
+            lineCount={80}
           />
         );
     }
