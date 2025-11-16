@@ -79,11 +79,8 @@ For detailed testing information, see [TESTING.md](frontend/TESTING.md).
 GitHub Actions automatically runs on all PRs and pushes to main:
 
 - ✅ Type checking
-- ✅ Linting & formatting
-- ✅ Unit tests with coverage
-- ✅ E2E tests across multiple browsers
+- ✅ Linting
 - ✅ Build verification
-- ✅ Dependency security review
 
 ## Project Structure
 
