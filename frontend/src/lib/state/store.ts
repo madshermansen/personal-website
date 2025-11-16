@@ -189,6 +189,25 @@ export const useThemeStore = create<ThemeStore>()(
     {
       name: 'theme-storage',
       storage: createJSONStorage(() => localStorage), // Use localStorage for persistence
+      migrate: (persistedState: any) => {
+        // Migrate old theme names to valid ones
+        const oldToNewThemeMap: Record<string, ThemeName> = {
+          'dark': 'one-dark',
+          'light': 'palenight',
+          'nord': 'tokyo-night',
+          'dracula': 'synthwave',
+        };
+
+        if (persistedState && typeof persistedState === 'object') {
+          const currentTheme = persistedState.currentTheme;
+          // If the theme doesn't exist in the new themes, migrate it
+          if (currentTheme && !themes[currentTheme as ThemeName]) {
+            persistedState.currentTheme = oldToNewThemeMap[currentTheme] || 'monokai-pro';
+          }
+        }
+
+        return persistedState;
+      },
     }
   )
 );

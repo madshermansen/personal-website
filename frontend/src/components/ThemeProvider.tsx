@@ -8,7 +8,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     // Apply theme colors to CSS variables
-    const theme = themes[currentTheme];
+    // Use monokai-pro as fallback if theme doesn't exist
+    const theme = themes[currentTheme] || themes['monokai-pro'];
+
+    if (!theme) return; // Safety check
+
     const root = document.documentElement;
 
     Object.entries(theme.colors).forEach(([key, value]) => {
