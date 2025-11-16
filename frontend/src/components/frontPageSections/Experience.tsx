@@ -12,73 +12,88 @@ interface ExperienceProps {
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-4">
-      <h1 id="experience" className="font-semibold text-2xl">
-        WORK EXPERIENCE
-      </h1>
-      <hr className="border-accent border-2" />
-      <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6 font-mono text-sm">
+      <h2 className="text-2xl font-bold monokai-function">
+        ## Work Experience
+      </h2>
+
+      <div className="flex flex-col gap-6">
         {experience.map(
           (exp) =>
             exp.type === "Work" && (
-              <div key={exp.title} className="flex flex-col">
-                <p className="font-bold text-gray-400">
+              <div key={exp.title} className="flex flex-col gap-2 p-4 bg-primary/5 border-l-4 border-primary/50 rounded">
+                <p className="text-xs monokai-comment">
                   {exp.startDate} - {exp.endDate}
                 </p>
-                <h2 className="font-bold text-xl">
-                  {exp.company}: {exp.title}
-                </h2>
-                <p className="text-gray-400">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.tools.map((tool) => (
-                    <h1
-                      key={tool}
-                      className="bg-secondary text-secondary bg-opacity-10 rounded-md p-1 w-fit h-fit"
-                    >
-                      {tool}
-                    </h1>
-                  ))}
-                </div>
+                <h3 className="text-lg font-semibold monokai-string">
+                  {exp.title}
+                </h3>
+                <p className="monokai-property text-sm">
+                  @ {exp.company}
+                </p>
+                <p className="text-text/80 leading-relaxed">
+                  {exp.description}
+                </p>
+                {exp.tools.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {exp.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="px-2 py-1 text-xs bg-secondary/10 monokai-value border border-secondary/30 rounded"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             )
         )}
       </div>
 
-      <h1 id="experience" className="font-semibold text-2xl">
-        EDUCATION EXPERIENCE
-      </h1>
-      <hr className="border-accent border-2" />
-      <div className="flex flex-col gap-8">
+      <h2 className="text-2xl font-bold monokai-function mt-4">
+        ## Education
+      </h2>
+
+      <div className="flex flex-col gap-6">
         {experience.map(
           (exp) =>
             exp.type === "Education" && (
-              <div key={exp.title} className="flex flex-col">
-                <p className="font-bold text-gray-400">
+              <div key={exp.title} className="flex flex-col gap-2 p-4 bg-primary/5 border-l-4 border-primary/50 rounded">
+                <p className="text-xs monokai-comment">
                   {exp.startDate} - {exp.endDate}
                 </p>
-                <h2 className="font-bold text-xl">
-                  {exp.company}: {exp.title}
-                </h2>
-                <p className="text-gray-400">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.tools.map((tool) => (
-                    <h1
-                      key={tool}
-                      className="bg-secondary text-secondary bg-opacity-10 rounded-md p-1 w-fit h-fit"
-                    >
-                      {tool}
-                    </h1>
-                  ))}
-                </div>
+                <h3 className="text-lg font-semibold monokai-string">
+                  {exp.title}
+                </h3>
+                <p className="monokai-property text-sm">
+                  @ {exp.company}
+                </p>
+                <p className="text-text/80 leading-relaxed">
+                  {exp.description}
+                </p>
+                {exp.tools.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {exp.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="px-2 py-1 text-xs bg-secondary/10 monokai-value border border-secondary/30 rounded"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             )
         )}
       </div>
+
       <Link
         href="/resume.pdf"
-        className="font-bold hover:text-accent duration-75"
+        className="monokai-property hover:monokai-string transition-colors underline mt-2"
       >
-        View Resume →
+        → View Full Resume
       </Link>
     </div>
   );

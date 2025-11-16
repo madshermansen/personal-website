@@ -24,7 +24,7 @@ export default function useProjects() {
     } else {
       setLoading(false);
     }
-  });
+  }, [projectData.fetchedAt, projectData.projects.length, setProjectData]);
 
   return { projectData, loading };
 }
