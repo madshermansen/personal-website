@@ -77,7 +77,7 @@ export default function Projects() {
                       <span className="text-textMuted">:</span>
                       <Link href={`/projects/${project.slug.current}`}>
                         <span className="monokai-string hover:text-accent transition-colors cursor-pointer text-base">
-                          "{project.title}"
+                          &quot;{project.title}&quot;
                         </span>
                       </Link>
                     </div>

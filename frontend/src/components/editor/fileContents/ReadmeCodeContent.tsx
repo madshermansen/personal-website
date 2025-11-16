@@ -76,7 +76,7 @@ export default function ReadmeCodeContent() {
           Norwegian University of Science and Technology (NTNU)
         </div>
         <div className="text-comment text-xs">
-          <span className="monokai-comment">// July 2024 - Present</span>
+          <span className="monokai-comment">{'// July 2024 - Present'}</span>
         </div>
       </div>
 
@@ -120,7 +120,7 @@ export default function ReadmeCodeContent() {
       </div>
 
       <div className="mt-4 text-xs text-comment">
-        <span className="monokai-comment">// Made with ❤️ using Next.js, TypeScript, and Tailwind CSS</span>
+        <span className="monokai-comment">{'// Made with ❤️ using Next.js, TypeScript, and Tailwind CSS'}</span>
       </div>
     </div>
   );
