@@ -14,6 +14,9 @@ Built as a VS Code-style editor interface with split screen code/output views.
 - Build/Deploy: Vercel
 
 ## Recent Changes
+- Added split screen editor view for all pages (work, education, projects, contact)
+- Created code content components showing TypeScript/YAML syntax highlighting
+- Implemented independent scrolling for all split screen panels
 - Redesigned README output to look like a professional PDF document
 - Added LaTeX-style PDF resume output
 - Fixed Vercel deployment errors
@@ -55,10 +58,14 @@ None currently
 - `/frontend/src/components/editor/fileContents/` - Code display components
 
 ### Split Screen Files
-Split screen is used for:
+Split screen is used for ALL pages:
 - `readme` - README.md with LaTeX-style PDF output
 - `about` - about.tsx component with profile card
 - `skills` - skills.ts with skills grid
+- `work` - work.ts showing work experience data structure
+- `education` - education.ts showing education data structure
+- `projects` - projects.tsx showing projects component
+- `contact` - contact.yml showing contact info in YAML format
 
 ### Layout Architecture
 - Main container: Full viewport (h-screen w-screen fixed)
