@@ -108,3 +108,33 @@
 .animation-rotate {
   animation: rotate 20s linear infinite;
 }
+
+/* VS Code-style scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(121, 121, 121, 0.4) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.4);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(158, 158, 158, 0.7);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
