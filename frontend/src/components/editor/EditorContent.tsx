@@ -6,7 +6,7 @@ import Contact from "../frontPageSections/Contact";
 import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
-import ReadmeOutput from "./outputs/ReadmeOutput";
+import ReadmeOutput from "./outputs/ReadmeOutputLatex";
 
 interface EditorContentProps {
   activeFile: string;
