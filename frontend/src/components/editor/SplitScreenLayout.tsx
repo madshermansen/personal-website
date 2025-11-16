@@ -7,9 +7,10 @@ interface SplitScreenLayoutProps {
   codeContent: React.ReactNode;
   outputContent: React.ReactNode;
   fileName: string;
+  lineCount?: number;
 }
 
-export default function SplitScreenLayout({ codeContent, outputContent, fileName }: SplitScreenLayoutProps) {
+export default function SplitScreenLayout({ codeContent, outputContent, fileName, lineCount = 50 }: SplitScreenLayoutProps) {
   const [splitPercent, setSplitPercent] = useState(50); // 50% split by default
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
@@ -71,18 +72,18 @@ export default function SplitScreenLayout({ codeContent, outputContent, fileName
         </div>
 
         {/* Code Content */}
-        <div className="flex-1 overflow-y-auto bg-[#1e1e1e]">
-          <div className="flex">
+        <div className="flex-1 overflow-auto bg-[#1e1e1e]">
+          <div className="flex min-w-max">
             {/* Line numbers */}
-            <div className="select-none bg-[#1e1e1e] border-r border-primary/10 px-3 py-6 font-mono text-xs text-text/30 text-right min-w-[3rem]">
-              {Array.from({ length: 50 }, (_, i) => (
-                <div key={i} className="leading-relaxed">
+            <div className="select-none bg-[#1e1e1e] border-r border-primary/10 px-3 py-6 font-mono text-xs text-text/30 text-right min-w-[3rem] sticky left-0 z-10">
+              {Array.from({ length: lineCount }, (_, i) => (
+                <div key={i} className="leading-relaxed whitespace-nowrap">
                   {i + 1}
                 </div>
               ))}
             </div>
             {/* Code */}
-            <div className="flex-1 px-6 py-6">
+            <div className="px-6 py-6 min-w-max">
               {codeContent}
             </div>
           </div>
