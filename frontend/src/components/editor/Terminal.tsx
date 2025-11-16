@@ -290,6 +290,10 @@ const getAIResponse = (input: string): string => {
     return "Hmm, that's pretty short! Try asking a question or type 'help' to see what I can do.";
   }
 
+  if (lowerInput.includes('67')){
+    return "https://www.youtube.com/watch?v=QiA0YINTvGE";
+  }
+
   // === DEFAULT RESPONSES ===
   const defaultResponses = [
     "Interesting! Try asking about 'skills', 'projects', 'experience', or type 'help' for all commands.",
