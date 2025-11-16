@@ -33,44 +33,91 @@ export default function Settings() {
           Choose your preferred color theme. Your selection will be saved locally.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
           {Object.values(themes).map((theme) => (
             <button
               key={theme.name}
               onClick={() => handleThemeChange(theme.name)}
               className={`
-                relative p-4 rounded-lg border-2 transition-all duration-200
+                relative rounded-lg border-2 transition-all duration-200 overflow-hidden
                 ${
                   currentTheme === theme.name
-                    ? 'border-primary bg-primary/10'
-                    : 'border-backgroundLight bg-backgroundLight/30 hover:border-primary/50 hover:bg-primary/5'
+                    ? 'border-primary ring-2 ring-primary/30'
+                    : 'border-backgroundLight hover:border-primary/50'
                 }
               `}
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 text-left">
-                  <div className="font-semibold text-base mb-2">
+              {/* Theme Preview Window */}
+              <div
+                className="p-4 text-left text-xs font-mono leading-relaxed"
+                style={{
+                  backgroundColor: theme.colors.background,
+                  color: theme.colors.text
+                }}
+              >
+                {/* Header with theme name and checkmark */}
+                <div className="flex items-center justify-between mb-3 pb-2 border-b border-current/20">
+                  <div className="font-semibold text-sm" style={{ color: theme.colors.text }}>
                     {theme.displayName}
                   </div>
+                  {currentTheme === theme.name && (
+                    <Check className="w-4 h-4" style={{ color: theme.colors.primary }} />
+                  )}
+                </div>
 
-                  {/* Theme color preview */}
-                  <div className="flex gap-1.5 flex-wrap">
-                    {Object.entries(theme.colors)
-                      .filter(([key]) => ['primary', 'secondary', 'accent', 'cyan', 'purple'].includes(key))
-                      .map(([key, value]) => (
-                        <div
-                          key={key}
-                          className="w-6 h-6 rounded border border-text/20"
-                          style={{ backgroundColor: value }}
-                          title={key}
-                        />
-                      ))}
+                {/* Code Preview */}
+                <div className="space-y-1">
+                  <div>
+                    <span style={{ color: theme.colors.primary }}>const</span>
+                    {' '}
+                    <span style={{ color: theme.colors.secondary }}>greeting</span>
+                    {' '}
+                    <span style={{ color: theme.colors.text }}>= </span>
+                    <span style={{ color: theme.colors.accent }}>&quot;Hello&quot;</span>
+                    <span style={{ color: theme.colors.text }}>;</span>
+                  </div>
+                  <div>
+                    <span style={{ color: theme.colors.primary }}>function</span>
+                    {' '}
+                    <span style={{ color: theme.colors.secondary }}>example</span>
+                    <span style={{ color: theme.colors.text }}>(</span>
+                    <span style={{ color: theme.colors.cyan }}>value</span>
+                    <span style={{ color: theme.colors.text }}>: </span>
+                    <span style={{ color: theme.colors.purple }}>string</span>
+                    <span style={{ color: theme.colors.text }}>) {'{'}</span>
+                  </div>
+                  <div className="pl-4">
+                    <span style={{ color: theme.colors.comment }}>// Comment</span>
+                  </div>
+                  <div className="pl-4">
+                    <span style={{ color: theme.colors.primary }}>return</span>
+                    {' '}
+                    <span style={{ color: theme.colors.cyan }}>value</span>
+                    <span style={{ color: theme.colors.text }}>;</span>
+                  </div>
+                  <div>
+                    <span style={{ color: theme.colors.text }}>{'}'}</span>
                   </div>
                 </div>
 
-                {currentTheme === theme.name && (
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                )}
+                {/* Background preview bar */}
+                <div className="mt-3 pt-3 border-t border-current/20 flex gap-2">
+                  <div
+                    className="h-4 flex-1 rounded"
+                    style={{ backgroundColor: theme.colors.backgroundDark }}
+                    title="Dark background"
+                  />
+                  <div
+                    className="h-4 flex-1 rounded"
+                    style={{ backgroundColor: theme.colors.background }}
+                    title="Main background"
+                  />
+                  <div
+                    className="h-4 flex-1 rounded"
+                    style={{ backgroundColor: theme.colors.backgroundLight }}
+                    title="Light background"
+                  />
+                </div>
               </div>
             </button>
           ))}
