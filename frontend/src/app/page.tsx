@@ -3,6 +3,7 @@
 import { useState } from "react";
 import IconSidebar from "../components/editor/IconSidebar";
 import FileExplorer from "../components/editor/FileExplorer";
+import SearchView from "../components/editor/SearchView";
 import EditorTabs from "../components/editor/EditorTabs";
 import EditorContent from "../components/editor/EditorContent";
 import StatusBar from "../components/editor/StatusBar";
@@ -68,6 +69,16 @@ export default function Home() {
           </div>
         )}
 
+        {/* Desktop: Search View */}
+        {activeView === 'search' && (
+          <div className="hidden lg:block">
+            <SearchView
+              onFileSelect={handleFileSelect}
+              width={sidebarWidth}
+            />
+          </div>
+        )}
+
         {/* Mobile: Sidebar Overlay */}
         {mobileMenuOpen && (
           <>
@@ -85,6 +96,11 @@ export default function Home() {
               {activeView === 'explorer' && (
                 <div className="bg-background border-r border-primary/30">
                   <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+                </div>
+              )}
+              {activeView === 'search' && (
+                <div className="bg-background border-r border-primary/30">
+                  <SearchView onFileSelect={handleFileSelect} />
                 </div>
               )}
             </div>
