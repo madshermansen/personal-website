@@ -1,7 +1,6 @@
 import AboutContent from "./fileContents/AboutContent";
 import ReadmeCodeContent from "./fileContents/ReadmeCodeContent";
-import WorkCodeContent from "./fileContents/WorkCodeContent";
-import EducationCodeContent from "./fileContents/EducationCodeContent";
+import ExperienceCodeContent from "./fileContents/ExperienceCodeContent";
 import ProjectsCodeContent from "./fileContents/ProjectsCodeContent";
 import ContactCodeContent from "./fileContents/ContactCodeContent";
 import Settings from "../frontPageSections/Settings";
@@ -9,8 +8,7 @@ import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
 import ReadmeOutput from "./outputs/ReadmeOutputLatex";
-import WorkOutput from "./outputs/WorkOutput";
-import EducationOutput from "./outputs/EducationOutput";
+import ExperienceOutput from "./outputs/ExperienceOutput";
 import ProjectsOutput from "./outputs/ProjectsOutput";
 import ContactOutput from "./outputs/ContactOutput";
 
@@ -109,19 +107,19 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
       case 'work':
         return (
           <SplitScreenLayout
-            fileName="work.ts"
-            codeContent={<WorkCodeContent />}
-            outputContent={<WorkOutput />}
-            lineCount={59}
+            fileName="experience.py"
+            codeContent={<ExperienceCodeContent type="work" />}
+            outputContent={<ExperienceOutput type="work" />}
+            lineCount={69}
           />
         );
       case 'education':
         return (
           <SplitScreenLayout
-            fileName="education.ts"
-            codeContent={<EducationCodeContent />}
-            outputContent={<EducationOutput />}
-            lineCount={47}
+            fileName="experience.py"
+            codeContent={<ExperienceCodeContent type="education" />}
+            outputContent={<ExperienceOutput type="education" />}
+            lineCount={52}
           />
         );
       case 'projects':
