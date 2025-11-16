@@ -87,7 +87,7 @@ export default function Settings() {
                     <span style={{ color: theme.colors.text }}>) {'{'}</span>
                   </div>
                   <div className="pl-4">
-                    <span style={{ color: theme.colors.comment }}>// Comment</span>
+                    <span style={{ color: theme.colors.comment }}>{'// Comment'}</span>
                   </div>
                   <div className="pl-4">
                     <span style={{ color: theme.colors.primary }}>return</span>
