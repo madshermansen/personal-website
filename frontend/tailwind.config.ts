@@ -34,13 +34,19 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
-        background: "#0a0118",
-        primary: "#6366F1",
-        secondary: "#A855F7",
-        accent: "#C084FC",
-        text: "#F5F3FF",
-        neonBlue: "#60A5FA",
-        neonPurple: "#A78BFA",
+        // Monokai Pro color scheme
+        background: "#2D2A2E", // Dark purple-grey background
+        backgroundDark: "#221F22", // Darker background for contrast
+        backgroundLight: "#3E3B3F", // Lighter background for elevated surfaces
+        text: "#FCFCFA", // Off-white text
+        textMuted: "#939293", // Muted text
+        primary: "#FF6188", // Pink - keywords
+        secondary: "#A9DC76", // Green - functions
+        accent: "#FFD866", // Yellow - strings
+        cyan: "#78DCE8", // Cyan - properties
+        purple: "#AB9DF2", // Purple - values
+        comment: "#727072", // Gray - comments
+        border: "#5B595C", // Border color
       },
     },
   },
