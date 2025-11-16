@@ -14,6 +14,7 @@ Built as a VS Code-style editor interface with split screen code/output views.
 - Build/Deploy: Vercel
 
 ## Recent Changes
+- Added Terminal AI sidebar with simple AI chat interface (2025-11-16)
 - Fixed line number alignment using line-per-div structure (perfect 1-to-1 alignment)
 - Fixed line numbers to match actual file content (dynamic line counts)
 - Added VS Code-style scrollbars (thin, minimal design with hover effects)
@@ -28,11 +29,11 @@ Built as a VS Code-style editor interface with split screen code/output views.
 
 ## Current Work
 ### Active Branch
-- `claude/create-memory-document-01Wof8Nt5r13tPiV7vrvb3tu`
+- `claude/add-terminal-sidebar-01XBZeHtJWmFHWE3wPemRZmM`
 
 ### Current Tasks
-1. Created this memory document for project context tracking
-2. Working on: Split screen pages scrollable independently
+1. Added Terminal AI sidebar with chat interface
+2. Integrated terminal view into VS Code-style layout
 
 ## Known Issues
 None currently
@@ -58,6 +59,9 @@ None currently
 - `/frontend/src/components/editor/SplitScreenLayout.tsx` - Resizable split screen component
 - `/frontend/src/components/editor/EditorContent.tsx` - Content router for different file types
 - `/frontend/src/components/editor/FileExplorer.tsx` - Resizable file sidebar
+- `/frontend/src/components/editor/TerminalView.tsx` - Terminal AI chat interface
+- `/frontend/src/components/editor/SearchView.tsx` - Search interface for files
+- `/frontend/src/components/editor/IconSidebar.tsx` - VS Code-style icon sidebar with views
 - `/frontend/src/components/editor/outputs/` - Output renderers (ReadmeOutputLatex, AboutOutput, SkillsOutput)
 - `/frontend/src/components/editor/fileContents/` - Code display components
 
@@ -79,6 +83,15 @@ Split screen is used for ALL pages:
 - Split screen with draggable divider (30-70% range)
   - Left: Code panel with line numbers
   - Right: Output panel with live preview
+
+### Terminal AI Feature
+- Accessible via Terminal icon in sidebar (between Search and Projects)
+- Simple AI chat interface with portfolio-specific knowledge
+- Supports commands: help, clear, and questions about skills, projects, experience, education, contact
+- Terminal-style UI with timestamps and user/AI message differentiation
+- Auto-scrolling message history
+- Simulated AI "thinking" delay for realistic interaction
+- Available on both desktop and mobile layouts
 
 ## Important Notes
 - All pushes must be to branches starting with 'claude/' and ending with session ID
