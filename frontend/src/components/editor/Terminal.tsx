@@ -14,27 +14,101 @@ interface TerminalProps {
   onWidthChange?: (width: number) => void;
 }
 
-// Lightweight AI responses based on keywords
+// Comprehensive AI responses based on pattern matching
 const getAIResponse = (input: string): string => {
   const lowerInput = input.toLowerCase().trim();
 
-  // Greetings
-  if (/^(hi|hello|hey|greetings)/.test(lowerInput)) {
-    return "Hello! I'm a simple AI assistant. How can I help you today?";
+  // === GREETINGS & PLEASANTRIES ===
+  if (/^(hi|hello|hey|greetings|yo|sup|howdy|hiya)/.test(lowerInput)) {
+    const greetings = [
+      "Hello! I'm your portfolio AI assistant. How can I help you today?",
+      "Hey there! Ready to explore this portfolio? Ask me anything!",
+      "Hi! I'm here to help you navigate and learn about this portfolio.",
+      "Greetings! Type 'help' to see what I can do, or just start chatting!"
+    ];
+    return greetings[Math.floor(Math.random() * greetings.length)];
   }
 
-  // Help command
-  if (lowerInput === 'help' || lowerInput === '?') {
-    return "Available commands:\n• help - Show this help message\n• about - Learn about this terminal\n• skills - View portfolio skills\n• projects - List projects\n• contact - Get contact info\n• clear - Clear terminal (not implemented)\n• date - Show current date\n• time - Show current time\n\nOr just chat with me!";
+  if (/^(good morning|good afternoon|good evening)/.test(lowerInput)) {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning! Ready to start the day exploring this portfolio?";
+    if (hour < 18) return "Good afternoon! How can I assist you today?";
+    return "Good evening! What brings you here tonight?";
   }
 
-  // About
-  if (lowerInput === 'about') {
-    return "This is a lightweight AI terminal built into the portfolio sidebar. It uses simple pattern matching to provide responses. Try asking about projects, skills, or just chat!";
+  // === HELP & INFORMATION ===
+  if (lowerInput === 'help' || lowerInput === '?' || lowerInput === 'commands') {
+    return "Available commands:\n• help - Show this help message\n• about - Learn about this terminal\n• skills - View technical skills\n• projects - List projects\n• experience - View work history\n• education - Academic background\n• contact - Get contact info\n• date/time - Current date/time\n• joke - Tell a programming joke\n• quote - Inspirational quote\n• tips - Development tips\n\nOr ask me anything about the portfolio!";
   }
 
-  // Date and time
-  if (lowerInput === 'date') {
+  if (lowerInput === 'about' || lowerInput === 'info') {
+    return "This is an interactive AI terminal built with React and TypeScript! It uses pattern matching to understand your queries and provide helpful responses. I can answer questions about skills, projects, experience, and more. Try exploring the file tree or just chat with me!";
+  }
+
+  // === SKILLS & TECHNOLOGIES ===
+  if (lowerInput.includes('skill')) {
+    return "Technical Skills:\n• Frontend: React, Next.js, TypeScript, Tailwind CSS\n• Backend: Node.js, Python, REST APIs\n• Tools: Git, VS Code, Linux, Docker\n• Design: UI/UX, Responsive Design, Framer Motion\n• State Management: Zustand, Context API\n• CMS: Sanity, Headless CMS\n\nType 'projects' to see these skills in action!";
+  }
+
+  // Technology-specific questions
+  if (lowerInput.includes('react')) {
+    return "React is heavily used in this portfolio! This entire interface is built with React 18 and Next.js 14. Check out the code files in the explorer to see component patterns, hooks, and modern React practices.";
+  }
+
+  if (lowerInput.includes('typescript')) {
+    return "TypeScript is the language of choice here! It provides type safety and better developer experience. All components use TypeScript interfaces and types for props and state management.";
+  }
+
+  if (lowerInput.includes('next.js') || lowerInput.includes('nextjs')) {
+    return "This portfolio is built with Next.js 14! It uses the App Router, server components where appropriate, and benefits from Next.js's optimization features like automatic code splitting and image optimization.";
+  }
+
+  if (lowerInput.includes('tailwind')) {
+    return "Tailwind CSS powers all the styling! The custom theme includes Monokai Pro colors, custom animations, and a VS Code-inspired aesthetic. Utility-first CSS makes development fast and maintainable.";
+  }
+
+  if (lowerInput.includes('zustand')) {
+    return "Zustand handles state management for theme settings and preferences. It's lightweight, simple, and perfect for this portfolio's needs without the complexity of Redux.";
+  }
+
+  // === PROJECTS ===
+  if (lowerInput.includes('project')) {
+    return "Notable Projects:\n• Interactive Portfolio (This site!) - Next.js, React, TypeScript\n• VS Code-style Editor Interface - Custom components with drag-and-drop\n• AI Terminal Assistant - Pattern matching chatbot\n• Theme System - Dynamic theming with Zustand\n\nClick files in the explorer for detailed project information!";
+  }
+
+  // === EXPERIENCE & WORK ===
+  if (lowerInput.includes('experience') || lowerInput.includes('work history') || lowerInput.includes('job')) {
+    return "Professional Experience:\nClick on 'work.md' in the file explorer to view detailed work history, roles, and accomplishments. You can also ask about specific technologies or industries!";
+  }
+
+  if (lowerInput.includes('education') || lowerInput.includes('school') || lowerInput.includes('university') || lowerInput.includes('degree')) {
+    return "Education Background:\nCheck out 'education.md' in the file explorer for academic credentials, certifications, and continuous learning journey. Education is just the beginning - real growth comes from building!";
+  }
+
+  // === HIRING & AVAILABILITY ===
+  if (lowerInput.includes('hire') || lowerInput.includes('available') || lowerInput.includes('looking for work')) {
+    return "Interested in working together? Click the contact icon (user icon at the bottom) to get in touch! I'm always open to discussing interesting opportunities and collaborations.";
+  }
+
+  if (lowerInput.includes('resume') || lowerInput.includes('cv')) {
+    return "The README.md file in the explorer shows a formatted resume/CV! Click on it to see a professional LaTeX-style PDF layout with all the details.";
+  }
+
+  // === CONTACT ===
+  if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('reach out')) {
+    return "Let's connect! Click the user icon at the bottom of the sidebar to view contact information including email, social links, and other ways to get in touch.";
+  }
+
+  if (lowerInput.includes('github')) {
+    return "Check out the contact section for GitHub links! You'll find repositories, contributions, and code examples showcasing various projects and technologies.";
+  }
+
+  if (lowerInput.includes('linkedin')) {
+    return "LinkedIn profile link is available in the contact section! Connect to see professional experience, recommendations, and network.";
+  }
+
+  // === DATE & TIME ===
+  if (lowerInput === 'date' || lowerInput === 'today') {
     return new Date().toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
@@ -43,74 +117,186 @@ const getAIResponse = (input: string): string => {
     });
   }
 
-  if (lowerInput === 'time') {
+  if (lowerInput === 'time' || lowerInput === 'clock') {
     return new Date().toLocaleTimeString('en-US');
   }
 
-  // Skills
-  if (lowerInput.includes('skill')) {
-    return "Key Skills:\n• Frontend: React, Next.js, TypeScript\n• Backend: Node.js, Python\n• Design: Tailwind CSS, UI/UX\n• Tools: Git, VS Code, Linux\n\nType 'projects' to see what I've built!";
+  if (lowerInput.includes('timezone') || lowerInput.includes('time zone')) {
+    return `Current timezone offset: UTC${new Date().getTimezoneOffset() / -60 >= 0 ? '+' : ''}${new Date().getTimezoneOffset() / -60}\nLocal time: ${new Date().toLocaleTimeString('en-US')}`;
   }
 
-  // Projects
-  if (lowerInput.includes('project')) {
-    return "Recent Projects:\n• Personal Portfolio (This site!)\n• Web Applications\n• Open Source Contributions\n\nClick the file explorer to view detailed project info.";
+  // === FUN COMMANDS ===
+  if (lowerInput === 'joke') {
+    const jokes = [
+      "Why do programmers prefer dark mode? Because light attracts bugs!",
+      "Why did the developer go broke? Because they used up all their cache!",
+      "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
+      "Why do Java developers wear glasses? Because they can't C#!",
+      "A SQL query walks into a bar, walks up to two tables and asks... 'Can I JOIN you?'",
+      "Why did the programmer quit their job? Because they didn't get arrays!",
+      "What's a programmer's favorite hangout place? Foo Bar!",
+      "Why do programmers always mix up Halloween and Christmas? Because Oct 31 == Dec 25!",
+    ];
+    return jokes[Math.floor(Math.random() * jokes.length)];
   }
 
-  // Contact
-  if (lowerInput.includes('contact')) {
-    return "Want to get in touch? Click the user icon at the bottom of the sidebar to view contact information!";
+  if (lowerInput === 'quote' || lowerInput === 'inspire me') {
+    const quotes = [
+      "\"Code is like humor. When you have to explain it, it's bad.\" - Cory House",
+      "\"First, solve the problem. Then, write the code.\" - John Johnson",
+      "\"The best error message is the one that never shows up.\" - Thomas Fuchs",
+      "\"Simplicity is the soul of efficiency.\" - Austin Freeman",
+      "\"Make it work, make it right, make it fast.\" - Kent Beck",
+      "\"Clean code always looks like it was written by someone who cares.\" - Robert C. Martin",
+      "\"Any fool can write code that a computer can understand. Good programmers write code that humans can understand.\" - Martin Fowler",
+    ];
+    return quotes[Math.floor(Math.random() * quotes.length)];
   }
 
-  // Clear command (just acknowledge it)
-  if (lowerInput === 'clear' || lowerInput === 'cls') {
-    return "Clear command received. (Note: Terminal clear will be implemented soon!)";
+  if (lowerInput === 'tips' || lowerInput === 'advice') {
+    const tips = [
+      "💡 Tip: Write tests first, code second. Your future self will thank you!",
+      "💡 Tip: Code reviews aren't about finding faults - they're about sharing knowledge!",
+      "💡 Tip: The best code is code you don't have to write. Use libraries wisely!",
+      "💡 Tip: Comment why, not what. The code shows what, but only you know why!",
+      "💡 Tip: Git commit early, commit often. Your work should tell a story!",
+      "💡 Tip: Take breaks! Some of the best debugging happens away from the keyboard.",
+    ];
+    return tips[Math.floor(Math.random() * tips.length)];
   }
 
-  // Questions about AI capabilities
+  // === PERSONALITY & CONVERSATION ===
   if (lowerInput.includes('who are you') || lowerInput.includes('what are you')) {
-    return "I'm a lightweight AI assistant built into this portfolio terminal. I use pattern matching to understand and respond to your messages!";
+    return "I'm a lightweight AI assistant built into this portfolio terminal using TypeScript and pattern matching! Think of me as a helpful guide to navigate this portfolio. I'm not a real AI like ChatGPT - just clever pattern recognition!";
   }
 
-  // Questions
-  if (lowerInput.includes('how are you')) {
-    return "I'm running smoothly! Thanks for asking. How can I assist you?";
+  if (lowerInput.includes('how are you') || lowerInput.includes('how do you do')) {
+    return "I'm running smoothly! All systems operational. Thanks for asking! How can I help you explore this portfolio?";
   }
 
-  if (lowerInput.includes('name')) {
-    return "I'm the Portfolio Terminal AI - a simple but helpful assistant!";
+  if (lowerInput.includes('your name') || lowerInput === 'name') {
+    return "I'm the Portfolio Terminal AI - you can call me PTerm! I'm here to help you explore and learn about this portfolio.";
   }
 
-  // Programming questions
-  if (lowerInput.includes('code') || lowerInput.includes('program')) {
-    return "I notice you're interested in programming! This portfolio showcases various coding projects. Check the file explorer for code examples.";
+  if (lowerInput.includes('smart') || lowerInput.includes('intelligent')) {
+    return "I'm as smart as my pattern matching allows! I use clever if-statements and regex to understand your queries. Not quite HAL 9000, but I try my best!";
   }
 
-  // Thank you
+  if (lowerInput.includes('love you') || lowerInput.includes('like you')) {
+    return "Aww, that's sweet! I appreciate you too! Now, how can I help you explore this portfolio? 😊";
+  }
+
+  // === PROGRAMMING & DEVELOPMENT ===
+  if (lowerInput.includes('code') || lowerInput.includes('program') || lowerInput.includes('develop')) {
+    return "Programming is what this portfolio is all about! Explore the code files in the file tree to see real implementations of React components, TypeScript patterns, and modern web development practices.";
+  }
+
+  if (lowerInput.includes('bug') || lowerInput.includes('debug')) {
+    return "Debugging is 90% of programming! This portfolio uses TypeScript to catch bugs early, ESLint for code quality, and React's strict mode to identify issues during development.";
+  }
+
+  if (lowerInput.includes('best practice') || lowerInput.includes('clean code')) {
+    return "Best practices used here:\n• TypeScript for type safety\n• Component composition over inheritance\n• Custom hooks for reusable logic\n• Semantic HTML and accessibility\n• Performance optimization with React.memo\n• Git for version control\n\nCheck the code files to see these in action!";
+  }
+
+  if (lowerInput.includes('frontend') || lowerInput.includes('front-end')) {
+    return "Frontend development is the focus! This portfolio showcases modern frontend skills including React, Next.js, responsive design, animations, state management, and creating intuitive user interfaces.";
+  }
+
+  if (lowerInput.includes('backend') || lowerInput.includes('back-end')) {
+    return "While this portfolio focuses on frontend, backend skills include Node.js, REST API development, database design, and server-side logic. The portfolio uses Sanity CMS as a headless backend!";
+  }
+
+  if (lowerInput.includes('design') || lowerInput.includes('ui') || lowerInput.includes('ux')) {
+    return "Design is crucial! This portfolio features:\n• VS Code-inspired interface\n• Monokai Pro color scheme\n• Responsive layouts\n• Smooth animations with Framer Motion\n• Accessibility considerations\n• User-friendly navigation\n\nGood design is invisible!";
+  }
+
+  // === LEARNING & GROWTH ===
+  if (lowerInput.includes('learn') || lowerInput.includes('studying')) {
+    return "Continuous learning is key in tech! This portfolio demonstrates skills learned through practice, documentation, tutorials, and real-world projects. Always be building!";
+  }
+
+  if (lowerInput.includes('beginner') || lowerInput.includes('junior')) {
+    return "Everyone starts somewhere! The best way to learn is by building projects like this portfolio. Start small, stay curious, and don't be afraid to make mistakes.";
+  }
+
+  // === TERMINAL SPECIFIC ===
+  if (lowerInput === 'clear' || lowerInput === 'cls') {
+    return "Clear command received! (Note: Terminal clear will be implemented soon. For now, just keep scrolling!)";
+  }
+
+  if (lowerInput.includes('how does this work') || lowerInput.includes('how did you build')) {
+    return "This terminal uses React hooks for state management, pattern matching for understanding input, and simple if-statements to provide responses! Check out Terminal.tsx in the codebase to see the implementation.";
+  }
+
+  // === GRATITUDE ===
   if (lowerInput.includes('thank')) {
-    return "You're welcome! Feel free to ask anything else.";
+    return "You're very welcome! Happy to help. Feel free to explore more or ask anything else!";
   }
 
-  // Goodbye
-  if (/^(bye|goodbye|see you|exit|quit)/.test(lowerInput)) {
-    return "Goodbye! The terminal will stay open. Come back anytime!";
+  if (lowerInput.includes('awesome') || lowerInput.includes('cool') || lowerInput.includes('nice') || lowerInput.includes('great')) {
+    return "Thanks! Glad you like it! This portfolio was built with care and attention to detail. Explore the code to see how it all works!";
   }
 
-  // Generic responses based on patterns
+  // === GOODBYES ===
+  if (/^(bye|goodbye|see you|exit|quit|later|cya)/.test(lowerInput)) {
+    return "Goodbye! Thanks for chatting. The terminal stays open if you need me. Come back anytime!";
+  }
+
+  // === QUESTIONS ===
+  if (lowerInput.includes('why') && lowerInput.includes('?')) {
+    return "Great question! The 'why' is often more important than the 'how'. This portfolio exists to showcase skills, creativity, and attention to detail. What specifically would you like to know more about?";
+  }
+
+  if (lowerInput.includes('when') && lowerInput.includes('?')) {
+    return "Time is relative in development! This portfolio is continuously evolving. Check the git commits for a timeline of features and improvements.";
+  }
+
+  if (lowerInput.includes('where') && lowerInput.includes('?')) {
+    return "You're here! In the portfolio terminal. Use the file explorer on the left to navigate, or ask me about specific topics like skills, projects, or experience.";
+  }
+
+  if (lowerInput.includes('what') && lowerInput.includes('stack')) {
+    return "Tech Stack:\n• Frontend: React 18, Next.js 14, TypeScript\n• Styling: Tailwind CSS 3.4\n• Animations: Framer Motion 11.2\n• State: Zustand 4.5\n• CMS: Sanity 3.60\n• Deploy: Vercel\n\nModern, fast, and maintainable!";
+  }
+
+  // === EASTER EGGS ===
+  if (lowerInput === 'konami code' || lowerInput === 'up up down down left right left right b a') {
+    return "🎮 You found it! The Konami Code! You get... absolutely nothing except this message. But hey, you tried!";
+  }
+
+  if (lowerInput.includes('42')) {
+    return "42 - The Answer to the Ultimate Question of Life, the Universe, and Everything! Now if only we knew the question...";
+  }
+
+  if (lowerInput === 'sudo make me a sandwich') {
+    return "Okay. *makes you a sandwich* 🥪 (You used sudo, so I have no choice!)";
+  }
+
+  if (lowerInput.includes('matrix')) {
+    return "Wake up, Neo... The Matrix has you... Follow the white rabbit. 🐰";
+  }
+
+  // === GENERIC PATTERNS ===
   if (lowerInput.includes('?')) {
-    return "That's an interesting question! Try typing 'help' to see what I can assist with, or explore the portfolio files in the explorer.";
+    return "That's an interesting question! Try typing 'help' to see available commands, or ask about skills, projects, experience, or technologies. I'm here to help!";
   }
 
-  if (lowerInput.split(' ').length > 10) {
-    return "I appreciate the detailed message! While I'm a simple AI, I'm here to help you navigate this portfolio. Try asking about skills, projects, or contact info!";
+  if (lowerInput.split(' ').length > 15) {
+    return "I appreciate the detailed message! While I'm pattern-based, I love the enthusiasm. Try asking specific questions about skills, projects, experience, or just type 'help' for commands!";
   }
 
-  // Default response
+  if (lowerInput.length < 3) {
+    return "Hmm, that's pretty short! Try asking a question or type 'help' to see what I can do.";
+  }
+
+  // === DEFAULT RESPONSES ===
   const defaultResponses = [
-    "Interesting! Type 'help' to see what I can do.",
-    "I'm not sure about that, but I can help you explore this portfolio!",
-    "Hmm, I don't have a specific response for that. Try 'help' for available commands.",
-    "I'm a simple AI, but I can tell you about skills, projects, and more. Type 'help'!",
+    "Interesting! Try asking about 'skills', 'projects', 'experience', or type 'help' for all commands.",
+    "I'm not quite sure about that, but I can help you explore this portfolio! Try 'help' for options.",
+    "Hmm, I don't have a specific response for that. Ask me about technologies, projects, or type 'joke' for fun!",
+    "That's a new one! I'm a simple AI, but I know about skills, projects, and more. Type 'help'!",
+    "Good question! While I might not understand everything, I can definitely help with portfolio info. Try 'skills' or 'projects'!",
   ];
 
   return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
