@@ -3,6 +3,7 @@
 import { useState } from "react";
 import IconSidebar from "../components/editor/IconSidebar";
 import FileExplorer from "../components/editor/FileExplorer";
+import Terminal from "../components/editor/Terminal";
 import EditorTabs from "../components/editor/EditorTabs";
 import EditorContent from "../components/editor/EditorContent";
 import StatusBar from "../components/editor/StatusBar";
@@ -13,6 +14,7 @@ export default function Home() {
   const [activeFile, setActiveFile] = useState('readme');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(220);
+  const [terminalWidth, setTerminalWidth] = useState(280);
   const [openFiles, setOpenFiles] = useState<FileInfo[]>([
     getFileInfo('readme'),
     getFileInfo('about')
@@ -33,7 +35,7 @@ export default function Home() {
   const handleViewChange = (view: string) => {
     setActiveView(view);
     // For non-file views, also update activeFile
-    if (view === 'settings' || view === 'contact' || view === 'projects') {
+    if (view === 'settings' || view === 'contact' || view === 'projects' || view === 'terminal') {
       setActiveFile(view);
       setMobileMenuOpen(false);
     }
@@ -68,6 +70,16 @@ export default function Home() {
           </div>
         )}
 
+        {/* Desktop: Terminal */}
+        {activeView === 'terminal' && (
+          <div className="hidden lg:block">
+            <Terminal
+              width={terminalWidth}
+              onWidthChange={setTerminalWidth}
+            />
+          </div>
+        )}
+
         {/* Mobile: Sidebar Overlay */}
         {mobileMenuOpen && (
           <>
@@ -85,6 +97,11 @@ export default function Home() {
               {activeView === 'explorer' && (
                 <div className="bg-background border-r border-primary/30">
                   <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+                </div>
+              )}
+              {activeView === 'terminal' && (
+                <div className="bg-background border-r border-primary/30">
+                  <Terminal />
                 </div>
               )}
             </div>
