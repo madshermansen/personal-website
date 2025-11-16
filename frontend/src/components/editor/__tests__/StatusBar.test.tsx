@@ -45,7 +45,9 @@ describe('StatusBar', () => {
   it('displays git status indicators', () => {
     render(<StatusBar activeFile="readme" />);
 
-    expect(screen.getByText('0')).toBeInTheDocument();
+    // Check for git indicators - there are two "0" elements
+    const zeroElements = screen.getAllByText('0');
+    expect(zeroElements).toHaveLength(2);
     expect(screen.getByText('✓')).toBeInTheDocument();
     expect(screen.getByText('⚠')).toBeInTheDocument();
   });

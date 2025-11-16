@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd frontend
-
 echo "🔍 Running pre-commit checks..."
 
 # Run type check
