@@ -23,14 +23,6 @@ export default function ContactCodeContent() {
       <div className="ml-8 leading-relaxed"><span className="monokai-property">username</span><span className="text-text/70">: </span><span className="monokai-string">&quot;mdhermansen&quot;</span></div>
       <div className="ml-8 leading-relaxed"><span className="monokai-property">url</span><span className="text-text/70">: </span><span className="monokai-string">&quot;https://linkedin.com/in/mdhermansen&quot;</span></div>
       <div className="leading-relaxed"></div>
-      <div className="leading-relaxed"><span className="monokai-property">availability</span><span className="text-text/70">:</span></div>
-      <div className="ml-4 leading-relaxed"><span className="monokai-property">status</span><span className="text-text/70">: </span><span className="monokai-string">&quot;open&quot;</span></div>
-      <div className="ml-4 leading-relaxed"><span className="monokai-property">interests</span><span className="text-text/70">:</span></div>
-      <div className="ml-8 leading-relaxed"><span className="text-text/70">- </span><span className="monokai-string">&quot;Full-time positions&quot;</span></div>
-      <div className="ml-8 leading-relaxed"><span className="text-text/70">- </span><span className="monokai-string">&quot;Freelance projects&quot;</span></div>
-      <div className="ml-8 leading-relaxed"><span className="text-text/70">- </span><span className="monokai-string">&quot;Collaborations&quot;</span></div>
-      <div className="ml-8 leading-relaxed"><span className="text-text/70">- </span><span className="monokai-string">&quot;Consulting opportunities&quot;</span></div>
-      <div className="leading-relaxed"></div>
       <div className="leading-relaxed"><span className="monokai-property">response_time</span><span className="text-text/70">: </span><span className="monokai-string">&quot;24-48 hours&quot;</span></div>
       <div className="leading-relaxed"></div>
       <div className="leading-relaxed"><span className="monokai-comment"># Feel free to reach out for any inquiries!</span></div>
