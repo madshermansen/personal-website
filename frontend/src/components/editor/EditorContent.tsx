@@ -1,12 +1,17 @@
 import AboutContent from "./fileContents/AboutContent";
 import ReadmeCodeContent from "./fileContents/ReadmeCodeContent";
-import Experience from "../frontPageSections/Experience";
-import RecentProjects from "../frontPageSections/RecentProjects";
-import Contact from "../frontPageSections/Contact";
+import WorkCodeContent from "./fileContents/WorkCodeContent";
+import EducationCodeContent from "./fileContents/EducationCodeContent";
+import ProjectsCodeContent from "./fileContents/ProjectsCodeContent";
+import ContactCodeContent from "./fileContents/ContactCodeContent";
 import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
 import ReadmeOutput from "./outputs/ReadmeOutputLatex";
+import WorkOutput from "./outputs/WorkOutput";
+import EducationOutput from "./outputs/EducationOutput";
+import ProjectsOutput from "./outputs/ProjectsOutput";
+import ContactOutput from "./outputs/ContactOutput";
 
 interface EditorContentProps {
   activeFile: string;
@@ -212,13 +217,38 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
           />
         );
       case 'work':
+        return (
+          <SplitScreenLayout
+            fileName="work.ts"
+            codeContent={<WorkCodeContent />}
+            outputContent={<WorkOutput />}
+          />
+        );
       case 'education':
-        return <Experience />;
+        return (
+          <SplitScreenLayout
+            fileName="education.ts"
+            codeContent={<EducationCodeContent />}
+            outputContent={<EducationOutput />}
+          />
+        );
       case 'projects':
       case 'recent':
-        return <RecentProjects />;
+        return (
+          <SplitScreenLayout
+            fileName="projects.tsx"
+            codeContent={<ProjectsCodeContent />}
+            outputContent={<ProjectsOutput />}
+          />
+        );
       case 'contact':
-        return <Contact />;
+        return (
+          <SplitScreenLayout
+            fileName="contact.yml"
+            codeContent={<ContactCodeContent />}
+            outputContent={<ContactOutput />}
+          />
+        );
       default:
         return (
           <SplitScreenLayout
