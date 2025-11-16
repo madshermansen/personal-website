@@ -1,6 +1,6 @@
 export default function ContactCodeContent() {
   return (
-    <div className="font-mono text-sm whitespace-nowrap">
+    <div className="font-mono text-xs whitespace-nowrap">
       <div className="leading-relaxed"><span className="monokai-comment"># Contact Information</span></div>
       <div className="leading-relaxed"><span className="monokai-comment"># Get in touch for collaborations and opportunities</span></div>
       <div className="leading-relaxed"></div>

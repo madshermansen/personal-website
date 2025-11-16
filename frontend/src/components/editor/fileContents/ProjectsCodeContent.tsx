@@ -1,6 +1,6 @@
 export default function ProjectsCodeContent() {
   return (
-    <div className="font-mono text-sm whitespace-nowrap">
+    <div className="font-mono text-xs whitespace-nowrap">
       <div className="leading-relaxed"><span className="monokai-comment">{'/**'}</span></div>
       <div className="leading-relaxed"><span className="monokai-comment"> * Recent projects and portfolio showcase</span></div>
       <div className="leading-relaxed"><span className="monokai-comment"> * @module Projects</span></div>

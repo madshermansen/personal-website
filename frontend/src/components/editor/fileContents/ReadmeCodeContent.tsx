@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ReadmeCodeContent() {
   return (
-    <div className="font-mono text-sm whitespace-nowrap">
+    <div className="font-mono text-xs whitespace-nowrap">
       <div className="leading-relaxed"><span className="monokai-comment">{'/**'}</span></div>
       <div className="leading-relaxed"><span className="monokai-comment"> * README.md - Personal introduction and portfolio overview</span></div>
       <div className="leading-relaxed"><span className="monokai-comment"> * @author Mads Hermansen</span></div>
