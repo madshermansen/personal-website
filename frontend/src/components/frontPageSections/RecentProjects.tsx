@@ -3,15 +3,19 @@ import RecentProjectList from "../projects/RecentProjectList";
 
 export default function RecentProjects() {
   return (
-    <div className="flex gap-2 flex-col">
-      <h1 id="projects" className="font-semibold text-2xl">
-        RECENT PROJECTS
-      </h1>
-      <hr className="border-accent border-2" />
+    <div className="flex flex-col gap-6 font-mono text-sm">
+      <h2 className="text-2xl font-bold monokai-function">
+        ## Recent Projects
+      </h2>
+
       <RecentProjectList />
-      <h1>
-      <Link href="/projects" className="font-bold hover:text-accent duration-75">View Project Archive →</Link>
-      </h1>
+
+      <Link
+        href="/projects"
+        className="monokai-property hover:monokai-string transition-colors underline mt-2"
+      >
+        → View Project Archive
+      </Link>
     </div>
   );
 }

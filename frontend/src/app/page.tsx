@@ -1,23 +1,118 @@
-import StickyInfo from "../components/navigation/StickyInfo";
-import Experience from "../components/frontPageSections/Experience";
-import RecentProjects from "../components/frontPageSections/RecentProjects";
-import AboutMe from "../components/frontPageSections/AboutMe";
-import BackgroundObject from "../components/backgroundObject";
-import Contact from "../components/frontPageSections/Contact";
-import Extra from "../components/frontPageSections/Extra";
-import { getProjects } from "@/sanity/lib/client";
-import { useEffect } from "react";
+"use client";
+
+import { useState } from "react";
+import IconSidebar from "../components/editor/IconSidebar";
+import FileExplorer from "../components/editor/FileExplorer";
+import EditorTabs from "../components/editor/EditorTabs";
+import EditorContent from "../components/editor/EditorContent";
+import StatusBar from "../components/editor/StatusBar";
+import { getFileInfo, type FileInfo, type FileKey } from "../utils/fileIcons";
+
 export default function Home() {
+  const [activeView, setActiveView] = useState('explorer');
+  const [activeFile, setActiveFile] = useState('readme');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(220);
+  const [openFiles, setOpenFiles] = useState<FileInfo[]>([
+    getFileInfo('readme'),
+    getFileInfo('about')
+  ]);
+
+  const handleFileSelect = (fileKey: string) => {
+    setActiveFile(fileKey);
+    setMobileMenuOpen(false);
+
+    if (!openFiles.find(f => f.key === fileKey)) {
+      const fileInfo = getFileInfo(fileKey as FileKey);
+      if (fileInfo) {
+        setOpenFiles([...openFiles, fileInfo]);
+      }
+    }
+  };
+
+  const handleTabClose = (fileKey: string) => {
+    const newOpenFiles = openFiles.filter(f => f.key !== fileKey);
+    setOpenFiles(newOpenFiles);
+
+    if (fileKey === activeFile && newOpenFiles.length > 0) {
+      setActiveFile(newOpenFiles[0].key);
+    }
+  };
+
   return (
-    <main className="flex flex-col lg:flex-row scroll-smooth lg:p-8 p-2">
-      <StickyInfo />
-      <div className="lg:w-2/3 p-2 gap-4 flex flex-col">
-        <AboutMe />
-        <Experience />
-        <RecentProjects />
-        <Contact />
-        <Extra />
+    <main className="h-screen w-screen flex flex-col fixed inset-0 bg-background">
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Desktop: Icon Sidebar */}
+        <div className="hidden lg:block">
+          <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+        </div>
+
+        {/* Desktop: File Explorer */}
+        {activeView === 'explorer' && (
+          <div className="hidden lg:block">
+            <FileExplorer
+              activeFile={activeFile}
+              onFileSelect={handleFileSelect}
+              width={sidebarWidth}
+              onWidthChange={setSidebarWidth}
+            />
+          </div>
+        )}
+
+        {/* Mobile: Sidebar Overlay */}
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <div
+              className="lg:hidden fixed inset-0 bg-black/80 z-40 backdrop-blur-sm"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+
+            {/* Sidebars Container */}
+            <div className="lg:hidden fixed inset-y-0 left-0 z-50 flex">
+              <div className="bg-black border-r border-primary/30">
+                <IconSidebar activeView={activeView} onViewChange={setActiveView} />
+              </div>
+              {activeView === 'explorer' && (
+                <div className="bg-background border-r border-primary/30">
+                  <FileExplorer activeFile={activeFile} onFileSelect={handleFileSelect} />
+                </div>
+              )}
+            </div>
+          </>
+        )}
+
+        {/* Main Editor Area */}
+        <div className="flex-1 flex flex-col min-w-0 relative">
+          {/* Mobile Menu Button - Integrated into tabs bar */}
+          <div className="flex items-center bg-black/30 border-b border-primary/20">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-12 h-10 border-r border-primary/20 hover:bg-primary/10 transition-colors"
+            >
+              <span className="text-lg">{mobileMenuOpen ? '✕' : '☰'}</span>
+            </button>
+
+            {/* Tabs */}
+            <div className="flex-1 flex overflow-x-auto">
+              <EditorTabs
+                activeFile={activeFile}
+                openFiles={openFiles}
+                onTabClick={setActiveFile}
+                onTabClose={handleTabClose}
+              />
+            </div>
+          </div>
+
+          {/* Content Area - Fixed height to prevent shake */}
+          <div className="flex-1 overflow-y-auto">
+            <EditorContent activeFile={activeFile} />
+          </div>
+        </div>
       </div>
+
+      {/* Status Bar */}
+      <StatusBar activeFile={activeFile} />
     </main>
   );
 }
