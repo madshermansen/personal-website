@@ -3,6 +3,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import CodeEditorBackground from "../components/CodeEditorBackground";
+import ThemeProvider from "../components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Mads Hermansen - Full Stack Developer",
@@ -27,8 +28,10 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
       <body className="bg-background text-text overflow-hidden">
-        <CodeEditorBackground />
-        {children}
+        <ThemeProvider>
+          <CodeEditorBackground />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

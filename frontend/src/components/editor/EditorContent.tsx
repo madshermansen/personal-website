@@ -3,6 +3,7 @@ import ReadmeCodeContent from "./fileContents/ReadmeCodeContent";
 import Experience from "../frontPageSections/Experience";
 import RecentProjects from "../frontPageSections/RecentProjects";
 import Contact from "../frontPageSections/Contact";
+import Settings from "../frontPageSections/Settings";
 import SplitScreenLayout from "./SplitScreenLayout";
 import AboutOutput from "./outputs/AboutOutput";
 import SkillsOutput from "./outputs/SkillsOutput";
@@ -219,6 +220,8 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
         return <RecentProjects />;
       case 'contact':
         return <Contact />;
+      case 'settings':
+        return <Settings />;
       default:
         return (
           <SplitScreenLayout
