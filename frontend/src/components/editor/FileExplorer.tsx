@@ -114,14 +114,14 @@ export default function FileExplorer({ activeFile, onFileSelect, width = 220, on
 
         <Folder name="experience/" defaultOpen={true}>
           <FileItem
-            name="work.md"
+            name="work.py"
             icon={<Briefcase className="w-4 h-4 text-orange-400/70" />}
             active={activeFile === 'work'}
             onClick={() => onFileSelect('work')}
             indent={1}
           />
           <FileItem
-            name="education.md"
+            name="education.py"
             icon={<GraduationCap className="w-4 h-4 text-green-400/70" />}
             active={activeFile === 'education'}
             onClick={() => onFileSelect('education')}
