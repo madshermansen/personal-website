@@ -11,7 +11,9 @@ export default function useProjects() {
 
     function fetchAndSetProjects() {
       getProjects().then((projects) => {
-        console.log(projects);
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Projects fetched:', projects);
+        }
         setProjectData(projects);
         setLoading(false);
       });

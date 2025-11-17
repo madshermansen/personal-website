@@ -1,5 +1,6 @@
 "use client";
 import useProjects from "@/lib/hooks/useProjects";
+import { isValidHttpUrl } from "@/lib/utils/urlValidation";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink, ArrowLeft } from "lucide-react";
@@ -91,20 +92,22 @@ export default function Projects() {
 
                     {/* Links */}
                     <div className="flex items-center gap-4 mt-2">
-                      {project.github && (
+                      {project.github && isValidHttpUrl(project.github) && (
                         <Link
                           href={project.github}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-cyan hover:text-accent transition-colors"
                         >
                           <FaGithub className="w-4 h-4" />
                           <span className="text-sm">Source</span>
                         </Link>
                       )}
-                      {project.url && (
+                      {project.url && isValidHttpUrl(project.url) && (
                         <Link
                           href={project.url}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-secondary hover:text-accent transition-colors"
                         >
                           <ExternalLink className="w-4 h-4" />

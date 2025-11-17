@@ -189,7 +189,20 @@ export const useThemeStore = create<ThemeStore>()(
     {
       name: 'theme-storage',
       storage: createJSONStorage(() => localStorage), // Use localStorage for persistence
-      migrate: (persistedState: any) => {
+      migrate: (persistedState: unknown) => {
+        // Validate and sanitize persisted state to prevent prototype pollution
+        if (
+          !persistedState ||
+          typeof persistedState !== 'object' ||
+          Array.isArray(persistedState) ||
+          Object.prototype.toString.call(persistedState) !== '[object Object]'
+        ) {
+          return { currentTheme: 'monokai-pro' };
+        }
+
+        // Create a safe copy without prototype chain
+        const safeState = Object.create(null);
+
         // Migrate old theme names to valid ones
         const oldToNewThemeMap: Record<string, ThemeName> = {
           'dark': 'one-dark',
@@ -198,15 +211,21 @@ export const useThemeStore = create<ThemeStore>()(
           'dracula': 'synthwave',
         };
 
-        if (persistedState && typeof persistedState === 'object') {
-          const currentTheme = persistedState.currentTheme;
+        const state = persistedState as Record<string, unknown>;
+        const currentTheme = state.currentTheme;
+
+        if (typeof currentTheme === 'string') {
           // If the theme doesn't exist in the new themes, migrate it
-          if (currentTheme && !themes[currentTheme as ThemeName]) {
-            persistedState.currentTheme = oldToNewThemeMap[currentTheme] || 'monokai-pro';
+          if (!themes[currentTheme as ThemeName]) {
+            safeState.currentTheme = oldToNewThemeMap[currentTheme] || 'monokai-pro';
+          } else {
+            safeState.currentTheme = currentTheme;
           }
+        } else {
+          safeState.currentTheme = 'monokai-pro';
         }
 
-        return persistedState;
+        return safeState as ThemeStore;
       },
     }
   )

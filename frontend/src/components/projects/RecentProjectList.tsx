@@ -2,6 +2,7 @@
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import useProjects from "@/lib/hooks/useProjects";
+import { isValidHttpUrl } from "@/lib/utils/urlValidation";
 
 export default function RecentProjectList() {
   const { projectData, loading } = useProjects();
@@ -30,14 +31,14 @@ export default function RecentProjectList() {
               {project.description}
             </p>
 
-            {project.url && (
-              <Link href={project.url} className="monokai-property hover:monokai-string transition-colors text-sm">
+            {project.url && isValidHttpUrl(project.url) && (
+              <Link href={project.url} target="_blank" rel="noopener noreferrer" className="monokai-property hover:monokai-string transition-colors text-sm">
                 → Live Demo
               </Link>
             )}
 
-            {project.github && (
-              <Link href={project.github} className="flex items-center gap-2 monokai-property hover:monokai-string transition-colors">
+            {project.github && isValidHttpUrl(project.github) && (
+              <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 monokai-property hover:monokai-string transition-colors">
                 <FaGithub size={18} />
                 <span className="text-sm">View Source</span>
               </Link>

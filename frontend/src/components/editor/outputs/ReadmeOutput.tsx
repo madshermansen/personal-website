@@ -208,6 +208,7 @@ export default function ReadmeOutput() {
                   <Link
                     href="https://github.com/madshermansen"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex flex-col items-center gap-3 p-6 bg-white rounded-lg hover:bg-blue-50 transition-all group border-2 border-gray-300 hover:border-blue-500"
                   >
                     <FaGithub className="w-10 h-10 text-gray-800 group-hover:text-blue-600 transition-colors" />
@@ -216,6 +217,7 @@ export default function ReadmeOutput() {
                   <Link
                     href="https://www.linkedin.com/in/mdhermansen/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex flex-col items-center gap-3 p-6 bg-white rounded-lg hover:bg-blue-50 transition-all group border-2 border-gray-300 hover:border-blue-500"
                   >
                     <FaLinkedin className="w-10 h-10 text-gray-800 group-hover:text-blue-600 transition-colors" />

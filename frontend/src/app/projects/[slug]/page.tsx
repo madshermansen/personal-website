@@ -1,5 +1,6 @@
 "use client";
 import useProjects from "@/lib/hooks/useProjects";
+import { isValidHttpUrl } from "@/lib/utils/urlValidation";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -171,13 +172,14 @@ export default function Page({ params }: { params: { slug: string } }) {
                   <span className="monokai-property">links</span>
                   <span className="text-textMuted">: {"{"}</span>
                   <div className="flex flex-col gap-3">
-                    {project.github && (
+                    {project.github && isValidHttpUrl(project.github) && (
                       <div className="flex items-center gap-2">
                         <span className="monokai-property">github</span>
                         <span className="text-textMuted">:</span>
                         <Link
                           href={project.github}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-cyan hover:text-accent transition-colors group"
                         >
                           <FaGithub className="w-4 h-4" />
@@ -187,13 +189,14 @@ export default function Page({ params }: { params: { slug: string } }) {
                         <span className="text-textMuted">,</span>
                       </div>
                     )}
-                    {project.url && (
+                    {project.url && isValidHttpUrl(project.url) && (
                       <div className="flex items-center gap-2">
                         <span className="monokai-property">live</span>
                         <span className="text-textMuted">:</span>
                         <Link
                           href={project.url}
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-secondary hover:text-accent transition-colors group"
                         >
                           <ExternalLink className="w-4 h-4" />
