@@ -223,10 +223,10 @@ Routes to the appropriate content component based on active file.
 ```typescript
 {
   readme: <SplitScreenLayout code={<ReadmeCodeContent />} output={<ReadmeOutputLatex />} />
-  about: <SplitScreenLayout code={<AboutContent />} output={<AboutOutput />} />
-  skills: <SplitScreenLayout code={<SkillsContent />} output={<SkillsOutput />} />
-  work: <SplitScreenLayout code={<ExperienceCodeContent />} output={<ExperienceOutput />} />
-  education: <SplitScreenLayout code={<EducationContent />} output={<EducationOutput />} />
+  about: <SplitScreenLayout code={<AboutCodeContent />} output={<AboutOutput />} />
+  skills: <SplitScreenLayout code={<SkillsCodeContent />} output={<SkillsOutput />} />
+  work: <SplitScreenLayout code={<ExperienceCodeContent type="work" />} output={<ExperienceOutput type="work" />} />
+  education: <SplitScreenLayout code={<ExperienceCodeContent type="education" />} output={<ExperienceOutput type="education" />} />
   projects: <SplitScreenLayout code={<ProjectsCodeContent />} output={<ProjectsOutput />} />
   contact: <SplitScreenLayout code={<ContactCodeContent />} output={<ContactOutput />} />
 }
@@ -237,8 +237,9 @@ Routes to the appropriate content component based on active file.
 Located in `components/editor/fileContents/`, these components display formatted "source code":
 
 - **ReadmeCodeContent.tsx**: Markdown-style content
-- **AboutContent.tsx**: TypeScript component code
-- **ExperienceCodeContent.tsx**: Python data structure
+- **AboutCodeContent.tsx**: TypeScript component code
+- **SkillsCodeContent.tsx**: TypeScript skills data structure
+- **ExperienceCodeContent.tsx**: Python data structure (used for both work and education)
 - **ContactCodeContent.tsx**: YAML configuration
 - **ProjectsCodeContent.tsx**: TypeScript component
 

@@ -249,12 +249,12 @@ When adding new features, follow these conventions:
 
 To add a new portfolio section (e.g., "Blog"):
 
-1. **Create Content Component** (`src/components/editor/fileContents/BlogContent.tsx`):
+1. **Create Content Component** (`src/components/editor/fileContents/BlogCodeContent.tsx`):
    ```tsx
-   export default function BlogContent() {
+   export default function BlogCodeContent() {
      return (
-       <div className="code-content">
-         {/* Your code display */}
+       <div className="font-mono text-xs whitespace-nowrap">
+         {/* Your code display with syntax highlighting */}
        </div>
      )
    }
@@ -287,11 +287,18 @@ To add a new portfolio section (e.g., "Blog"):
 
 4. **Update EditorContent** (`src/components/editor/EditorContent.tsx`):
    ```tsx
+   // Add imports at top
+   import BlogCodeContent from "./fileContents/BlogCodeContent";
+   import BlogOutput from "./outputs/BlogOutput";
+
+   // Add case in switch statement
    case 'blog':
      return (
        <SplitScreenLayout
-         code={<BlogContent />}
-         output={<BlogOutput />}
+         fileName="blog.tsx"
+         codeContent={<BlogCodeContent />}
+         outputContent={<BlogOutput />}
+         lineCount={50}  // adjust based on your content
        />
      )
    ```
