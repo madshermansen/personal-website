@@ -23,7 +23,10 @@ export default function ReadmeOutput() {
                   mdj.hermansen@gmail.com
                 </Link>
                 {" • "}
-                Trondheim, Norway
+                +47 482 94 974
+              </p>
+              <p>
+                Tormods gata 3A, 7030 Trondheim, Norway
               </p>
               <p className="text-xs mt-2">
                 <Link href="https://github.com/madshermansen" className="hover:underline mr-3">
@@ -37,26 +40,69 @@ export default function ReadmeOutput() {
             <div className="h-0.5 bg-black w-full mt-3"></div>
           </div>
 
+          {/* Professional Summary Section */}
+          <section className="mb-6">
+            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+              Professional Summary
+            </h2>
+            <p className="text-sm text-gray-800 leading-relaxed">
+              Looking for a software development position to apply knowledge and skills in building exciting projects.
+              Enjoys discovering new technologies and improving abilities, while using learned skills to create meaningful work.
+              Has strong experience with React, React Native, TypeScript, and web technologies through University education
+              and role as Full Stack Developer at ssesh. Experienced with cloud services for hosting and streamlining development processes.
+              Generally flexible when coming into roles, particularly interested in collaborative environments with back-and-forth learning opportunities.
+              Seeking to continue growing as a developer while contributing to meaningful projects.
+            </p>
+          </section>
+
           {/* Education Section - LaTeX style */}
           <section className="mb-6">
             <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Education
             </h2>
-            <div className="ml-0">
-              <div className="flex justify-between items-start mb-1">
-                <div>
-                  <p className="font-bold text-black">Norwegian University of Science and Technology (NTNU)</p>
-                  <p className="italic text-gray-800">Master of Science in Software Systems</p>
+            <div className="ml-0 space-y-3">
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Norwegian University of Science and Technology (NTNU)</p>
+                    <p className="italic text-gray-800">Master of Science in Informatics: Software Systems</p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">June 2024 – June 2026</p>
+                  </div>
                 </div>
-                <div className="text-right text-sm text-gray-700">
-                  <p>Trondheim, Norway</p>
-                  <p className="italic">2024 – Present</p>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Specializing in advanced software engineering, system architecture, and development methodologies</li>
+                  <li>Focus on full-stack and mobile application development</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Tokyo University of Marine Science and Technology</p>
+                    <p className="italic text-gray-800">Exchange Semester - Maritime Technology and Logistics</p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Tokyo, Japan</p>
+                    <p className="italic">October 2024 – July 2025</p>
+                  </div>
                 </div>
               </div>
-              <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
-                <li>Specializing in advanced software engineering, system architecture, and development methodologies</li>
-                <li>Focus on full-stack and mobile application development</li>
-              </ul>
+
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Norwegian University of Science and Technology (NTNU)</p>
+                    <p className="italic text-gray-800">Bachelor of Science in Informatics</p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">August 2021 – June 2024</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -65,26 +111,66 @@ export default function ReadmeOutput() {
             <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Experience
             </h2>
-            <div className="ml-0">
-              <div className="flex justify-between items-start mb-1">
-                <div>
-                  <p className="font-bold text-black">Mobile Developer</p>
-                  <p className="italic text-gray-800">
-                    <Link href="https://ssesh.no" className="hover:underline">
-                      ssesh
-                    </Link>
-                  </p>
+            <div className="ml-0 space-y-3">
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Teaching Assistant - Web Development & Informatics Project</p>
+                    <p className="italic text-gray-800">
+                      NTNU Institutt for elektroniske systemer
+                    </p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">August 2025 – November 2025</p>
+                  </div>
                 </div>
-                <div className="text-right text-sm text-gray-700">
-                  <p>Trondheim, Norway</p>
-                  <p className="italic">2024 – Present</p>
-                </div>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Guides student teams through project development and delivery processes</li>
+                  <li>Provides real-time support and answers technical questions during lab sessions</li>
+                </ul>
               </div>
-              <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
-                <li>Contributing to mobile application development using React Native and Expo</li>
-                <li>Developing digital infrastructure and backend systems for startup operations</li>
-                <li>Collaborating with cross-functional teams on innovative product features</li>
-              </ul>
+
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Full Stack Developer</p>
+                    <p className="italic text-gray-800">
+                      <Link href="https://ssesh.no" className="hover:underline">
+                        ssesh
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">June 2024 – October 2024</p>
+                  </div>
+                </div>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Developed mobile application for student productivity using React Native, TypeScript, and Expo</li>
+                  <li>Built and maintained server infrastructure and backend systems for production deployment</li>
+                  <li>Delivered full-stack solutions from database design to user interface implementation</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Teaching Assistant - Cryptography and Network Security</p>
+                    <p className="italic text-gray-800">
+                      NTNU Institutt for elektroniske systemer
+                    </p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">January 2024 – May 2024</p>
+                  </div>
+                </div>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Taught cryptography and network security concepts during workshops and labs</li>
+                  <li>Evaluated student assignments and provided constructive feedback</li>
+                </ul>
+              </div>
             </div>
           </section>
 
@@ -139,6 +225,48 @@ export default function ReadmeOutput() {
                 <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
                   <li>Developed cross-platform mobile applications using React Native and Expo</li>
                   <li>Implemented backend APIs with Node.js and Express for mobile data synchronization</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Volunteer Positions Section */}
+          <section className="mb-6">
+            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+              Volunteer Positions
+            </h2>
+            <div className="ml-0 space-y-3">
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">Linjeforeningen Online - Applikasjonskomiteen</p>
+                    <p className="italic text-gray-800">Student organization for Informatics students at NTNU</p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">September 2023 – Present</p>
+                  </div>
+                </div>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Contributed to developing mobile app for streamlined event registration and student event management</li>
+                  <li>Led web development training sessions for new members to build essential technical skills</li>
+                  <li>Organized inclusive social events to boost student engagement and committee participation</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <p className="font-bold text-black">NTNUI Calisthenics</p>
+                    <p className="italic text-gray-800">Student sports organization</p>
+                  </div>
+                  <div className="text-right text-sm text-gray-700">
+                    <p>Trondheim, Norway</p>
+                    <p className="italic">January 2023 – September 2024</p>
+                  </div>
+                </div>
+                <ul className="list-disc list-inside ml-4 text-sm text-gray-800 leading-relaxed">
+                  <li>Participated in bodyweight training sessions and built connections within student fitness community</li>
                 </ul>
               </div>
             </div>

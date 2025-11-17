@@ -8,8 +8,11 @@ export default function ContactCodeContent() {
       <div className="ml-4 leading-relaxed"><span className="monokai-property">name</span><span className="text-text/70">: </span><span className="monokai-string">&quot;Mads Hermansen&quot;</span></div>
       <div className="ml-4 leading-relaxed"><span className="monokai-property">title</span><span className="text-text/70">: </span><span className="monokai-string">&quot;Full Stack Developer&quot;</span></div>
       <div className="ml-4 leading-relaxed"><span className="monokai-property">location</span><span className="text-text/70">: </span><span className="monokai-string">&quot;Trondheim, Norway&quot;</span></div>
+      <div className="ml-4 leading-relaxed"><span className="monokai-property">address</span><span className="text-text/70">: </span><span className="monokai-string">&quot;Tormods gata 3A, 7030 TRONDHEIM&quot;</span></div>
+      <div className="ml-4 leading-relaxed"><span className="monokai-property">dateOfBirth</span><span className="text-text/70">: </span><span className="monokai-string">&quot;25.05.2003&quot;</span></div>
       <div className="leading-relaxed"></div>
       <div className="leading-relaxed"><span className="monokai-property">contact</span><span className="text-text/70">:</span></div>
+      <div className="ml-4 leading-relaxed"><span className="monokai-property">phone</span><span className="text-text/70">: </span><span className="monokai-string">&quot;+47 482 94 974&quot;</span></div>
       <div className="ml-4 leading-relaxed"><span className="monokai-property">email</span><span className="text-text/70">:</span></div>
       <div className="ml-8 leading-relaxed"><span className="monokai-property">primary</span><span className="text-text/70">: </span><span className="monokai-string">&quot;mdj.hermansen@gmail.com&quot;</span></div>
       <div className="ml-8 leading-relaxed"><span className="monokai-property">preferred</span><span className="text-text/70">: </span><span className="monokai-keyword">true</span></div>
