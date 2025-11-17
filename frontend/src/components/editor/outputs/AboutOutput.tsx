@@ -17,7 +17,7 @@ export default function AboutOutput() {
           <div>
             <h2 className="text-sm uppercase tracking-wider text-primary/70 mb-2 font-mono">About</h2>
             <p className="text-text/90 leading-relaxed">
-              Tech enthusiast diving into Masters in Software Engineering at NTNU
+              Looking for a software development position to apply knowledge and skills in building exciting projects. Strong experience with React, React Native, TypeScript, and web technologies
             </p>
           </div>
 
@@ -25,13 +25,7 @@ export default function AboutOutput() {
           <div>
             <h2 className="text-sm uppercase tracking-wider text-primary/70 mb-2 font-mono">Current Work</h2>
             <p className="text-text/90">
-              Contributing to mobile development at{" "}
-              <Link
-                href="https://ssesh.no"
-                className="text-secondary hover:text-accent transition-colors underline decoration-secondary/50"
-              >
-                ssesh
-              </Link>
+              Teaching Assistant at NTNU, pursuing MSc in Software Systems with exchange at Tokyo University of Marine Science and Technology
             </p>
           </div>
 
@@ -39,7 +33,7 @@ export default function AboutOutput() {
           <div>
             <h2 className="text-sm uppercase tracking-wider text-primary/70 mb-2 font-mono">Passion</h2>
             <p className="text-text/90 leading-relaxed">
-              Learning new things, collaborating on exciting projects, full-stack & mobile development
+              Discovering new technologies, collaborative environments with back-and-forth learning opportunities, and creating meaningful work
             </p>
           </div>
 

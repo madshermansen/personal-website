@@ -17,6 +17,15 @@ export default function Contact() {
         >
           → mdj.hermansen@gmail.com
         </Link>
+        <div className="text-text/80">
+          → +47 482 94 974
+        </div>
+
+        <div className="text-text/80 text-sm mt-2">
+          <p className="text-text/70">Location:</p>
+          <p>Tormods gata 3A</p>
+          <p>7030 TRONDHEIM, Norway</p>
+        </div>
 
         <p className="text-text/80 leading-relaxed mt-2">
           Also check out my work on:
@@ -26,6 +35,12 @@ export default function Contact() {
           className="monokai-property hover:monokai-string transition-colors"
         >
           → GitHub: @madshermansen
+        </Link>
+        <Link
+          href="https://linkedin.com/in/mdhermansen"
+          className="monokai-property hover:monokai-string transition-colors"
+        >
+          → LinkedIn: @mdhermansen
         </Link>
       </div>
     </div>
