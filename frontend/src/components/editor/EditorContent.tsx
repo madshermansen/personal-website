@@ -107,7 +107,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
       case 'work':
         return (
           <SplitScreenLayout
-            fileName="experience.py"
+            fileName="work.py"
             codeContent={<ExperienceCodeContent type="work" />}
             outputContent={<ExperienceOutput type="work" />}
             lineCount={69}
@@ -116,7 +116,7 @@ export default function EditorContent({ activeFile }: EditorContentProps) {
       case 'education':
         return (
           <SplitScreenLayout
-            fileName="experience.py"
+            fileName="education.py"
             codeContent={<ExperienceCodeContent type="education" />}
             outputContent={<ExperienceOutput type="education" />}
             lineCount={52}
