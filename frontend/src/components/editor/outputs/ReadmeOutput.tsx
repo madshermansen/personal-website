@@ -4,17 +4,17 @@ import { Mail, MapPin, Calendar, GraduationCap, Briefcase } from "lucide-react";
 
 export default function ReadmeOutput() {
   return (
-    <div className="bg-gray-400 min-h-full p-8">
+    <div className="bg-gray-400 min-h-full p-2 sm:p-4 md:p-8">
       {/* PDF document with white background and border */}
-      <div className="max-w-4xl mx-auto bg-white shadow-2xl border-8 border-gray-300 min-h-screen">
-        {/* Document content with padding like a PDF */}
-        <div className="p-16">
+      <div className="max-w-4xl mx-auto bg-white shadow-2xl border-4 sm:border-8 border-gray-300 min-h-screen">
+        {/* Document content with padding like a PDF - responsive padding */}
+        <div className="p-4 sm:p-8 md:p-12 lg:p-16">
           {/* Header / Title Section */}
-          <div className="mb-10 pb-6 border-b-4 border-gray-900">
-            <h1 className="text-6xl font-bold text-gray-900 mb-3 tracking-tight">
+          <div className="mb-6 sm:mb-10 pb-4 sm:pb-6 border-b-4 border-gray-900">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 tracking-tight">
               Mads Hermansen
             </h1>
-            <p className="text-2xl text-gray-700 mb-4 font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-4 font-light">
               Full Stack Developer • Masters Student • Tech Enthusiast
             </p>
             <div className="flex flex-wrap gap-6 text-sm text-gray-600 mt-4">
@@ -32,8 +32,8 @@ export default function ReadmeOutput() {
           </div>
 
           {/* Professional Summary */}
-          <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+          <section className="mb-6 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Professional Summary
             </h2>
@@ -53,7 +53,7 @@ export default function ReadmeOutput() {
 
           {/* Education Section */}
           <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Education
             </h2>
@@ -82,7 +82,7 @@ export default function ReadmeOutput() {
 
           {/* Current Work */}
           <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Current Work
             </h2>
@@ -112,11 +112,11 @@ export default function ReadmeOutput() {
 
           {/* Technical Skills */}
           <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Technical Skills
             </h2>
-            <div className="pl-6 grid grid-cols-2 gap-8">
+            <div className="pl-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-blue-700 font-bold mb-3 text-lg">Frontend Development</h3>
                 <div className="flex flex-wrap gap-2">
@@ -174,12 +174,12 @@ export default function ReadmeOutput() {
 
           {/* Personal Interests */}
           <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Interests & Activities
             </h2>
             <div className="pl-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-gray-50 p-5 rounded-lg border-2 border-gray-300">
                   <p className="text-gray-800 font-medium">🏋️ Calisthenics & Fitness</p>
                 </div>
@@ -198,7 +198,7 @@ export default function ReadmeOutput() {
 
           {/* Contact & Links */}
           <section className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
               <span className="w-2 h-8 bg-blue-600 rounded"></span>
               Connect With Me
             </h2>
