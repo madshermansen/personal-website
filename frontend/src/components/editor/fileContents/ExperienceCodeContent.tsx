@@ -108,7 +108,14 @@ export default function ExperienceCodeContent({ type }: ExperienceCodeContentPro
       <div className="leading-relaxed"></div>
       <div className="leading-relaxed"><span className="monokai-keyword">if</span>{" "}<span className="monokai-value">__name__</span>{" "}<span className="monokai-operator">==</span>{" "}<span className="monokai-string">&quot;__main__&quot;</span><span className="text-text/70">:</span></div>
       <div className="ml-4 leading-relaxed"><span className="monokai-comment"># Print summary</span></div>
-      <div className="ml-4 leading-relaxed"><span className="monokai-function">print</span><span className="text-text/70">(</span><span className="monokai-string">f&quot;Total {type === 'work' ? 'positions' : 'qualifications'}: {"{"}{type === 'work' ? 'len(work_history)' : 'len(education_records)'}{"}"}}&quot;</span><span className="text-text/70">)</span></div>
+      <div className="ml-4 leading-relaxed">
+        <span className="monokai-function">print</span>
+        <span className="text-text/70">(</span>
+        <span className="monokai-string">
+          f&quot;Total {type === 'work' ? 'positions' : 'qualifications'}: &#123;{type === 'work' ? 'len(work_history)' : 'len(education_records)'}&#125;&quot;
+        </span>
+        <span className="text-text/70">)</span>
+      </div>
     </div>
   );
 }
