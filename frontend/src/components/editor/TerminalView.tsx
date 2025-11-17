@@ -236,7 +236,7 @@ export default function TerminalView({ width = 220 }: TerminalViewProps) {
 
       {/* Footer Info */}
       <div className="px-3 py-2 border-t border-primary/20 text-[10px] text-text/40 font-mono">
-        Type 'help' for commands
+        Type &apos;help&apos; for commands
       </div>
     </div>
   );
