@@ -4,6 +4,7 @@ import { useState } from "react";
 import IconSidebar from "../components/editor/IconSidebar";
 import FileExplorer from "../components/editor/FileExplorer";
 import SearchView from "../components/editor/SearchView";
+import TerminalView from "../components/editor/TerminalView";
 import EditorTabs from "../components/editor/EditorTabs";
 import EditorContent from "../components/editor/EditorContent";
 import StatusBar from "../components/editor/StatusBar";
@@ -79,6 +80,15 @@ export default function Home() {
           </div>
         )}
 
+        {/* Desktop: Terminal View */}
+        {activeView === 'terminal' && (
+          <div className="hidden lg:block">
+            <TerminalView
+              width={sidebarWidth}
+            />
+          </div>
+        )}
+
         {/* Mobile: Sidebar Overlay */}
         {mobileMenuOpen && (
           <>
@@ -101,6 +111,11 @@ export default function Home() {
               {activeView === 'search' && (
                 <div className="bg-background border-r border-primary/30">
                   <SearchView onFileSelect={handleFileSelect} />
+                </div>
+              )}
+              {activeView === 'terminal' && (
+                <div className="bg-background border-r border-primary/30">
+                  <TerminalView />
                 </div>
               )}
             </div>
