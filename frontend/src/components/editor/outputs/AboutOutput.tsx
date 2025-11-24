@@ -6,13 +6,13 @@ export default function AboutOutput() {
       {/* Browser-like card */}
       <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary/20 to-secondary/20 px-6 py-8 border-b border-primary/30">
-          <h1 className="text-3xl font-bold text-primary mb-2">Mads Hermansen</h1>
-          <p className="text-xl text-secondary">Full Stack Developer</p>
+        <div className="bg-gradient-to-r from-primary/20 to-secondary/20 px-4 sm:px-6 py-6 sm:py-8 border-b border-primary/30">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Mads Hermansen</h1>
+          <p className="text-lg sm:text-xl text-secondary">Full Stack Developer</p>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-6">
           {/* Bio */}
           <div>
             <h2 className="text-sm uppercase tracking-wider text-primary/70 mb-2 font-mono">About</h2>

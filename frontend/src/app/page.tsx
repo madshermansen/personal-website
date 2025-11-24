@@ -98,8 +98,8 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(false)}
             />
 
-            {/* Sidebars Container */}
-            <div className="lg:hidden fixed inset-y-0 left-0 z-50 flex">
+            {/* Sidebars Container - max width for small screens */}
+            <div className="lg:hidden fixed inset-y-0 left-0 z-50 flex max-w-[85vw] sm:max-w-none">
               <div className="bg-black border-r border-primary/30">
                 <IconSidebar activeView={activeView} onViewChange={handleViewChange} />
               </div>

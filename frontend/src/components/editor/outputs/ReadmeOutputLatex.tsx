@@ -4,14 +4,14 @@ import { Mail } from "lucide-react";
 
 export default function ReadmeOutput() {
   return (
-    <div className="bg-gray-500 min-h-full p-12">
+    <div className="bg-gray-500 min-h-full p-2 sm:p-4 md:p-8 lg:p-12">
       {/* LaTeX-style PDF document */}
       <div className="max-w-[8.5in] mx-auto bg-white shadow-2xl border border-gray-400 min-h-screen" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-        {/* Document content with LaTeX-style margins (1 inch) */}
-        <div className="p-16">
+        {/* Document content with LaTeX-style margins (1 inch) - responsive */}
+        <div className="p-4 sm:p-8 md:p-12 lg:p-16">
           {/* LaTeX-style header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-black mb-2" style={{ letterSpacing: '0.05em' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-2" style={{ letterSpacing: '0.05em' }}>
               MADS HERMANSEN
             </h1>
             <div className="h-0.5 bg-black w-full my-3"></div>
@@ -42,7 +42,7 @@ export default function ReadmeOutput() {
 
           {/* Professional Summary Section */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Professional Summary
             </h2>
             <p className="text-sm text-gray-800 leading-relaxed">
@@ -57,7 +57,7 @@ export default function ReadmeOutput() {
 
           {/* Education Section - LaTeX style */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Education
             </h2>
             <div className="ml-0 space-y-3">
@@ -108,7 +108,7 @@ export default function ReadmeOutput() {
 
           {/* Experience Section */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Experience
             </h2>
             <div className="ml-0 space-y-3">
@@ -176,11 +176,11 @@ export default function ReadmeOutput() {
 
           {/* Technical Skills Section */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Technical Skills
             </h2>
             <div className="ml-0 text-sm">
-              <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-4">
+              <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-y-2 gap-x-4">
                 <div className="font-bold text-black">Frontend:</div>
                 <div className="text-gray-800">React, Next.js, TypeScript, Tailwind CSS, Framer Motion</div>
 
@@ -201,7 +201,7 @@ export default function ReadmeOutput() {
 
           {/* Projects Section */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Notable Projects
             </h2>
             <div className="ml-0 space-y-3">
@@ -232,7 +232,7 @@ export default function ReadmeOutput() {
 
           {/* Volunteer Positions Section */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Volunteer Positions
             </h2>
             <div className="ml-0 space-y-3">
@@ -274,11 +274,11 @@ export default function ReadmeOutput() {
 
           {/* Additional Information */}
           <section className="mb-6">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               Additional Information
             </h2>
             <div className="ml-0 text-sm">
-              <div className="grid grid-cols-[120px_1fr] gap-y-2 gap-x-4">
+              <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-y-2 gap-x-4">
                 <div className="font-bold text-black">Interests:</div>
                 <div className="text-gray-800">Calisthenics, Open Source Contributions, Continuous Learning, Technology Innovation</div>
 
@@ -290,7 +290,7 @@ export default function ReadmeOutput() {
 
           {/* References Section - LaTeX classic */}
           <section className="mb-4">
-            <h2 className="text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
+            <h2 className="text-base sm:text-lg font-bold text-black uppercase tracking-wide mb-2 border-b border-black pb-1">
               References
             </h2>
             <p className="text-sm italic text-gray-700 ml-0">Available upon request</p>
